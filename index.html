@@ -13,67 +13,79 @@
             <div class="hero-unit">
                 <h1>FileStyle for Bootstrap</h1>
                 <p>Customization of input html file for Bootstrap Twitter</p>
-                <p><a href="#" class="btn btn-primary">Download</a> <a href="#" class="btn btn-inverse">Project on Github</a></p>
+                <p><a href="#" class="btn btn-primary">Get filestyle 1.0</a> <a href="#" class="btn btn-inverse">Project on Github</a></p>
             </div>
             <div class="row">
-                <div class="page-header span12">
+                <div class="page-header span6">
                     <h1>Description</h1>
                 </div>
-            </div>
-            <div class="row">
-                <div class="span12">
-                    <p>The filestyle-bootstrap.js is a plugin for jquery-based component library could <a href="http://twitter.github.com/bootstrap/index.html" >Bootstrap</a>, used to style the file fields of the forms.</p>
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="row">
-                <div class="page-header span4">
+                <div class="page-header span6">
                     <h1>Requirements</h1>
                 </div>
-                <div class="page-header span4">
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <p>The filestyle-bootstrap.js is a plugin for jquery-based component library could <a href="http://twitter.github.com/bootstrap/index.html" >Bootstrap</a>, used to style the file fields of the forms.</p>
+                </div>
+                <div class="span6">
+                    <p>Bootstrap.css</p>
+                    <p>jquery.js</p>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="page-header span6">
                     <h1>Installation</h1>
                 </div>
-                <div class="page-header span4">
+                <div class="page-header span6">
                     <h1>License</h1>
                 </div>
             </div>
             <div class="row">
-                <div class="span4">
-                    <p>Bootstrap.css</p>
-                    <p>jquery.js</p>
+                <div class="span6">
+                    <p>Include the file bootstrap-filestyle.js end of the document.</p>
                 </div>
-                <div class="span4">
-                    <p>Include the file bootstrap-filestyle.js into head.</p>
-                    <p>Run $("selector").filestyle()</p>
-                </div>
-                <div class="span4">
-                    <p><a href="gpl-3.0.txt" target="_blank">GPL 3.0</a> and <a href="mit.txt" target="_blank">MIT</a></p>
+                <div class="span6">
+                    <p>License <a href="mit.txt" target="_blank">MIT</a></p>
                 </div>
             </div>
-            <br />
-            <br />
+			<br />
+			<br />
             <div class="row">
-                <div class="page-header span4">
+                <div class="page-header span6">
+					<h1>Usage</h1>
+				</div>
+                <div class="page-header span6">
                     <h1>Examples</h1>
                 </div>
-                <div class="span12">
-                    <p>
-                        <div>
-                            <input type="file" class="normal" />
-                        </div>
-                        <br />
-                        <div>
-                            <input type="file" />
-                        </div>
-                    </p>
+                <div class="span6">
+                    <p>Run $(&quot;selector&quot;).filestyle() in jquery document ready.</p>
+				</div>
+                <div class="span6">
+					<b><i>No custom</i></b>
+					<p><input type="file" /></p>
+
+					<br />
+					<br />
+
+					<b><i>Using filestyle</i></b>
+					<p><b>$</b>(&quot;document&quot;).ready(function () {</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;<b>$</b>(&quot;#custom&quot;).filestyle()</p>
+					<p>})</p>
+
+					<br />
+
+					<div>
+						<input type="file" id="custom" />
+					</div>
                 </div>
             </div>
         </div>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap-filestyle.js"></script>
         <script type="text/javascript">
-            $('.normal').filestyle();
+            $('#custom').filestyle();
         </script>
     </body>
 </html>
