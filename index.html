@@ -1,74 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>FileStyle for Bootstrap</title>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Filestyle-bootstrap : Customization of input html file for Bootstrap Twitter" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+    </head>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <body data-spy="scroll" data-target=".subnav" data-offset="50">
+        <div class="container" style="margin-top: 30px;margin-bottom: 30px">
+            <div class="hero-unit">
+                <h1>FileStyle for Bootstrap</h1>
+                <p>Customization of input html file for Bootstrap Twitter</p>
+                <p>
+					<a href="js/bootstrap-filestyle.js" class="btn btn-primary">Get filestyle 1.0</a> 
+					<a href="https://github.com/markusslima/Filestyle-bootstrap" class="btn btn-inverse">Project on Github</a>
+				</p>
+            </div>
+            <div class="row">
+                <div class="page-header span6">
+                    <h1>Description</h1>
+                </div>
+                <div class="page-header span6">
+                    <h1>Requirements</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <p>The filestyle-bootstrap.js is a plugin for jquery-based component library could <a href="http://twitter.github.com/bootstrap/index.html" >Bootstrap</a>, used to style the file fields of the forms.</p>
+                </div>
+                <div class="span6">
+                    <p>Bootstrap.css</p>
+                    <p>jquery.js</p>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="page-header span6">
+                    <h1>Installation</h1>
+                </div>
+                <div class="page-header span6">
+                    <h1>License</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span6">
+                    <p>Include the file bootstrap-filestyle.js end of the document.</p>
+                </div>
+                <div class="span6">
+                    <p>License <a href="mit.txt" target="_blank">MIT</a></p>
+                </div>
+            </div>
+			<br />
+			<br />
+            <div class="row">
+                <div class="page-header span6">
+					<h1>Usage</h1>
+				</div>
+                <div class="page-header span6">
+                    <h1>Examples</h1>
+                </div>
+                <div class="span6">
+                    <p>Run $(&quot;selector&quot;).filestyle() in jquery document ready.</p>
+				</div>
+                <div class="span6">
+					<b><i>No custom</i></b>
+					<p><input type="file" /></p>
 
-    <title>Filestyle-bootstrap</title>
-  </head>
+					<br />
+					<br />
 
-  <body>
+					<b><i>Using filestyle</i></b>
+					<br />
+					<p><b>$</b>(&quot;<b>#custom</b>&quot;).filestyle();</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/markusslima/Filestyle-bootstrap">View on GitHub</a>
+					<br />
 
-          <h1 id="project_title">Filestyle-bootstrap</h1>
-          <h2 id="project_tagline">Customization of input html file for Bootstrap Twitter</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/markusslima/Filestyle-bootstrap/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/markusslima/Filestyle-bootstrap/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Filestyle-bootstrap maintained by <a href="https://github.com/markusslima">markusslima</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+					<div>
+						<input type="file" id="custom" />
+					</div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap-filestyle.js"></script>
+        <script type="text/javascript">
+            $('#custom').filestyle();
+        </script>
+    </body>
 </html>
