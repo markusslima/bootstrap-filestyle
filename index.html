@@ -17,6 +17,21 @@
 					<a href="js/bootstrap-filestyle.js" class="btn btn-inverse btn-large"><i class="icon-arrow-down icon-white"></i> Get Filestyle</a>
 				</p>
             </div>
+			<div class="row">
+				<div class="span1">
+					<!-- Place this tag where you want the share button to render. -->
+					<div class="g-plus" data-action="share" data-annotation="bubble" data-height="24"></div>
+
+					<!-- Place this tag after the last share tag. -->
+					<script type="text/javascript">
+					  (function() {
+					      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						      po.src = 'https://apis.google.com/js/plusone.js';
+							      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+								    })();
+									</script>
+				</div>
+			</div>
             <div class="row">
                 <div class="span12">
 					<div class="page-header">
@@ -44,7 +59,7 @@
 					<div class="page-header">
 						<h1>Usage</h1>
 					</div>
-                    <p>Run <strong>$(&quot;selector&quot;).filestyle()</strong>.</p>
+                    <p><strong>$(&quot;selector&quot;).filestyle(options)</strong>.</p>
 
 					<br />
 					<br />
