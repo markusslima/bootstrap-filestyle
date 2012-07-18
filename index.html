@@ -79,7 +79,7 @@
 					<div class="page-header">
 						<h1>Usage</h1>
 					</div>
-                    <p><strong>$(&quot;selector&quot;).filestyle(options)</strong>.</p>
+                    <p><strong>$(&quot;:file&quot;).filestyle(options)</strong></p>
 
 					<br />
 					<br />
@@ -155,7 +155,7 @@
 										</div>
 									</div>
 									<div class="control-group">
-										<label class="control-label" for="input04">Custom bootstrap</label>
+										<label class="control-label" for="input04">Custom bootstrap form</label>
 										<div class="controls">
 											<input type="file" class="input-xlarge" id="input04">
 										</div>
@@ -202,7 +202,7 @@
 			});
             
 			$('#input04').filestyle({
-				buttonText: 'No text',
+				buttonText: 'Custom',
 				textField: true,
 				classButton: 'btn-success',
 				classText: 'input-small'
@@ -212,7 +212,7 @@
 				buttonText: 'Open file',
 				classButton: 'btn-primary',
 				icon: true,
-				classIcon: 'icon-folder-open icon-white'
+				classIcon: 'icon-arrow-up icon-white'
 			});
         </script>
     </body>
