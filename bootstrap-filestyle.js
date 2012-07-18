@@ -13,8 +13,10 @@
 		var defaults = {
 			buttonText : 'Choose file',
 			textField : true,
+			icon : false,
 			classButton : '',
-			classText : ''
+			classText : '',
+			classIcon : 'icon-folder-open'
 		}
 
 		var options = $.extend(defaults, options);
@@ -25,8 +27,12 @@
                 .css({'position':'fixed','top':'-100px','left':'-100px'})
                 .parent()
                 .addClass("form-search")
-                .append((options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
-                    '<input type="button" class="btn '+options.classButton+'" value="'+options.buttonText+'" />');
+                .append(
+					(options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
+                    '<button type="button" class="btn '+options.classButton+'" >'+
+						(options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
+						options.buttonText+
+					'</button>');
 
             $this.change(function () {
                 $this.parent().children(':text').val($(this).val());
