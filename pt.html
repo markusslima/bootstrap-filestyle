@@ -9,8 +9,9 @@
 
         <title>jQuery FileStyle para Bootstrap - Personalize input file html para Bootstrap Twitter com jquery</title>
 
-        <link href="css/bootstrap.css" rel="stylesheet" />
-		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+		<link rel="icon" type="image/png" href="icons/favicon.png">
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -250,33 +251,9 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/bootstrap-filestyle.js"></script>
-        <script type="text/javascript">
-            $('#input01').filestyle()
-            
-			$('#input02').filestyle({
-				buttonText: 'My button'
-			});
-
-            $('#input03').filestyle({
-				buttonText: 'No text field',
-				textField: false
-			});
-            
-			$('#input04').filestyle({
-				buttonText: 'Custom',
-				textField: true,
-				classButton: 'btn-success',
-				classText: 'input-small'
-			});
-
-			$('#input05').filestyle({
-				buttonText: 'Open file',
-				classButton: 'btn-primary',
-				icon: true,
-				classIcon: 'icon-arrow-up icon-white'
-			});
-        </script>
+        <script type="text/javascript" src="js/aplication.js"></script>
     </body>
 </html>
