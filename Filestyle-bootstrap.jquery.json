@@ -23,8 +23,8 @@
     }
   ],
   "dependencies": {
-    "jQuery": "1.7.1 or +"
-    "Twitter Bootstrap": ""
+    "jQuery": "~1.7.1"
+    "Twitter Bootstrap": "~"
   },
   "keywords": []
 }
