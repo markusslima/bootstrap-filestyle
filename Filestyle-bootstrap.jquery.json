@@ -1,9 +1,9 @@
 {
-  "name": "Filestyle-bootstrap",
-  "title": "Filestyle Bootstrap",
+  "name": "bootstrap-filestyle",
+  "title": "Bootstrap Filestyle",
   "description": "Customization of input html file for Bootstrap Twitter",
   "version": "0.1.0",
-  "homepage": "http://markusslima.github.com/Filestyle-bootstrap/",
+  "homepage": "http://markusslima.github.com/bootstrap-filestyle/",
   "author": {
     "name": "Markus Lima",
     "email": "markusslima@gmail.com",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://markusslima@github.com/markusslima/Filestyle-bootstrap.git"
+    "url": "https://github.com/markusslima/bootstrap-filestyle.git"
   },
   "bugs": {
-    "url": "https://github.com/markusslima/Filestyle-bootstrap/issues"
+    "url": "https://github.com/markusslima/bootstrap-filestyle/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://markusslima.github.com/Filestyle-bootstrap//blob/master/LICENSE-MIT"
+      "url": "https://github.com/markusslima/bootstrap-filestyle/blob/master/LICENSE-MIT"
     }
   ],
   "dependencies": {
