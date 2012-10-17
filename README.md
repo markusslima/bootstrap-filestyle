@@ -8,7 +8,7 @@ In your web page:
 
 ```html
 <head>
-    <link rell="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-filestyle.min.js"></script>
