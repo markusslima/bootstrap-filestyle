@@ -7,15 +7,22 @@ Customization of input html file for Bootstrap Twitter
 In your web page:
 
 ```html
-<script src="jquery.js"></script>
-<script src="Filestyle-bootstrap.min.js"></script>
-<script>
-   jQuery(function($) {
-      $(':file').filestyle();
-   });
-</script>
+<head>
+    <link rell="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-filestyle.min.js"></script>
+</head>
+<body>
+    <input type="file" />
+    <script>
+       jQuery(function($) {
+          $(':file').filestyle();
+       });
+    </script>
+</body>
 ```
 
 ## Documentation and Examples
-http://markusslima.github.com/Filestyle-bootstrap/
+http://markusslima.github.com/bootstrap-filestyle/
 

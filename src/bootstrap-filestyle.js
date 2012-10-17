@@ -7,6 +7,7 @@
  */
 
 (function ($) {
+    "use strict";
     // Register plugin
     $.fn.filestyle = function (options) {
 		if (typeof options === 'object' || typeof options === 'undefined'){
@@ -55,7 +56,7 @@
 					$this.parent().children(':text').val('');
 					$this.val('');
 				} else {
-					console.error('Method filestyle not defined!');
+					window.console.error('Method filestyle not defined!');
 				}
 			});
 		}
