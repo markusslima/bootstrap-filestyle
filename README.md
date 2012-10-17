@@ -10,9 +10,9 @@ In your web page:
 <script src="jquery.js"></script>
 <script src="Filestyle-bootstrap.min.js"></script>
 <script>
-jQuery(function($) {
-  $(':file').filestyle();
-});
+   jQuery(function($) {
+      $(':file').filestyle();
+   });
 </script>
 ```
 
