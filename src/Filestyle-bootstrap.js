@@ -1,29 +1,28 @@
 /*
- * bootstrap-filestyle.js v1.0
+ * Filestyle-bootstrap
  * http://markusslima.github.com/Filestyle-bootstrap/
  *
- * Copyright 2012
- *
- * Licensed under the MIT License
+ * Copyright (c) 2012 Markus Lima
+ * Licensed under the MIT license.
  */
 
 (function ($) {
     // Register plugin
     $.fn.filestyle = function (options) {
-		if (typeof options == 'object' || typeof options == 'undefined'){
+		if (typeof options === 'object' || typeof options === 'undefined'){
 			var defaults = {
-				buttonText : 'Choose file',
-				textField : true,
-				icon : false,
-				classButton : '',
-				classText : '',
-				classIcon : 'icon-folder-open'
-			}
+					buttonText : 'Choose file',
+					textField : true,
+					icon : false,
+					classButton : '',
+					classText : '',
+					classIcon : 'icon-folder-open'
+				};
 
-			var options = $.extend(defaults, options);
+			options = $.extend(defaults, options);
 
 			return this.each(function () {
-				var $this = $(this)
+				var $this = $(this);
 
 				$this.data('filestyle', true);
 
@@ -36,7 +35,8 @@
 						'<button type="button" class="btn '+options.classButton+'" >'+
 							(options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
 							options.buttonText+
-						'</button>');
+						'</button>'
+					);
 
 				$this.change(function () {
 					$this.parent().children(':text').val($(this).val());
@@ -50,8 +50,8 @@
 			});
 		} else {
 			return this.each(function () {
-				var $this = $(this)
-				if ($this.data('filestyle') == true && options == 'clear') {
+				var $this = $(this);
+				if ($this.data('filestyle') === true && options === 'clear') {
 					$this.parent().children(':text').val('');
 					$this.val('');
 				} else {
@@ -59,5 +59,5 @@
 				}
 			});
 		}
-    }
-})(jQuery);
+    };
+}(jQuery));
