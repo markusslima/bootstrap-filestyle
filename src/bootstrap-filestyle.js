@@ -1,6 +1,6 @@
 /*
- * Filestyle-bootstrap
- * http://markusslima.github.com/Filestyle-bootstrap/
+ * bootstrap-filestyle
+ * http://markusslima.github.com/bootstrap-filestyle/
  *
  * Copyright (c) 2012 Markus Lima
  * Licensed under the MIT license.
