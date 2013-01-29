@@ -40,7 +40,7 @@
 					);
 
 				$this.change(function () {
-					$this.parent().children(':text').val($(this).val());
+					$this.parent().children(':text').val($(this).val().split("\\").pop());
 				});
 
 				
