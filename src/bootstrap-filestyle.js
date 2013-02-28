@@ -29,8 +29,6 @@
 
 				$this
 					.css({'position':'fixed','top':'-100px','left':'-100px'})
-					.parent()
-					.addClass("form-search")
 					.find("input[type=file]")
 					.after(
 						(options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
@@ -39,6 +37,8 @@
 							options.buttonText+
 						'</button>'
 					);
+          .parents(".control-group")
+            .addClass("input-append")
 
 				$this.change(function () {
 					$this.parent().children(':text').val($(this).val().split("\\").pop());
