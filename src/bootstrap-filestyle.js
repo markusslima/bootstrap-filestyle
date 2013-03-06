@@ -1,6 +1,6 @@
 /*
- * Filestyle-bootstrap
- * http://markusslima.github.com/Filestyle-bootstrap/
+ * bootstrap-filestyle
+ * http://markusslima.github.com/bootstrap-filestyle/
  *
  * Copyright (c) 2012 Markus Lima
  * Licensed under the MIT license.
@@ -10,55 +10,55 @@
     "use strict";
     // Register plugin
     $.fn.filestyle = function (options) {
-		if (typeof options === 'object' || typeof options === 'undefined'){
-			var defaults = {
-					buttonText : 'Choose file',
-					textField : true,
-					icon : false,
-					classButton : '',
-					classText : '',
-					classIcon : 'icon-folder-open'
-				};
+    if (typeof options === 'object' || typeof options === 'undefined'){
+      var defaults = {
+          buttonText : 'Choose file',
+          textField : true,
+          icon : false,
+          classButton : '',
+          classText : '',
+          classIcon : 'icon-folder-open'
+        };
 
-			options = $.extend(defaults, options);
+      options = $.extend(defaults, options);
 
-			return this.each(function () {
-				var $this = $(this);
+      return this.each(function () {
+        var $this = $(this);
 
-				$this.data('filestyle', true);
+        $this.data('filestyle', true);
 
-				$this
-					.css({'position':'fixed','top':'-100px','left':'-100px'})
-					.parent()
-					.addClass("form-search")
-					.append(
-						(options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
-						'<button type="button" class="btn '+options.classButton+'" >'+
-							(options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
-							options.buttonText+
-						'</button>'
-					);
+        $this
+          .css({'position':'fixed','top':'-100px','left':'-100px'})
+          .parents(".control-group")
+            .addClass("input-append")
+            .find("input[type=file]")
+            .after(
+              (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
+                '<button type="button" class="btn '+options.classButton+'" >'+
+                (options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
+                options.buttonText+
+              '</button>'
+            );
 
-				$this.change(function () {
-					$this.parent().children(':text').val($(this).val());
-				});
+        $this.change(function () {
+          $this.parent().children(':text').val($(this).val().split("\\").pop());
+        });
 
-				
-				// Add event click
-				$this.parent().children(':button').click(function () {
-					$this.click();
-				});
-			});
-		} else {
-			return this.each(function () {
-				var $this = $(this);
-				if ($this.data('filestyle') === true && options === 'clear') {
-					$this.parent().children(':text').val('');
-					$this.val('');
-				} else {
-					window.console.error('Method filestyle not defined!');
-				}
-			});
-		}
+        // Add event click
+        $this.parent().children(':button').click(function () {
+          $this.click();
+        });
+      });
+    } else {
+      return this.each(function () {
+        var $this = $(this);
+        if ($this.data('filestyle') === true && options === 'clear') {
+          $this.parent().children(':text').val('');
+          $this.val('');
+        } else {
+          window.console.error('Method filestyle not defined!');
+        }
+      });
+    }
     };
 }(jQuery));
