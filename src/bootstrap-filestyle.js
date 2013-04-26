@@ -27,11 +27,18 @@
 
         $this.data('filestyle', true);
 
+        var parent = $this.parents(".control-group");
+
+        if (!parent.length) {
+          parent = $('<div></div>');
+          $this.before(parent);
+          parent.append($this);
+        }
+
+        parent.addClass("input-append");
+
         $this
           .css({'position':'fixed','top':'-100px','left':'-100px'})
-          .parents(".control-group")
-            .addClass("input-append")
-            .find("input[type=file]")
             .after(
               (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
                 '<button type="button" class="btn '+options.classButton+'" >'+
