@@ -23,7 +23,8 @@
       options = $.extend(defaults, options);
 
       return this.each(function () {
-        var $this = $(this);
+        var $this = $(this),
+            name = $this.attr("name") || $this.attr("id");
 
         $this.data('filestyle', true);
 
@@ -41,20 +42,22 @@
           .css({'position':'fixed','top':'-100px','left':'-100px'})
             .after(
               (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
-                '<button type="button" class="btn '+options.classButton+'" >'+
+                '<label for="'+name+'"  class="btn '+options.classButton+'" >'+
                 (options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
                 options.buttonText+
-              '</button>'
+              '</label>'
             );
 
         $this.change(function () {
           $this.parent().children(':text').val($(this).val().split("\\").pop());
         });
 
-        // Add event click
-        $this.parent().children(':button').click(function () {
-          $this.click();
-        });
+        // Add event click propagation to the file input for Mozilla only
+        if($.browser.mozilla) {
+          $this.parent().children('label[for='+name+']').click(function () {
+            $this.click();
+          }); 
+        }
       });
     } else {
       return this.each(function () {
