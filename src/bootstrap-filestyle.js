@@ -10,65 +10,68 @@
     "use strict";
     // Register plugin
     $.fn.filestyle = function (options) {
-    if (typeof options === 'object' || typeof options === 'undefined'){
-      var defaults = {
-          buttonText : 'Choose file',
-          textField : true,
-          icon : false,
-          classButton : '',
-          classText : '',
-          classIcon : 'icon-folder-open'
-        };
+        if (typeof options === 'object' || typeof options === 'undefined'){
+            var defaults = {
+                buttonText : 'Choose file',
+                textField : true,
+                icon : false,
+                classButton : '',
+                classText : '',
+                classIcon : 'icon-folder-open'
+            };
 
-      options = $.extend(defaults, options);
+            options = $.extend(defaults, options);
 
-      return this.each(function () {
-        var $this = $(this),
-            name = $this.attr("name") || $this.attr("id");
+            return this.each(function () {
+                var $this = $(this);
+                if (!$this.data('filestyle')) {
 
-        $this.data('filestyle', true);
+                    var name = $this.attr("name") || $this.attr("id");
 
-        var parent = $this.parents(".control-group");
+                    $this.data('filestyle', true);
 
-        if (!parent.length) {
-          parent = $('<div></div>');
-          $this.before(parent);
-          parent.append($this);
-        }
+                    var parent = $this.parents(".control-group");
 
-        parent.addClass("input-append");
+                    if (!parent.length) {
+                        parent = $('<div></div>');
+                        $this.before(parent);
+                        parent.append($this);
+                    }
 
-        $this
-          .css({'position':'fixed','top':'-100px','left':'-100px'})
-            .after(
-              (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
-                '<label for="'+name+'"  class="btn '+options.classButton+'" >'+
-                (options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
-                options.buttonText+
-              '</label>'
-            );
+                    parent.addClass("input-append");
 
-        $this.change(function () {
-          $this.parent().children(':text').val($(this).val().split("\\").pop());
-        });
+                    $this
+                        .css({'position':'fixed','top':'-100px','left':'-100px'})
+                        .after(
+                            (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
+                            '<label for="'+name+'"  class="btn '+options.classButton+'" >'+
+                            (options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
+                            options.buttonText+
+                            '</label>'
+                        );
 
-        // Add event click propagation to the file input for Mozilla only
-        if($.browser.mozilla) {
-          $this.parent().children('label[for='+name+']').click(function () {
-            $this.click();
-          }); 
-        }
-      });
-    } else {
-      return this.each(function () {
-        var $this = $(this);
-        if ($this.data('filestyle') === true && options === 'clear') {
-          $this.parent().children(':text').val('');
-          $this.val('');
+                    $this.change(function () {
+                        $this.parent().children(':text').val($(this).val().split("\\").pop());
+                    });
+
+                    // Add event click propagation to the file input for Mozilla only
+                    if ($.browser.mozilla) {
+                        $this.parent().children('label[for='+name+']').click(function () {
+                            $this.click();
+                        }); 
+                    }
+                }
+            });
         } else {
-          window.console.error('Method filestyle not defined!');
+            return this.each(function () {
+                var $this = $(this);
+                if ($this.data('filestyle') === true && options === 'clear') {
+                    $this.parent().children(':text').val('');
+                    $this.val('');
+                } else {
+                    window.console.error('Method filestyle not defined!');
+                }
+            });
         }
-      });
-    }
     };
 }(jQuery));
