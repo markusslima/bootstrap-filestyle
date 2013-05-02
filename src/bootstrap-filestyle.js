@@ -44,14 +44,19 @@
                         .css({'position':'fixed','top':'-100px','left':'-100px'})
                         .after(
                             (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
-                            '<label for="'+name+'"  class="btn '+options.classButton+'" >'+
+                            '<a href="#" class="btn '+options.classButton+'" >'+
                             (options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
                             options.buttonText+
-                            '</label>'
+                            '</a>'
                         );
 
                     $this.change(function () {
                         $this.parent().children(':text').val($(this).val().split("\\").pop());
+                    });
+
+                    $this.parent().children('a').click(function () {
+                        $this.click();
+                        return false;
                     });
                 }
             });
