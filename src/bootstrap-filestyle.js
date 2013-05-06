@@ -2,74 +2,152 @@
  * bootstrap-filestyle
  * http://markusslima.github.com/bootstrap-filestyle/
  *
- * Copyright (c) 2013 Markus Lima
+ * Copyright (c) 2013 Markus Vinicius da Silva Lima
+ * Version 1.0.0
  * Licensed under the MIT license.
  */
-
-(function ($) {
+!function ($) {
     "use strict";
-    // Register plugin
-    $.fn.filestyle = function (options) {
-        if (typeof options === 'object' || typeof options === 'undefined'){
-            var defaults = {
-                buttonText : 'Choose file',
-                textField : true,
-                icon : false,
-                classButton : '',
-                classText : '',
-                classIcon : 'icon-folder-open'
-            };
+    
+    var Filestyle = function (element, options) {
+        this.options = options;
+        this.$elementFilestyle = [];
+        this.$element = $(element);
+    };
 
-            options = $.extend(defaults, options);
+    Filestyle.prototype = {
+        clear: function () {
+            this.$element.val('');
+            this.$elementFilestyle.find(':text').val('');
+        },
 
-            return this.each(function () {
-                var $this = $(this);
-                if (!$this.data('filestyle')) {
+        icon: function (value) {
+            if (value == true) {
+                if (!this.options.icon) {
+                    this.options.icon = true;
+                    if (this.options.classButton != 'btn-link' && this.options.classButton != '')
+                        var colorIcon = ' icon-white ';
 
-                    var name = $this.attr("name") || $this.attr("id");
-
-                    $this.data('filestyle', true);
-
-                    var parent = $this.parents(".control-group");
-
-                    if (!parent.length) {
-                        parent = $('<div></div>');
-                        $this.before(parent);
-                        parent.append($this);
-                    }
-
-                    parent.addClass("input-append");
-
-                    $this
-                        .css({'position':'fixed','top':'-100px','left':'-100px'})
-                        .after(
-                            (options.textField ? '<input type="text" class="'+options.classText+'" disabled size="40" /> ' : '')+
-                            '<a href="#" class="btn '+options.classButton+'" >'+
-                            (options.icon ? '<i class="'+options.classIcon+'"></i> ' : '')+
-                            options.buttonText+
-                            '</a>'
-                        );
-
-                    $this.change(function () {
-                        $this.parent().children(':text').val($(this).val().split("\\").pop());
-                    });
-
-                    $this.parent().children('a').click(function () {
-                        $this.click();
-                        return false;
-                    });
+                    this.$elementFilestyle.find('a').prepend('<i class="'+colorIcon+this.options.classIcon+'"></i> ');
                 }
+            } else if (value == false) {
+                if (this.options.icon) {
+                    this.options.icon = false;
+                    this.$elementFilestyle.find('i').remove();
+                }
+            } else {
+                return this.options.icon;
+            }
+        },
+
+        input: function (value) {
+            if (value == true) {
+                if (!this.options.input) {
+                    this.options.input = true;
+                    this.$elementFilestyle.prepend('<input type="text" class="'+this.options.classInput+'" disabled> ');
+
+                    var files = this.$element[0].files,
+                        content = '';
+                    for (var i = 0; i < files.length; i++)
+                        content += files[i].name.split("\\").pop() + ', ';
+                    
+                    if (content != '')
+                        this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+                }
+            } else if (value == false) {
+                if (this.options.input) {
+                    this.options.input = false;
+                    this.$elementFilestyle.find(':text').remove();
+                }
+            } else {
+                return this.options.input;
+            }
+        },
+
+        constructor: function () {
+            var _self = this
+              , $filestyle = ''
+              , html = ''
+              , files = []
+              , colorIcon = ''
+              , content = '';
+
+            if (this.options.input)
+                html = '<input type="text" class="'+this.options.classInput+'" disabled> ';
+
+            html += '<a href="#" class="btn '+this.options.classButton+'">';
+
+            if (this.options.icon) {
+                if (this.options.classButton != 'btn-link' && this.options.classButton != '')
+                    colorIcon = ' icon-white ';
+
+                html += '<i class="'+colorIcon+this.options.classIcon+'"></i> ';
+            }
+
+            html += this.options.buttonText+'</a>';
+
+            this.$elementFilestyle = $('<div style="display: inline;">'+html+'</div>');
+
+            // hidding input file and add filestyle
+            this.$element
+                .css({'position':'fixed','top':'-500px','left':'-500px'})
+                .after(this.$elementFilestyle);
+
+            // Getting input file value
+            this.$element.change(function () {
+                files = $(this)[0].files;
+                for (var i = 0; i < files.length; i++)
+                    content += files[i].name.split("\\").pop() + ', ';
+                
+                if (content != '')
+                    _self.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
             });
-        } else {
-            return this.each(function () {
-                var $this = $(this);
-                if ($this.data('filestyle') === true && options === 'clear') {
-                    $this.parent().children(':text').val('');
-                    $this.val('');
-                } else {
-                    window.console.error('Method filestyle not defined!');
-                }
+
+            // Simulating choose file
+            this.$elementFilestyle.find('a').click(function () {
+                _self.$element.click();
+                return false;
             });
         }
     };
-}(jQuery));
+
+    var old = $.fn.filestyle;
+
+    $.fn.filestyle = function (option, value) {
+        var get = undefined
+          , element = this.each(function () {
+                var $this = $(this)
+                  , data = $this.data('filestyle')
+                  , options = $.extend({}, $.fn.filestyle.defaults, option, typeof option == 'object' && option);
+
+                if (!data) {
+                    $this.data('filestyle', (data = new Filestyle(this, options)));
+                    data.constructor();
+                }
+
+                if (typeof option == 'string') 
+                    get = data[option](value);
+            });
+
+        if (typeof get != undefined) {
+            return get;
+        } else {
+            return element;
+        }
+    };
+
+    $.fn.filestyle.defaults = {
+        buttonText: 'Choose file',
+        input: true,
+        icon: true,
+        classButton: '',
+        classInput: 'input-large',
+        classIcon: 'icon-folder-open'
+    };
+
+    $.fn.filestyle.noConflict = function () {
+        $.fn.filestyle = old;
+        return this;
+    };
+
+}(window.jQuery);
