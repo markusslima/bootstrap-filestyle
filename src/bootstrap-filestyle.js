@@ -3,7 +3,7 @@
  * http://markusslima.github.com/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.0.0
+ * Version 1.0
  * Licensed under the MIT license.
  */
 !function ($) {
@@ -25,10 +25,7 @@
             if (value === true) {
                 if (!this.options.icon) {
                     this.options.icon = true;
-                    if (this.options.classButton !== 'btn-link' && this.options.classButton !== '')
-                        var colorIcon = ' icon-white ';
-
-                    this.$elementFilestyle.find('a').prepend('<i class="'+colorIcon+this.options.classIcon+'"></i> ');
+                    this.$elementFilestyle.find('a').prepend(this.htmlIcon());
                 }
             } else if (value === false) {
                 if (this.options.icon) {
@@ -44,10 +41,15 @@
             if (value === true) {
                 if (!this.options.input) {
                     this.options.input = true;
-                    this.$elementFilestyle.prepend('<input type="text" class="'+this.options.classInput+'" disabled> ');
+                    this.$elementFilestyle.prepend(this.htmlInput());
 
-                    var files = this.$element[0].files,
-                        content = '';
+                    var content = '',
+                        files = [];
+                    if (this.$element[0].files === undefined)
+                        files[0] = {name: this.$element[0].value};
+                    else
+                        files = this.$element[0].files;
+
                     for (var i = 0; i < files.length; i++)
                         content += files[i].name.split("\\").pop() + ', ';
                     
@@ -64,6 +66,68 @@
             }
         },
 
+        buttonText: function (value) {
+            if (value !== undefined) {
+                this.options.buttonText = value;
+                this.$elementFilestyle.find('a span').html(this.options.buttonText);
+            } else {
+                return this.options.buttonText;
+            }
+        },
+
+        classButton: function (value) {
+            if (value !== undefined) {
+                this.options.classButton = value;
+                this.$elementFilestyle.find('a').attr({class: this.options.classButton});
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
+                    this.$elementFilestyle.find('a i').addClass('icon-white');
+                else
+                    this.$elementFilestyle.find('a i').removeClass('icon-white');
+            } else {
+                return this.options.classButton;
+            }
+        },
+
+        classIcon: function (value) {
+            if (value !== undefined) {
+                this.options.classIcon = value;
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
+                    this.$elementFilestyle.find('a').find('i').attr({class: 'icon-white '+this.options.classIcon});
+                else
+                    this.$elementFilestyle.find('a').find('i').attr({class: this.options.classIcon});
+            } else {
+                return this.options.classIcon;
+            }
+        },
+
+        classInput: function (value) {
+             if (value !== undefined) {
+                this.options.classInput = value;
+                this.$elementFilestyle.find(':text').addClass(this.options.classInput);
+            } else {
+                return this.options.classInput;
+            }
+        },
+
+        htmlIcon: function () {
+            if (this.options.icon) {
+                var colorIcon = '';
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
+                    colorIcon = ' icon-white ';
+
+                return '<i class="'+colorIcon+this.options.classIcon+'"></i> ';
+            } else {
+                return '';
+            }
+        },
+
+        htmlInput: function () {
+            if (this.options.input)
+                return '<input type="text" class="'+this.options.classInput+'" disabled> ';
+            else
+                return '';
+        },
+
         constructor: function () {
             var _self = this
               , $filestyle = ''
@@ -71,19 +135,12 @@
               , files = []
               , colorIcon = '';
 
-            if (this.options.input)
-                html = '<input type="text" class="'+this.options.classInput+'" disabled> ';
 
-            html += '<a href="#" class="'+this.options.classButton+'">';
-
-            if (this.options.icon) {
-                if (this.options.classButton !== 'btn-link' && this.options.classButton !== '')
-                    colorIcon = ' icon-white ';
-
-                html += '<i class="'+colorIcon+this.options.classIcon+'"></i> ';
-            }
-
-            html += this.options.buttonText+'</a>';
+            html = this.htmlInput()
+                 + '<a href="#" class="'+this.options.classButton+'">'
+                    +this.htmlIcon()
+                    +'<span>'+this.options.buttonText+'</span>'
+                 + '</a>';
 
             this.$elementFilestyle = $('<div style="display: inline;">'+html+'</div>');
 
