@@ -74,7 +74,7 @@
             if (this.options.input)
                 html = '<input type="text" class="'+this.options.classInput+'" disabled> ';
 
-            html += '<a href="#" class="btn '+this.options.classButton+'">';
+            html += '<a href="#" class="'+this.options.classButton+'">';
 
             if (this.options.icon) {
                 if (this.options.classButton !== 'btn-link' && this.options.classButton !== '')
@@ -145,7 +145,7 @@
         buttonText: 'Choose file',
         input: true,
         icon: true,
-        classButton: '',
+        classButton: 'btn',
         classInput: 'input-large',
         classIcon: 'icon-folder-open'
     };
