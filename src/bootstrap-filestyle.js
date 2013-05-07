@@ -46,7 +46,7 @@
                     var content = '',
                         files = [];
                     if (this.$element[0].files === undefined)
-                        files[0] = {name: this.$element[0].value};
+                        files[0] = {'name': this.$element[0].value};
                     else
                         files = this.$element[0].files;
 
@@ -78,7 +78,7 @@
         classButton: function (value) {
             if (value !== undefined) {
                 this.options.classButton = value;
-                this.$elementFilestyle.find('a').attr({class: this.options.classButton});
+                this.$elementFilestyle.find('a').attr({'class': this.options.classButton});
                 if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
                     this.$elementFilestyle.find('a i').addClass('icon-white');
                 else
@@ -92,9 +92,9 @@
             if (value !== undefined) {
                 this.options.classIcon = value;
                 if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
-                    this.$elementFilestyle.find('a').find('i').attr({class: 'icon-white '+this.options.classIcon});
+                    this.$elementFilestyle.find('a').find('i').attr({'class': 'icon-white '+this.options.classIcon});
                 else
-                    this.$elementFilestyle.find('a').find('i').attr({class: this.options.classIcon});
+                    this.$elementFilestyle.find('a').find('i').attr({'class': this.options.classIcon});
             } else {
                 return this.options.classIcon;
             }
@@ -153,7 +153,7 @@
             this.$element.change(function () {
                 var content = '';
                 if (this.files === undefined)
-                    files[0] = {name: this.value};
+                    files[0] = {'name': this.value};
                 else
                     files = this.files;
                 
@@ -199,17 +199,16 @@
     };
 
     $.fn.filestyle.defaults = {
-        buttonText: 'Choose file',
-        input: true,
-        icon: true,
-        classButton: 'btn',
-        classInput: 'input-large',
-        classIcon: 'icon-folder-open'
+        'buttonText': 'Choose file',
+        'input': true,
+        'icon': true,
+        'classButton': 'btn',
+        'classInput': 'input-large',
+        'classIcon': 'icon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
         $.fn.filestyle = old;
         return this;
     };
-
 }(window.jQuery);
