@@ -6,7 +6,7 @@
  * Version 1.0
  * Licensed under the MIT license.
  */
-!function ($) {
+(function ($) {
     "use strict";
     
     var Filestyle = function (element, options) {
@@ -45,16 +45,18 @@
 
                     var content = '',
                         files = [];
-                    if (this.$element[0].files === undefined)
+                    if (this.$element[0].files === undefined) {
                         files[0] = {'name': this.$element[0].value};
-                    else
+                    } else {
                         files = this.$element[0].files;
+                    }
 
-                    for (var i = 0; i < files.length; i++)
+                    for (var i = 0; i < files.length; i++) {
                         content += files[i].name.split("\\").pop() + ', ';
-                    
-                    if (content !== '')
+                    }
+                    if (content !== '') {
                         this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+                    }
                 }
             } else if (value === false) {
                 if (this.options.input) {
@@ -79,10 +81,11 @@
             if (value !== undefined) {
                 this.options.classButton = value;
                 this.$elementFilestyle.find('a').attr({'class': this.options.classButton});
-                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
                     this.$elementFilestyle.find('a i').addClass('icon-white');
-                else
+                } else {
                     this.$elementFilestyle.find('a i').removeClass('icon-white');
+                }
             } else {
                 return this.options.classButton;
             }
@@ -91,17 +94,18 @@
         classIcon: function (value) {
             if (value !== undefined) {
                 this.options.classIcon = value;
-                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
                     this.$elementFilestyle.find('a').find('i').attr({'class': 'icon-white '+this.options.classIcon});
-                else
+                } else {
                     this.$elementFilestyle.find('a').find('i').attr({'class': this.options.classIcon});
+                }
             } else {
                 return this.options.classIcon;
             }
         },
 
         classInput: function (value) {
-             if (value !== undefined) {
+            if (value !== undefined) {
                 this.options.classInput = value;
                 this.$elementFilestyle.find(':text').addClass(this.options.classInput);
             } else {
@@ -112,8 +116,9 @@
         htmlIcon: function () {
             if (this.options.icon) {
                 var colorIcon = '';
-                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1)
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
                     colorIcon = ' icon-white ';
+                }
 
                 return '<i class="'+colorIcon+this.options.classIcon+'"></i> ';
             } else {
@@ -122,25 +127,24 @@
         },
 
         htmlInput: function () {
-            if (this.options.input)
+            if (this.options.input) {
                 return '<input type="text" class="'+this.options.classInput+'" disabled> ';
-            else
+            } else {
                 return '';
+            }
         },
 
         constructor: function () {
-            var _self = this
-              , $filestyle = ''
-              , html = ''
-              , files = []
-              , colorIcon = '';
+            var _self = this,
+                html = '',
+                files = [];
 
 
-            html = this.htmlInput()
-                 + '<a href="#" class="'+this.options.classButton+'">'
-                    +this.htmlIcon()
-                    +'<span>'+this.options.buttonText+'</span>'
-                 + '</a>';
+            html = this.htmlInput()+
+                 '<a href="#" class="'+this.options.classButton+'">'+
+                    this.htmlIcon()+
+                    '<span>'+this.options.buttonText+'</span>'+
+                 '</a>';
 
             this.$elementFilestyle = $('<div style="display: inline;">'+html+'</div>');
 
@@ -152,16 +156,19 @@
             // Getting input file value
             this.$element.change(function () {
                 var content = '';
-                if (this.files === undefined)
+                if (this.files === undefined) {
                     files[0] = {'name': this.value};
-                else
+                } else {
                     files = this.files;
-                
-                for (var i = 0; i < files.length; i++)
+                }
+
+                for (var i = 0; i < files.length; i++) {
                     content += files[i].name.split("\\").pop() + ', ';
-                
-                if (content !== '')
+                }
+
+                if (content !== '') {
                     _self.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+                }
             });
 
             // Simulating choose file
@@ -175,27 +182,29 @@
     var old = $.fn.filestyle;
 
     $.fn.filestyle = function (option, value) {
-        var get = undefined
-          , element = this.each(function () {
-                if ($(this).attr('type') == 'file') {
-                    var $this = $(this)
-                      , data = $this.data('filestyle')
-                      , options = $.extend({}, $.fn.filestyle.defaults, option, typeof option === 'object' && option);
+        var get = '',
+            element = this.each(function () {
+                if ($(this).attr('type') === 'file') {
+                    var $this = $(this),
+                        data = $this.data('filestyle'),
+                        options = $.extend({}, $.fn.filestyle.defaults, option, typeof option === 'object' && option);
 
                     if (!data) {
                         $this.data('filestyle', (data = new Filestyle(this, options)));
                         data.constructor();
                     }
 
-                    if (typeof option === 'string') 
+                    if (typeof option === 'string') {
                         get = data[option](value);
+                    }
                 }
             });
 
-        if (typeof get !== undefined)
+        if (typeof get !== undefined) {
             return get;
-        else
+        } else {
             return element;
+        }
     };
 
     $.fn.filestyle.defaults = {
@@ -211,4 +220,4 @@
         $.fn.filestyle = old;
         return this;
     };
-}(window.jQuery);
+})(window.jQuery);
