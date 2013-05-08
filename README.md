@@ -1,25 +1,16 @@
-# Filestyle Bootstrap
+# [Filestyle Bootstrap v1.0](http://dev.tudosobreweb.com.br/bootstrap-filestyle/)
 
-Customization of input html file for Bootstrap Twitter
+Bootstrap-Filestyle is a quick and simple plugin to style elegantly fields file your form.
 
-## Getting Started
+Maintained by [Markus Lima](https://github.com/markusslima)
 
-```html
-<head>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-filestyle.min.js"></script>
-</head>
-<body>
-    <input type="file" />
-    <script>
-       jQuery(function($) {
-          $(':file').filestyle();
-       });
-    </script>
-</body>
-```
-
-## Documentation and Examples
+### Getting Started, Documentation and Examples
 http://dev.tudosobreweb.com.br/bootstrap-filestyle/
+
+## Bug tracker
+
+Have a bug or a feature request? [Please open a new issue](https://github.com/markusslima/bootstrap-filestyle/issues).
+
+## Copyright and license
+
+MIT Licence.
