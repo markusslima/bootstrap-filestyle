@@ -3,7 +3,7 @@
  * http://markusslima.github.com/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.0
+ * Version 1.0.1
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -25,7 +25,7 @@
             if (value === true) {
                 if (!this.options.icon) {
                     this.options.icon = true;
-                    this.$elementFilestyle.find('a').prepend(this.htmlIcon());
+                    this.$elementFilestyle.find('label').prepend(this.htmlIcon());
                 }
             } else if (value === false) {
                 if (this.options.icon) {
@@ -71,7 +71,7 @@
         buttonText: function (value) {
             if (value !== undefined) {
                 this.options.buttonText = value;
-                this.$elementFilestyle.find('a span').html(this.options.buttonText);
+                this.$elementFilestyle.find('label span').html(this.options.buttonText);
             } else {
                 return this.options.buttonText;
             }
@@ -80,11 +80,11 @@
         classButton: function (value) {
             if (value !== undefined) {
                 this.options.classButton = value;
-                this.$elementFilestyle.find('a').attr({'class': this.options.classButton});
+                this.$elementFilestyle.find('label').attr({'class': this.options.classButton});
                 if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    this.$elementFilestyle.find('a i').addClass('icon-white');
+                    this.$elementFilestyle.find('label i').addClass('icon-white');
                 } else {
-                    this.$elementFilestyle.find('a i').removeClass('icon-white');
+                    this.$elementFilestyle.find('label i').removeClass('icon-white');
                 }
             } else {
                 return this.options.classButton;
@@ -95,9 +95,9 @@
             if (value !== undefined) {
                 this.options.classIcon = value;
                 if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    this.$elementFilestyle.find('a').find('i').attr({'class': 'icon-white '+this.options.classIcon});
+                    this.$elementFilestyle.find('label').find('i').attr({'class': 'icon-white '+this.options.classIcon});
                 } else {
-                    this.$elementFilestyle.find('a').find('i').attr({'class': this.options.classIcon});
+                    this.$elementFilestyle.find('label').find('i').attr({'class': this.options.classIcon});
                 }
             } else {
                 return this.options.classIcon;
@@ -137,16 +137,21 @@
         constructor: function () {
             var _self = this,
                 html = '',
+                id = this.$element.attr('id'),
                 files = [];
 
+            if (id === '' || !id) {
+                id = 'filestyle-'+$('.bootstrap-filestyle').length;
+                this.$element.attr({'id': id});
+            }
 
             html = this.htmlInput()+
-                 '<a href="#" class="'+this.options.classButton+'">'+
+                 '<label for="'+id+'" class="'+this.options.classButton+'">'+
                     this.htmlIcon()+
                     '<span>'+this.options.buttonText+'</span>'+
-                 '</a>';
+                 '</label>';
 
-            this.$elementFilestyle = $('<div style="display: inline;">'+html+'</div>');
+            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
 
             // hidding input file and add filestyle
             this.$element
@@ -171,11 +176,14 @@
                 }
             });
 
-            // Simulating choose file
-            this.$elementFilestyle.find('a').click(function () {
-                _self.$element.click();
-                return false;
-            });
+            // Check if browser is Firefox
+            if (window.navigator.userAgent.search(/firefox/i) > -1) {
+                // Simulating choose file for firefox
+                this.$elementFilestyle.find('label').click(function () {
+                    _self.$element.click();
+                    return false;
+                });
+            }
         }
     };
 

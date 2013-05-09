@@ -68,3 +68,5 @@ $('#input11').filestyle({
 
 $('#input12').filestyle();
 $('#input12').filestyle('buttonText', '');
+
+$('.form-horizontal').eq(1).find(':file').filestyle();
