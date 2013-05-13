@@ -1,9 +1,9 @@
 /*
  * bootstrap-filestyle
- * http://markusslima.github.com/bootstrap-filestyle/
+ * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.0.1
+ * Version 1.0.2
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -19,6 +19,14 @@
         clear: function () {
             this.$element.val('');
             this.$elementFilestyle.find(':text').val('');
+        },
+
+        destroy: function () {
+            this.$element
+                .removeAttr('style')
+                .removeData('filestyle')
+                .val('');
+            this.$elementFilestyle.remove();
         },
 
         icon: function (value) {
@@ -228,4 +236,21 @@
         $.fn.filestyle = old;
         return this;
     };
+
+    // Data attributes register
+    var $target = $('.filestyle');
+    $target.each(function () {
+        var $this = $(this),
+            options = {
+                'buttonText': $this.attr('data-buttonText'),
+                'input': $this.attr('data-input') === 'false' ? false : true,
+                'icon': $this.attr('data-icon') === 'false' ? false : true,
+                'classButton': $this.attr('data-classButton'),
+                'classInput': $this.attr('data-classInput'),
+                'classIcon': $this.attr('data-classIcon')
+            };
+
+        $this.filestyle(options);
+    });
+
 })(window.jQuery);
