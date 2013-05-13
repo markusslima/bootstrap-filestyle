@@ -1,4 +1,4 @@
-# [Filestyle Bootstrap v1.0](http://dev.tudosobreweb.com.br/bootstrap-filestyle/)
+# [Filestyle Bootstrap v1.0.2](http://dev.tudosobreweb.com.br/bootstrap-filestyle/)
 
 Bootstrap-Filestyle is a quick and simple plugin to style elegantly fields file your form.
 
