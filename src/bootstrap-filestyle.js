@@ -3,7 +3,7 @@
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.0.2
+ * Version 1.0.3
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -163,7 +163,7 @@
 
             // hidding input file and add filestyle
             this.$element
-                .css({'position':'fixed','top':'-500px','left':'-500px'})
+                .css({'position':'fixed','left':'-500px'})
                 .after(this.$elementFilestyle);
 
             // Getting input file value
@@ -238,8 +238,7 @@
     };
 
     // Data attributes register
-    var $target = $('.filestyle');
-    $target.each(function () {
+    $('.filestyle').each(function () {
         var $this = $(this),
             options = {
                 'buttonText': $this.attr('data-buttonText'),
