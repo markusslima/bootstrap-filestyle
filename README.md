@@ -5,7 +5,7 @@ Bootstrap-Filestyle is a quick and simple plugin to style elegantly fields file 
 Maintained by [Markus Lima](https://github.com/markusslima) [@markusslima](https://twitter.com/markusslima)
 
 ### Getting Started, Documentation and Examples
-http://dev.tudosobreweb.com.br/bootstrap-filestyle/
+https://github.com/markusslima/bootstrap-filestyle/wiki/Documentation-Bootstrap-FileStyle
 
 ### Bug tracker
 
