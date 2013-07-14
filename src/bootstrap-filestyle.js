@@ -154,16 +154,28 @@
             }
 
             html = this.htmlInput()+
-                 '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                 '<span><label for="'+id+'" class="'+this.options.classButton+'">'+
                     this.htmlIcon()+
                     '<span>'+this.options.buttonText+'</span>'+
-                 '</label>';
+                 '</label></span>';
 
             this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
+
+            var $label = this.$elementFilestyle.find('label');
+            var $labelFocusableContainer = $label.parent();
+            
+            $labelFocusableContainer
+             .attr('tabindex', "0")
+             .keypress(function(evt) {
+                if (evt.keyCode === 13 || evt.charCode === 32) {
+                 $label.click();
+                }
+            });
 
             // hidding input file and add filestyle
             this.$element
                 .css({'position':'fixed','left':'-500px'})
+                .attr('tabindex', "-1")
                 .after(this.$elementFilestyle);
 
             // Getting input file value
