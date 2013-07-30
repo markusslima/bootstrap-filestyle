@@ -165,12 +165,12 @@
             var $labelFocusableContainer = $label.parent();
             
             $labelFocusableContainer
-             .attr('tabindex', "0")
-             .keypress(function(evt) {
-                if (evt.keyCode === 13 || evt.charCode === 32) {
-                 $label.click();
-                }
-            });
+                .attr('tabindex', "0")
+                .keypress(function(e) {
+                    if (e.keyCode === 13 || e.charCode === 32) {
+                        $label.click();
+                    }
+                });
 
             // hidding input file and add filestyle
             this.$element
