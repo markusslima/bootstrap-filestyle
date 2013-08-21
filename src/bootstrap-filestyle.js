@@ -163,7 +163,7 @@
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
-            
+
             $labelFocusableContainer
                 .attr('tabindex', "0")
                 .keypress(function(e) {
@@ -236,12 +236,12 @@
     };
 
     $.fn.filestyle.defaults = {
-        'buttonText': 'Choose file',
-        'input': true,
-        'icon': true,
-        'classButton': 'btn',
-        'classInput': 'input-large',
-        'classIcon': 'icon-folder-open'
+        'buttonText'  : 'Choose file',
+        'input'       : true,
+        'icon'        : true,
+        'classButton' : 'btn',
+        'classInput'  : 'input-large',
+        'classIcon'   : 'icon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
