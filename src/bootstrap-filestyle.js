@@ -8,11 +8,26 @@
  */
 (function ($) {
     "use strict";
-    
+
     var Filestyle = function (element, options) {
         this.options = options;
         this.$elementFilestyle = [];
         this.$element = $(element);
+    };
+
+    Filestyle.initialize_html = function () {
+        $('.filestyle').each(function () {
+            var $this = $(this),
+            options = {
+                'buttonText'  : $this.attr('data-buttonText'),
+                'input'       : $this.attr('data-input') !== 'false',
+                'icon'        : $this.attr('data-icon') !== 'false',
+                'classButton' : $this.attr('data-classButton'),
+                'classInput'  : $this.attr('data-classInput'),
+                'classIcon'   : $this.attr('data-classIcon')
+            };
+            $this.filestyle(options);
+        });
     };
 
     Filestyle.prototype = {
@@ -249,19 +264,6 @@
         return this;
     };
 
-    // Data attributes register
-    $('.filestyle').each(function () {
-        var $this = $(this),
-            options = {
-                'buttonText': $this.attr('data-buttonText'),
-                'input': $this.attr('data-input') === 'false' ? false : true,
-                'icon': $this.attr('data-icon') === 'false' ? false : true,
-                'classButton': $this.attr('data-classButton'),
-                'classInput': $this.attr('data-classInput'),
-                'classIcon': $this.attr('data-classIcon')
-            };
-
-        $this.filestyle(options);
-    });
+    $(Filestyle.initialize_html);
 
 })(window.jQuery);
