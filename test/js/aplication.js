@@ -1,7 +1,7 @@
 $('#input01').filestyle()
 
 $('#input02').filestyle({
-	buttonText: 'My filestyle'
+	text: 'My filestyle'
 });
 
 $('#input03').filestyle({
@@ -18,16 +18,16 @@ $('#input05').filestyle({
 });
 
 $('#input06').filestyle({
-	classInput: 'input-small'
+	classInput: 'form-control'
 });
 
 $('#input07').filestyle({
 	classIcon: 'icon-plus',
-	buttonText: 'Add'
+	text: 'Add'
 });
 
 $('#input08').filestyle({
-	buttonText: 'File',
+	text: 'File',
 	classButton: 'btn btn-success'
 });
 
@@ -36,7 +36,7 @@ $('#clear').click(function () {
 });
 
 $('#input09').filestyle({
-	buttonText: 'File',
+	text: 'File',
 	classButton: 'btn btn-primary'
 });
 
@@ -49,7 +49,7 @@ $('#toggleInput').click(function () {
 });
 
 $('#input10').filestyle({
-	buttonText: 'File',
+	text: 'File',
 	classButton: 'btn btn-primary'
 });
 
@@ -62,7 +62,7 @@ $('#toggleIcon').click(function () {
 });
 
 $('#input11').filestyle({
-	buttonText: 'Multiple',
+	text: 'Multiple',
 	classButton: 'btn btn-danger'
 });
 

@@ -3,7 +3,7 @@
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.0.3
+ * Version 2.0
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -38,8 +38,8 @@
             } else if (value === false) {
                 if (this.options.icon) {
                     this.options.icon = false;
-                    this.$elementFilestyle.find('i').remove();
-                }
+                    this.$elementFilestyle.find('span').remove();
+                } ///ttttt
             } else {
                 return this.options.icon;
             }
@@ -78,8 +78,8 @@
 
         buttonText: function (value) {
             if (value !== undefined) {
-                this.options.buttonText = value;
-                this.$elementFilestyle.find('label span').html(this.options.buttonText);
+                this.options.text = value;
+                this.$elementFilestyle.find('label .filestyle-text').html(this.options.text);
             } else {
                 return this.options.buttonText;
             }
@@ -89,11 +89,6 @@
             if (value !== undefined) {
                 this.options.classButton = value;
                 this.$elementFilestyle.find('label').attr({'class': this.options.classButton});
-                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    this.$elementFilestyle.find('label i').addClass('icon-white');
-                } else {
-                    this.$elementFilestyle.find('label i').removeClass('icon-white');
-                }
             } else {
                 return this.options.classButton;
             }
@@ -102,11 +97,7 @@
         classIcon: function (value) {
             if (value !== undefined) {
                 this.options.classIcon = value;
-                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    this.$elementFilestyle.find('label').find('i').attr({'class': 'icon-white '+this.options.classIcon});
-                } else {
-                    this.$elementFilestyle.find('label').find('i').attr({'class': this.options.classIcon});
-                }
+                this.$elementFilestyle.find('label .btn .glyphicon').attr({'class': this.options.classIcon});
             } else {
                 return this.options.classIcon;
             }
@@ -123,12 +114,7 @@
 
         htmlIcon: function () {
             if (this.options.icon) {
-                var colorIcon = '';
-                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    colorIcon = ' icon-white ';
-                }
-
-                return '<i class="'+colorIcon+this.options.classIcon+'"></i> ';
+                return '<span class="'+this.options.classIcon+'"></span> ';
             } else {
                 return '';
             }
@@ -154,12 +140,14 @@
             }
 
             html = this.htmlInput()+
-                 '<span><label for="'+id+'" class="'+this.options.classButton+'">'+
-                    this.htmlIcon()+
-                    '<span>'+this.options.buttonText+'</span>'+
-                 '</label></span>';
-
-            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
+                   '<span class="input-group-btn">'+
+                   '  <label for="'+id+'" class="'+this.options.classButton+'">'+
+                        this.htmlIcon()+
+                   '    <span class="filestyle-text">'+this.options.text+'</span>'+
+                   '  </label>'+
+                   '</span>';
+			//console.log('<div class="bootstrap-filestyle input-group" style="display: inline;">'+html+'</div>');
+            this.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
@@ -236,12 +224,12 @@
     };
 
     $.fn.filestyle.defaults = {
-        'buttonText': 'Choose file',
+        'text': 'Choose file',
         'input': true,
         'icon': true,
-        'classButton': 'btn',
-        'classInput': 'input-large',
-        'classIcon': 'icon-folder-open'
+        'classButton': 'btn btn-default',
+        'classInput': 'form-control col-lg-4',
+        'classIcon': 'glyphicon glyphicon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
@@ -253,7 +241,7 @@
     $('.filestyle').each(function () {
         var $this = $(this),
             options = {
-                'buttonText': $this.attr('data-buttonText'),
+                'text': $this.attr('data-text'),
                 'input': $this.attr('data-input') === 'false' ? false : true,
                 'icon': $this.attr('data-icon') === 'false' ? false : true,
                 'classButton': $this.attr('data-classButton'),
