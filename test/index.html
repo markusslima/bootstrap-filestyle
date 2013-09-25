@@ -23,163 +23,131 @@
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
 	</head>
-
 	<body>
-		<div class="container" style="margin-top: 30px;margin-bottom: 30px">
+		<div class="container">
 			<div class="row">
-				<div class="span12">
-					<form class="form-inline" action="upload.php" enctype="multipart/form-data" method="post">
-						<div class="control-group">
-							<label class="control-label" for="input01">Upload test</label>
-							<div class="controls">
+				<div class="col-lg-12">
+					<h3>Server side test</h3>
+					<form role="form" action="upload.php" enctype="multipart/form-data" method="post">
+						<div class="form-group">
+							<label class="sr-only" for="input01">Upload test</label>
+							<div class="col-lg-6">
 								<input type="file" name="example" id="input01">
-								<button type="submit" class="btn btn-primary">
-									Enviar
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">
+								Enviar
+							</button>
+						</div>
+					</form>
+					<hr>
+					<h3>Options and Methods</h3>
+					<form role="form" class="form-horizontal">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<label class="control-label" for="input02">Class bootstrap button</label>
+								<input type="file" id="input02">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-6">
+								<label class="control-label" for="input03">Change icon</label>
+								<input type="file" id="input03">
+							</div>
+						</div>
+					</form>
+					<hr>
+					<form role="form" class="form-horizontal">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<input type="file" id="input04">
+							</div>
+							<div class="col-lg-2">
+								<button id="clear" class="btn" type="button">
+									Clear
 								</button>
 							</div>
 						</div>
 					</form>
-					<form class="form-horizontal well">
-						<fieldset>
-							<div class="control-group">
-								<label class="control-label" for="input00">Default browser</label>
-								<div class="controls">
-									<input type="file" id="input00">
-								</div>
+					<form role="form" class="form-horizontal">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<label class="control-label" for="input05">Multiple selection</label>
+								<input type="file" multiple="multiple" id="input05">
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input02">Custom button text</label>
-								<div class="controls">
-									<input type="file" id="input02">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input03">No text field</label>
-								<div class="controls">
-									<input type="file" id="input03">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input04">No icon</label>
-								<div class="controls">
-									<input type="file" id="input04">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input05">Class bootstrap button</label>
-								<div class="controls">
-									<input type="file" id="input05">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input06">Class bootstrap input</label>
-								<div class="controls">
-									<input type="file" id="input06">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input07">Change icon</label>
-								<div class="controls">
-									<input type="file" id="input07">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input08">Clear button</label>
-								<div class="controls">
-									<input type="file" id="input08">
-									<button id="clear" class="btn" type="button">
-										Clear
-									</button>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input09">Toggle button</label>
-								<div class="controls">
-									<input type="file" id="input09">
-									<button id="toggleInput" class="btn" type="button">
-										Toggle input
-									</button>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input10">Toggle icon</label>
-								<div class="controls">
-									<input type="file" id="input10">
-									<button id="toggleIcon" class="btn" type="button">
-										Toggle icon
-									</button>
-								</div>
-							</div>
-
-							<div class="control-group">
-								<label class="control-label" for="input11">Multiple selection</label>
-								<div class="controls">
-									<input type="file" multiple="multiple" id="input11">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input12">Remove text button</label>
-								<div class="controls">
-									<input type="file" id="input12">
-								</div>
-							</div>
-						</fieldset>
+						</div>
 					</form>
-					<form class="form-horizontal well">
-						<div class="control-group">
-							<div class="controls">
+					<hr>
+					<h3>Selector class</h3>
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="col-lg-6">
 								<input type="file" class="test">
 							</div>
 						</div>
-						<div class="control-group">
-							<div class="controls">
+						<div class="form-group">
+							<div class="col-lg-6">
 								<input type="file" class="test">
 							</div>
 						</div>
-						<div class="control-group">
-							<div class="controls">
+						<div class="form-group">
+							<div class="col-lg-6">
 								<input type="file" class="test">
 							</div>
 						</div>
-						<div class="control-group">
-							<div class="controls">
+						<div class="form-group">
+							<div class="col-lg-6">
 								<input type="file" class="test">
 							</div>
 						</div>
 					</form>
-
-					<form class="form-horizontal well">
-						<div class="control-group">
-							<div class="controls">
-								<input type="file" class="filestyle" data-icon="false">
+					<hr>
+					<h3>Data attributes</h3>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<input type="file" class="filestyle">
 							</div>
 						</div>
-						<div class="control-group">
-							<div class="controls">
-								<input type="file" class="filestyle" data-buttonText="Find">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<input type="file" class="filestyle" data-classInput="form-control col-lg-2">
 							</div>
 						</div>
-						<div class="control-group">
-							<div class="controls">
-								<input type="file" class="filestyle" data-classInput="input-xxlarge">
-							</div>
-						</div>
-						<div class="control-group">
-							<div class="controls">
-								<input type="file" class="filestyle" data-buttonText="Open" data-input="false" data-classIcon="icon-plus" data-classButton="btn btn-primary">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<input type="file" class="filestyle" data-classIcon="glyphicon glyphicon-cloud-upload" data-classButton="btn btn-primary">
 							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-		
-		
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 		<script src="../src/bootstrap-filestyle.js"></script>
-		<script src="js/aplication.js"></script>
+		<script>
+			$('#input01').filestyle()
+
+			$('#input02').filestyle({classButton : 'btn btn-warning'});
+
+			$('#input03').filestyle({classInput : 'form-control'});
+
+			$('#input04').filestyle({classIcon : 'glyphicon glyphicon-cloud-upload'});
+
+			$('#input05').filestyle();
+
+			$('#clear').click(function() {
+				$('#input08').filestyle('clear');
+			});
+
+			$('#input06').filestyle();
+
+			$('.test').filestyle();
+		</script>
 	</body>
 </html>

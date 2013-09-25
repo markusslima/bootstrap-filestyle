@@ -29,62 +29,6 @@
             this.$elementFilestyle.remove();
         },
 
-        icon: function (value) {
-            if (value === true) {
-                if (!this.options.icon) {
-                    this.options.icon = true;
-                    this.$elementFilestyle.find('label').prepend(this.htmlIcon());
-                }
-            } else if (value === false) {
-                if (this.options.icon) {
-                    this.options.icon = false;
-                    this.$elementFilestyle.find('span').remove();
-                } ///ttttt
-            } else {
-                return this.options.icon;
-            }
-        },
-
-        input: function (value) {
-            if (value === true) {
-                if (!this.options.input) {
-                    this.options.input = true;
-                    this.$elementFilestyle.prepend(this.htmlInput());
-
-                    var content = '',
-                        files = [];
-                    if (this.$element[0].files === undefined) {
-                        files[0] = {'name': this.$element[0].value};
-                    } else {
-                        files = this.$element[0].files;
-                    }
-
-                    for (var i = 0; i < files.length; i++) {
-                        content += files[i].name.split("\\").pop() + ', ';
-                    }
-                    if (content !== '') {
-                        this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
-                    }
-                }
-            } else if (value === false) {
-                if (this.options.input) {
-                    this.options.input = false;
-                    this.$elementFilestyle.find(':text').remove();
-                }
-            } else {
-                return this.options.input;
-            }
-        },
-
-        buttonText: function (value) {
-            if (value !== undefined) {
-                this.options.text = value;
-                this.$elementFilestyle.find('label .filestyle-text').html(this.options.text);
-            } else {
-                return this.options.buttonText;
-            }
-        },
-
         classButton: function (value) {
             if (value !== undefined) {
                 this.options.classButton = value;
@@ -103,31 +47,6 @@
             }
         },
 
-        classInput: function (value) {
-            if (value !== undefined) {
-                this.options.classInput = value;
-                this.$elementFilestyle.find(':text').addClass(this.options.classInput);
-            } else {
-                return this.options.classInput;
-            }
-        },
-
-        htmlIcon: function () {
-            if (this.options.icon) {
-                return '<span class="'+this.options.classIcon+'"></span> ';
-            } else {
-                return '';
-            }
-        },
-
-        htmlInput: function () {
-            if (this.options.input) {
-                return '<input type="text" class="'+this.options.classInput+'" disabled> ';
-            } else {
-                return '';
-            }
-        },
-
         constructor: function () {
             var _self = this,
                 html = '',
@@ -139,14 +58,13 @@
                 this.$element.attr({'id': id});
             }
 
-            html = this.htmlInput()+
+            html = '<input type="text" class="form-control '+this.options.classInput+'" disabled placeholder="Choose file"> '+
                    '<span class="input-group-btn">'+
                    '  <label for="'+id+'" class="'+this.options.classButton+'">'+
-                        this.htmlIcon()+
-                   '    <span class="filestyle-text">'+this.options.text+'</span>'+
+                   '	<span class="'+this.options.classIcon+'"></span> '+
                    '  </label>'+
                    '</span>';
-			//console.log('<div class="bootstrap-filestyle input-group" style="display: inline;">'+html+'</div>');
+
             this.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
@@ -224,11 +142,8 @@
     };
 
     $.fn.filestyle.defaults = {
-        'text': 'Choose file',
-        'input': true,
-        'icon': true,
         'classButton': 'btn btn-default',
-        'classInput': 'form-control col-lg-4',
+        'classInput': '',
         'classIcon': 'glyphicon glyphicon-folder-open'
     };
 
@@ -241,9 +156,6 @@
     $('.filestyle').each(function () {
         var $this = $(this),
             options = {
-                'text': $this.attr('data-text'),
-                'input': $this.attr('data-input') === 'false' ? false : true,
-                'icon': $this.attr('data-icon') === 'false' ? false : true,
                 'classButton': $this.attr('data-classButton'),
                 'classInput': $this.attr('data-classInput'),
                 'classIcon': $this.attr('data-classIcon')
@@ -251,5 +163,4 @@
 
         $this.filestyle(options);
     });
-
 })(window.jQuery);
