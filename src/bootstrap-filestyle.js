@@ -142,6 +142,13 @@
             }
         },
 
+        enable: function () {
+            if (this.options.disabled) {
+                this.$element.removeAttr('disabled');
+                this.$elementFilestyle.find('label.btn').removeClass('disabled');
+            }
+        },
+
         constructor: function () {
             var _self = this,
                 html = '',
@@ -154,7 +161,7 @@
             }
 
             html = this.htmlInput()+
-                 '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                 '<label for="'+id+'" class="'+this.options.classButton+' '+(this.options.disabled?'disabled':'')+'">'+
                     this.htmlIcon()+
                     '<span>'+this.options.buttonText+'</span>'+
                  '</label>';
@@ -246,7 +253,8 @@
                 'icon': $this.attr('data-icon') === 'false' ? false : true,
                 'classButton': $this.attr('data-classButton'),
                 'classInput': $this.attr('data-classInput'),
-                'classIcon': $this.attr('data-classIcon')
+                'classIcon': $this.attr('data-classIcon'),
+                'disabled': $this.attr('disabled')
             };
 
         $this.filestyle(options);
