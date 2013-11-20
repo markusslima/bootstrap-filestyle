@@ -80,7 +80,7 @@
 
             // hidding input file and add filestyle
             this.$element
-                .css({'position':'fixed','left':'-500px'})
+                .css({'position':'fixed','left':'-9999px'})
                 .attr('tabindex', "-1")
                 .after(this.$elementFilestyle);
 
