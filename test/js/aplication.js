@@ -1,23 +1,72 @@
 $('#input01').filestyle()
 
 $('#input02').filestyle({
-	classButton: 'btn btn-warning'
+	buttonText: 'My filestyle'
 });
 
 $('#input03').filestyle({
-	classInput: 'form-control'
+	input: false,
+	classButton: 'btn btn-primary'
 });
 
 $('#input04').filestyle({
-	classIcon: 'glyphicon glyphicon-cloud-upload'
+	icon: false
 });
 
-$('#input05').filestyle();
+$('#input05').filestyle({
+	classButton: 'btn btn-warning'
+});
+
+$('#input06').filestyle({
+	classInput: 'input-small'
+});
+
+$('#input07').filestyle({
+	classIcon: 'icon-plus',
+	buttonText: 'Add'
+});
+
+$('#input08').filestyle({
+	buttonText: 'File',
+	classButton: 'btn btn-success'
+});
 
 $('#clear').click(function () {
 	$('#input08').filestyle('clear');
 });
 
-$('#input06').filestyle();
+$('#input09').filestyle({
+	buttonText: 'File',
+	classButton: 'btn btn-primary'
+});
 
-$('.teste').filestyle();
+$('#toggleInput').click(function () {
+	var fs = $('#input09');
+	if (fs.filestyle('input'))
+		fs.filestyle('input', false);
+	else
+	   	fs.filestyle('input', true);
+});
+
+$('#input10').filestyle({
+	buttonText: 'File',
+	classButton: 'btn btn-primary'
+});
+
+$('#toggleIcon').click(function () {
+	var fs = $('#input10');
+	if (fs.filestyle('icon'))
+		fs.filestyle('icon', false);
+	else
+	   	fs.filestyle('icon', true);
+});
+
+$('#input11').filestyle({
+	buttonText: 'Multiple',
+	classButton: 'btn btn-danger'
+});
+
+$('#input12').filestyle();
+$('#input12').filestyle('buttonText', '');
+
+$('.form-horizontal').eq(1).find(':file').filestyle();

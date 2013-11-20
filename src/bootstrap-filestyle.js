@@ -3,7 +3,7 @@
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 2.0
+ * Version 1.0.3
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -29,10 +29,71 @@
             this.$elementFilestyle.remove();
         },
 
+        icon: function (value) {
+            if (value === true) {
+                if (!this.options.icon) {
+                    this.options.icon = true;
+                    this.$elementFilestyle.find('label').prepend(this.htmlIcon());
+                }
+            } else if (value === false) {
+                if (this.options.icon) {
+                    this.options.icon = false;
+                    this.$elementFilestyle.find('i').remove();
+                }
+            } else {
+                return this.options.icon;
+            }
+        },
+
+        input: function (value) {
+            if (value === true) {
+                if (!this.options.input) {
+                    this.options.input = true;
+                    this.$elementFilestyle.prepend(this.htmlInput());
+
+                    var content = '',
+                        files = [];
+                    if (this.$element[0].files === undefined) {
+                        files[0] = {'name': this.$element[0].value};
+                    } else {
+                        files = this.$element[0].files;
+                    }
+
+                    for (var i = 0; i < files.length; i++) {
+                        content += files[i].name.split("\\").pop() + ', ';
+                    }
+                    if (content !== '') {
+                        this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+                    }
+                }
+            } else if (value === false) {
+                if (this.options.input) {
+                    this.options.input = false;
+                    this.$elementFilestyle.find(':text').remove();
+                }
+            } else {
+                return this.options.input;
+            }
+        },
+
+        buttonText: function (value) {
+            if (value !== undefined) {
+                this.options.buttonText = value;
+                this.$elementFilestyle.find('label span').html(this.options.buttonText);
+            } else {
+                return this.options.buttonText;
+            }
+        },
+
         classButton: function (value) {
             if (value !== undefined) {
                 this.options.classButton = value;
                 this.$elementFilestyle.find('label').attr({'class': this.options.classButton});
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
+                    this.$elementFilestyle.find('label i').addClass('icon-white');
+                } else {
+                    this.$elementFilestyle.find('label i').removeClass('icon-white');
+                }
             } else {
                 return this.options.classButton;
             }
@@ -41,9 +102,43 @@
         classIcon: function (value) {
             if (value !== undefined) {
                 this.options.classIcon = value;
-                this.$elementFilestyle.find('label .btn .glyphicon').attr({'class': this.options.classIcon});
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
+                    this.$elementFilestyle.find('label').find('i').attr({'class': 'icon-white '+this.options.classIcon});
+                } else {
+                    this.$elementFilestyle.find('label').find('i').attr({'class': this.options.classIcon});
+                }
             } else {
                 return this.options.classIcon;
+            }
+        },
+
+        classInput: function (value) {
+            if (value !== undefined) {
+                this.options.classInput = value;
+                this.$elementFilestyle.find(':text').addClass(this.options.classInput);
+            } else {
+                return this.options.classInput;
+            }
+        },
+
+        htmlIcon: function () {
+            if (this.options.icon) {
+                var colorIcon = '';
+                if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
+                    colorIcon = ' icon-white ';
+                }
+
+                return '<i class="'+colorIcon+this.options.classIcon+'"></i> ';
+            } else {
+                return '';
+            }
+        },
+
+        htmlInput: function () {
+            if (this.options.input) {
+                return '<input type="text" class="'+this.options.classInput+'" disabled> ';
+            } else {
+                return '';
             }
         },
 
@@ -58,14 +153,13 @@
                 this.$element.attr({'id': id});
             }
 
-            html = '<input type="text" class="form-control '+this.options.classInput+'" disabled placeholder="Choose file"> '+
-                   '<span class="input-group-btn">'+
-                   '  <label for="'+id+'" class="'+this.options.classButton+'">'+
-                   '	<span class="'+this.options.classIcon+'"></span> '+
-                   '  </label>'+
-                   '</span>';
+            html = this.htmlInput()+
+                 '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                    this.htmlIcon()+
+                    '<span>'+this.options.buttonText+'</span>'+
+                 '</label>';
 
-            this.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">'+html+'</div>');
+            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
@@ -142,9 +236,12 @@
     };
 
     $.fn.filestyle.defaults = {
-        'classButton': 'btn btn-default',
-        'classInput': '',
-        'classIcon': 'glyphicon glyphicon-folder-open'
+        'buttonText': 'Choose file',
+        'input': true,
+        'icon': true,
+        'classButton': 'btn',
+        'classInput': 'input-large',
+        'classIcon': 'icon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
@@ -156,6 +253,9 @@
     $('.filestyle').each(function () {
         var $this = $(this),
             options = {
+                'buttonText': $this.attr('data-buttonText'),
+                'input': $this.attr('data-input') === 'false' ? false : true,
+                'icon': $this.attr('data-icon') === 'false' ? false : true,
                 'classButton': $this.attr('data-classButton'),
                 'classInput': $this.attr('data-classInput'),
                 'classIcon': $this.attr('data-classIcon')
