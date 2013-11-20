@@ -161,9 +161,21 @@
 
             this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
 
+            var $label = this.$elementFilestyle.find('label');
+            var $labelFocusableContainer = $label.parent();
+            
+            $labelFocusableContainer
+                .attr('tabindex', "0")
+                .keypress(function(e) {
+                    if (e.keyCode === 13 || e.charCode === 32) {
+                        $label.click();
+                    }
+                });
+
             // hidding input file and add filestyle
             this.$element
-                .css({'position':'fixed','left':'-500px'})
+                .css({'position':'absolute','left':'-9999px'})
+                .attr('tabindex', "-1")
                 .after(this.$elementFilestyle);
 
             // Getting input file value
@@ -251,5 +263,4 @@
 
         $this.filestyle(options);
     });
-
 })(window.jQuery);
