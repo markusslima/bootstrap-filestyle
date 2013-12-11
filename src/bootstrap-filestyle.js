@@ -8,7 +8,7 @@
  */
 (function ($) {
     "use strict";
-    
+
     var Filestyle = function (element, options) {
         this.options = options;
         this.$elementFilestyle = [];
@@ -90,7 +90,7 @@
                 this.options.classButton = value;
                 this.$elementFilestyle.find('label').attr({'class': this.options.classButton});
                 if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    this.$elementFilestyle.find('label i').addClass('icon-white');
+                    this.$elementFilestyle.find('label i').addClass('glyphicon glyphicon-folder-open');
                 } else {
                     this.$elementFilestyle.find('label i').removeClass('icon-white');
                 }
@@ -153,17 +153,42 @@
                 this.$element.attr({'id': id});
             }
 
-            html = this.htmlInput()+
-                 '<label for="'+id+'" class="'+this.options.classButton+'">'+
-                    this.htmlIcon()+
-                    '<span>'+this.options.buttonText+'</span>'+
-                 '</label>';
+            var inputContainerOpen = (this.options.classInputContainerClass != '') ? '<div class="'+this.options.classInputContainerClass+'">' : '';
+            var inputContainerClose = (inputContainerOpen != '') ? '</div>' : '';
 
-            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
+            var buttonContainerOpen = (this.options.classButtonContainerClass != '') ? '<div class="'+this.options.classButtonContainerClass+'">' : '';
+            var buttonContainerClose = (buttonContainerOpen != '') ? '</div>' : '';
+
+            if(this.options.buttonBefore)
+            {
+                html =
+                    buttonContainerOpen+
+                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                            this.htmlIcon()+
+                            '<span>'+this.options.buttonText+'</span>'+
+                        '</label>'+
+                    buttonContainerClose+
+                    inputContainerOpen+
+                        this.htmlInput()+
+                    inputContainerClose;
+            } else {
+                html =
+                    inputContainerOpen+
+                        this.htmlInput()+
+                    inputContainerClose+
+                    buttonContainerOpen+
+                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                            this.htmlIcon()+
+                        '<span>'+this.options.buttonText+'</span>'+
+                    '</label>'+
+                    buttonContainerClose;
+            }
+
+            this.$elementFilestyle = $('<div class="'+this.options.containerClass+'">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
-            
+
             $labelFocusableContainer
                 .attr('tabindex', "0")
                 .keypress(function(e) {
@@ -239,9 +264,29 @@
         'buttonText': 'Choose file',
         'input': true,
         'icon': true,
-        'classButton': 'btn',
-        'classInput': 'input-large',
-        'classIcon': 'icon-folder-open'
+        'buttonBefore': false,
+
+        'containerClass': 'form-group', // bootstrap-filestyle
+        'classButtonContainerClass': '',
+        'classButton': 'btn btn-default',
+        'classInputContainerClass': '',
+        'classInput': 'form-control',
+        'classIcon': 'glyphicon glyphicon-folder-open'
+        
+        /*
+        Sample of creating a Bootstrap 3 input group:
+        
+        $(':file').filestyle({
+            buttonBefore: true,                             // set the button before the input
+            containerClass: 'input-group',                  // label (button) and input container class
+            classButtonContainerClass: 'input-group-btn',   // label container class (when set creates a div container)
+            classButton: 'btn btn-default btn-file',        // label (button) class
+            classInputContainerClass: '',                   // input container class (when set creates a div container)
+            classInput: 'form-control',                     // input class
+            classIcon: 'fa fa-folder-open',                 // button icon (using FontAwesome)
+        });
+        
+        */
     };
 
     $.fn.filestyle.noConflict = function () {
