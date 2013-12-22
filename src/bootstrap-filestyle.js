@@ -90,7 +90,7 @@
                 this.options.classButton = value;
                 this.$elementFilestyle.find('label').attr({'class': this.options.classButton});
                 if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
-                    this.$elementFilestyle.find('label i').addClass('glyphicon glyphicon-folder-open');
+                    this.$elementFilestyle.find('label i').addClass('icon-white');
                 } else {
                     this.$elementFilestyle.find('label i').removeClass('icon-white');
                 }
@@ -184,7 +184,7 @@
                     buttonContainerClose;
             }
 
-            this.$elementFilestyle = $('<div class="'+this.options.containerClass+'">'+html+'</div>');
+            this.$elementFilestyle = $('<div class="'+this.options.containerClass+' bootstrap-filestyle">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
@@ -272,21 +272,6 @@
         'classInputContainerClass': '',
         'classInput': 'form-control',
         'classIcon': 'glyphicon glyphicon-folder-open'
-        
-        /*
-        Sample of creating a Bootstrap 3 input group:
-        
-        $(':file').filestyle({
-            buttonBefore: true,                             // set the button before the input
-            containerClass: 'input-group',                  // label (button) and input container class
-            classButtonContainerClass: 'input-group-btn',   // label container class (when set creates a div container)
-            classButton: 'btn btn-default btn-file',        // label (button) class
-            classInputContainerClass: '',                   // input container class (when set creates a div container)
-            classInput: 'form-control',                     // input class
-            classIcon: 'fa fa-folder-open',                 // button icon (using FontAwesome)
-        });
-        
-        */
     };
 
     $.fn.filestyle.noConflict = function () {
