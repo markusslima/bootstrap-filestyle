@@ -8,7 +8,7 @@
  */
 (function ($) {
     "use strict";
-    
+
     var Filestyle = function (element, options) {
         this.options = options;
         this.$elementFilestyle = [];
@@ -153,17 +153,42 @@
                 this.$element.attr({'id': id});
             }
 
-            html = this.htmlInput()+
-                 '<label for="'+id+'" class="'+this.options.classButton+'">'+
-                    this.htmlIcon()+
-                    '<span>'+this.options.buttonText+'</span>'+
-                 '</label>';
+            var inputContainerOpen = (this.options.classInputContainerClass != '') ? '<div class="'+this.options.classInputContainerClass+'">' : '';
+            var inputContainerClose = (inputContainerOpen != '') ? '</div>' : '';
 
-            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline;">'+html+'</div>');
+            var buttonContainerOpen = (this.options.classButtonContainerClass != '') ? '<div class="'+this.options.classButtonContainerClass+'">' : '';
+            var buttonContainerClose = (buttonContainerOpen != '') ? '</div>' : '';
+
+            if(this.options.buttonBefore)
+            {
+                html =
+                    buttonContainerOpen+
+                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                            this.htmlIcon()+
+                            '<span>'+this.options.buttonText+'</span>'+
+                        '</label>'+
+                    buttonContainerClose+
+                    inputContainerOpen+
+                        this.htmlInput()+
+                    inputContainerClose;
+            } else {
+                html =
+                    inputContainerOpen+
+                        this.htmlInput()+
+                    inputContainerClose+
+                    buttonContainerOpen+
+                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                            this.htmlIcon()+
+                        '<span>'+this.options.buttonText+'</span>'+
+                    '</label>'+
+                    buttonContainerClose;
+            }
+
+            this.$elementFilestyle = $('<div class="'+this.options.containerClass+' bootstrap-filestyle">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
-            
+
             $labelFocusableContainer
                 .attr('tabindex', "0")
                 .keypress(function(e) {
@@ -241,9 +266,14 @@
         'buttonText': 'Choose file',
         'input': true,
         'icon': true,
-        'classButton': 'btn',
-        'classInput': 'input-large',
-        'classIcon': 'icon-folder-open'
+        'buttonBefore': false,
+
+        'containerClass': 'form-group', // bootstrap-filestyle
+        'classButtonContainerClass': '',
+        'classButton': 'btn btn-default',
+        'classInputContainerClass': '',
+        'classInput': 'form-control',
+        'classIcon': 'glyphicon glyphicon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
