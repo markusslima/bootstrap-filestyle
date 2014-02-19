@@ -193,6 +193,8 @@
 
                 if (content !== '') {
                     _self.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+                } else {
+                	_self.$elementFilestyle.find(':text').val('');
                 }
             });
 
