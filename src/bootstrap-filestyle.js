@@ -243,7 +243,7 @@
         'icon': true,
         'classButton': 'btn',
         'classInput': 'input-large',
-        'classIcon': 'icon-folder-open'
+        'classIcon': 'glyphicon glyphicon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
