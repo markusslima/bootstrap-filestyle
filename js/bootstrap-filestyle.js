@@ -3,7 +3,7 @@
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
  * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.0.4
+ * Version 1.0.5
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -27,6 +27,20 @@
                 .removeData('filestyle')
                 .val('');
             this.$elementFilestyle.remove();
+        },
+        
+        disabled: function (value) {
+        	if (value === true) {
+        		this.$element
+	                .attr('disabled', 'true');
+	            this.$elementFilestyle.find('label').attr('disabled', 'true');
+        	} else if (value === false) {
+	            this.$element
+	                .removeAttr('disabled');
+	            this.$elementFilestyle.find('label').removeAttr('disabled');
+            } else {
+                return this.options.disabled;
+            }
         },
 
         icon: function (value) {
@@ -159,28 +173,26 @@
             var buttonContainerOpen = (this.options.classButtonContainerClass != '') ? '<div class="'+this.options.classButtonContainerClass+'">' : '';
             var buttonContainerClose = (buttonContainerOpen != '') ? '</div>' : '';
 
-            if(this.options.buttonBefore)
-            {
-                html =
-                    buttonContainerOpen+
-                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
-                            this.htmlIcon()+
-                            '<span>'+this.options.buttonText+'</span>'+
-                        '</label>'+
-                    buttonContainerClose+
-                    inputContainerOpen+
-                        this.htmlInput()+
-                    inputContainerClose;
+            if(this.options.buttonBefore) {
+                html = buttonContainerOpen+
+	                       '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
+	                           this.htmlIcon()+
+	                           '<span>'+this.options.buttonText+'</span>'+
+	                       '</label>'+
+                       buttonContainerClose+
+                       inputContainerOpen+
+                       	   this.htmlInput()+
+                       inputContainerClose;
             } else {
                 html =
                     inputContainerOpen+
                         this.htmlInput()+
                     inputContainerClose+
                     buttonContainerOpen+
-                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                        '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
                             this.htmlIcon()+
-                        '<span>'+this.options.buttonText+'</span>'+
-                    '</label>'+
+                        	'<span>'+this.options.buttonText+'</span>'+
+                    	'</label>'+
                     buttonContainerClose;
             }
 
@@ -202,6 +214,10 @@
                 .css({'position':'absolute','clip':'rect(0,0,0,0)'})
                 .attr('tabindex', "-1")
                 .after(this.$elementFilestyle);
+                
+            if (this.options.disabled) {
+            	this.$element.attr('disabled', 'true');
+            }
 
             // Getting input file value
             this.$element.change(function () {
@@ -220,6 +236,18 @@
                     _self.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
                 } else {
                 	_self.$elementFilestyle.find(':text').val('');
+                }
+                
+                if (_self.options.input == false) {
+                	if (_self.$elementFilestyle.find('.quant-files-filestyle').length == 0) {
+                		_self.$elementFilestyle.find('label').append(' <span class="quant-files-filestyle badge badge-important">'+files.length+'</span>');
+                	} else if (files.length == 0) {
+                		_self.$elementFilestyle.find('.quant-files-filestyle').remove();
+                	} else {
+                		_self.$elementFilestyle.find('.quant-files-filestyle').html(files.length);
+                	}
+                } else {
+                	_self.$elementFilestyle.find('.quant-files-filestyle').remove();
                 }
             });
 
@@ -267,6 +295,7 @@
         'input': true,
         'icon': true,
         'buttonBefore': false,
+        'disabled': false,
 
         'containerClass': 'form-group', // bootstrap-filestyle
         'classButtonContainerClass': '',
