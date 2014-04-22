@@ -321,6 +321,7 @@
                     'classButton': $this.attr('data-classButton'),
                     'classInput': $this.attr('data-classInput'),
                     'classIcon': $this.attr('data-classIcon')
+                    'disabled': $this.attr('data-disabled') === 'true' ? true : false,
                 };
     
             $this.filestyle(options);
