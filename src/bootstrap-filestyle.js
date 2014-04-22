@@ -221,6 +221,18 @@
                 } else {
                 	_self.$elementFilestyle.find(':text').val('');
                 }
+                
+                if (_self.options.input == false) {
+                	if (_self.$elementFilestyle.find('.quant-files-filestyle').length == 0) {
+                		_self.$elementFilestyle.find('label').append(' <span class="quant-files-filestyle badge badge-important">'+files.length+'</span>');
+                	} else if (files.length == 0) {
+                		_self.$elementFilestyle.find('.quant-files-filestyle').remove();
+                	} else {
+                		_self.$elementFilestyle.find('.quant-files-filestyle').html(files.length);
+                	}
+                } else {
+                	_self.$elementFilestyle.find('.quant-files-filestyle').remove();
+                }
             });
 
             // Check if browser is Firefox
