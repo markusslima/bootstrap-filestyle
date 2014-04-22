@@ -28,6 +28,20 @@
                 .val('');
             this.$elementFilestyle.remove();
         },
+        
+        disabled: function (value) {
+        	if (value === true) {
+        		this.$element
+	                .attr('disabled', 'true');
+	            this.$elementFilestyle.find('label').attr('disabled', 'true');
+        	} else if (value === false) {
+	            this.$element
+	                .removeAttr('disabled');
+	            this.$elementFilestyle.find('label').removeAttr('disabled');
+            } else {
+                return this.options.disabled;
+            }
+        },
 
         icon: function (value) {
             if (value === true) {
@@ -159,28 +173,26 @@
             var buttonContainerOpen = (this.options.classButtonContainerClass != '') ? '<div class="'+this.options.classButtonContainerClass+'">' : '';
             var buttonContainerClose = (buttonContainerOpen != '') ? '</div>' : '';
 
-            if(this.options.buttonBefore)
-            {
-                html =
-                    buttonContainerOpen+
-                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
-                            this.htmlIcon()+
-                            '<span>'+this.options.buttonText+'</span>'+
-                        '</label>'+
-                    buttonContainerClose+
-                    inputContainerOpen+
-                        this.htmlInput()+
-                    inputContainerClose;
+            if(this.options.buttonBefore) {
+                html = buttonContainerOpen+
+	                       '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
+	                           this.htmlIcon()+
+	                           '<span>'+this.options.buttonText+'</span>'+
+	                       '</label>'+
+                       buttonContainerClose+
+                       inputContainerOpen+
+                       	   this.htmlInput()+
+                       inputContainerClose;
             } else {
                 html =
                     inputContainerOpen+
                         this.htmlInput()+
                     inputContainerClose+
                     buttonContainerOpen+
-                        '<label for="'+id+'" class="'+this.options.classButton+'">'+
+                        '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
                             this.htmlIcon()+
-                        '<span>'+this.options.buttonText+'</span>'+
-                    '</label>'+
+                        	'<span>'+this.options.buttonText+'</span>'+
+                    	'</label>'+
                     buttonContainerClose;
             }
 
@@ -202,6 +214,10 @@
                 .css({'position':'absolute','clip':'rect(0,0,0,0)'})
                 .attr('tabindex', "-1")
                 .after(this.$elementFilestyle);
+                
+            if (this.options.disabled) {
+            	this.$element.attr('disabled', 'true');
+            }
 
             // Getting input file value
             this.$element.change(function () {
@@ -279,6 +295,7 @@
         'input': true,
         'icon': true,
         'buttonBefore': false,
+        'disabled': false,
 
         'containerClass': 'form-group', // bootstrap-filestyle
         'classButtonContainerClass': '',
