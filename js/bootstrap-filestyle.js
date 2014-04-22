@@ -273,7 +273,7 @@
         'classButton': 'btn btn-default',
         'classInputContainerClass': '',
         'classInput': 'form-control',
-        'classIcon': 'glyphicon glyphicon-folder-open'
+        'classIcon': 'icon-folder-open'
     };
 
     $.fn.filestyle.noConflict = function () {
