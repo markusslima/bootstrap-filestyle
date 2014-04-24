@@ -1,7 +1,8 @@
 $('#input01').filestyle()
 
 $('#input02').filestyle({
-	buttonText: 'My filestyle'
+	buttonText: 'My filestyle',
+	buttonBefore: true
 });
 
 $('#input03').filestyle({
