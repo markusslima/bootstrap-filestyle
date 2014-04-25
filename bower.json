@@ -1,0 +1,26 @@
+{
+  "name": "bootstrap-filestyle",
+  "version": "1.0.4",
+  "homepage": "https://github.com/markusslima/bootstrap-filestyle",
+  "authors": [
+    "Markus Lima @markusslima"
+  ],
+  "description": "Bootstrap FileStyle is a quick and simple plugin to help style your form's file upload inputs.",
+  "main": "src/bootstrap-filestyle.js",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "bootstrap",
+    "fileupload",
+    "filestyle"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
