@@ -7,9 +7,6 @@
   ],
   "description": "Bootstrap FileStyle is a quick and simple plugin to help style your form's file upload inputs.",
   "main": "src/bootstrap-filestyle.js",
-  "moduleType": [
-    "es6"
-  ],
   "keywords": [
     "bootstrap",
     "fileupload",
