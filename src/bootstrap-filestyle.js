@@ -2,8 +2,8 @@
  * bootstrap-filestyle
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
- * Copyright (c) 2013 Markus Vinicius da Silva Lima
- * Version 1.1.0
+ * Copyright (c) 2014 Markus Vinicius da Silva Lima
+ * Version 1.0.5
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -208,6 +208,7 @@
             }
         },
         
+        // puts the name of the input files
         pushNameFiles: function () {
         	var content = '',
         	    files = [];
@@ -253,7 +254,7 @@
                 	   '</label>';
             }
 
-            this.$elementFilestyle = $('<div class="bootstrap-filestyle">'+html+'</div>');
+            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline-block;">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
