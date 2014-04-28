@@ -2,7 +2,7 @@
  * bootstrap-filestyle
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
- * Copyright (c) 2013 Markus Vinicius da Silva Lima
+ * Copyright (c) 2014 Markus Vinicius da Silva Lima
  * Version 1.0.5
  * Licensed under the MIT license.
  */
@@ -31,15 +31,45 @@
         
         disabled: function (value) {
         	if (value === true) {
-        		this.$element
-	                .attr('disabled', 'true');
-	            this.$elementFilestyle.find('label').attr('disabled', 'true');
+        		if (!this.options.disabled) {
+	        		this.$element
+		                .attr('disabled', 'true');
+		            this.$elementFilestyle.find('label').attr('disabled', 'true');
+		            this.options.disabled = true;
+		        }
         	} else if (value === false) {
-	            this.$element
-	                .removeAttr('disabled');
-	            this.$elementFilestyle.find('label').removeAttr('disabled');
+        		if (this.options.disabled) {
+		            this.$element
+		                .removeAttr('disabled');
+		            this.$elementFilestyle.find('label').removeAttr('disabled');
+		            this.options.disabled = false;
+		        }
             } else {
                 return this.options.disabled;
+            }
+        },
+        
+        buttonBefore: function (value) {
+        	if (value === true) {
+        		if (!this.options.buttonBefore) {
+	        		this.options.buttonBefore = true;
+	        		if (this.options.input) {
+	        			this.$elementFilestyle.remove();
+	        			this.constructor();
+	        			this.pushNameFiles();
+	        		}
+	        	}
+        	} else if (value === false) {
+        		if (this.options.buttonBefore) {
+		            this.options.buttonBefore = false;
+		            if (this.options.input) {
+	        			this.$elementFilestyle.remove();
+	        			this.constructor();
+	        			this.pushNameFiles();
+	        		}
+		        }
+            } else {
+                return this.options.buttonBefore;
             }
         },
 
@@ -63,7 +93,14 @@
             if (value === true) {
                 if (!this.options.input) {
                     this.options.input = true;
-                    this.$elementFilestyle.prepend(this.htmlInput());
+                    
+                    if (this.options.buttonBefore) {
+                    	this.$elementFilestyle.append(this.htmlInput());
+                    } else {
+                    	this.$elementFilestyle.prepend(this.htmlInput());
+                    }
+                    
+                    this.$elementFilestyle.find('.quant-files-filestyle').remove();
 
                     var content = '',
                         files = [];
@@ -84,6 +121,21 @@
                 if (this.options.input) {
                     this.options.input = false;
                     this.$elementFilestyle.find(':text').remove();
+                    var files = [];
+	                if (this.$element[0].files === undefined) {
+	                    files[0] = {'name': this.$element[0].value};
+	                } else {
+	                    files = this.$element[0].files;
+	                }
+	                if (files.length > 0) {
+	                	var style;
+	                	if (this.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
+		                    style = 'style="background-color: #fff !important; color: 000;"';
+		                } else {
+		                	style = 'style="background-color: #000 !important; color: fff;"';
+		                }
+	                	this.$elementFilestyle.find('label').append(' <span '+style+' class="quant-files-filestyle badge">'+files.length+'</span>');
+	                }
                 }
             } else {
                 return this.options.input;
@@ -155,6 +207,27 @@
                 return '';
             }
         },
+        
+        // puts the name of the input files
+        pushNameFiles: function () {
+        	var content = '',
+        	    files = [];
+            if (this.$element[0].files === undefined) {
+                files[0] = {'name': this.$element.value};
+            } else {
+                files = this.$element[0].files;
+            }
+            
+            for (var i = 0; i < files.length; i++) {
+                content += files[i].name.split("\\").pop() + ', ';
+            }
+
+            if (content !== '') {
+                this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+            } else {
+            	this.$elementFilestyle.find(':text').val('');
+            }
+        },
 
         constructor: function () {
             var _self = this,
@@ -167,36 +240,21 @@
                 this.$element.attr({'id': id});
             }
 
-            var inputContainerOpen = (this.options.classInputContainerClass != '') ? '<div class="'+this.options.classInputContainerClass+'">' : '';
-            var inputContainerClose = (inputContainerOpen != '') ? '</div>' : '';
-
-            var buttonContainerOpen = (this.options.classButtonContainerClass != '') ? '<div class="'+this.options.classButtonContainerClass+'">' : '';
-            var buttonContainerClose = (buttonContainerOpen != '') ? '</div>' : '';
-
             if(this.options.buttonBefore) {
-                html = buttonContainerOpen+
-	                       '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
-	                           this.htmlIcon()+
-	                           '<span>'+this.options.buttonText+'</span>'+
-	                       '</label>'+
-                       buttonContainerClose+
-                       inputContainerOpen+
-                       	   this.htmlInput()+
-                       inputContainerClose;
+                html = '<label for="'+id+'" style="margin-right: 4px;" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
+                           this.htmlIcon()+
+                           '<span>'+this.options.buttonText+'</span>'+
+                       '</label>'+
+                   	   this.htmlInput();
             } else {
-                html =
-                    inputContainerOpen+
-                        this.htmlInput()+
-                    inputContainerClose+
-                    buttonContainerOpen+
-                        '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
-                            this.htmlIcon()+
-                        	'<span>'+this.options.buttonText+'</span>'+
-                    	'</label>'+
-                    buttonContainerClose;
+                html = this.htmlInput()+
+                       '<label for="'+id+'" class="'+this.options.classButton+'" '+(this.options.disabled?'disabled="true"':'')+'> '+
+                           this.htmlIcon()+
+                    	   '<span>'+this.options.buttonText+'</span>'+
+                	   '</label>';
             }
 
-            this.$elementFilestyle = $('<div class="'+this.options.containerClass+' bootstrap-filestyle">'+html+'</div>');
+            this.$elementFilestyle = $('<div class="bootstrap-filestyle" style="display: inline-block;">'+html+'</div>');
 
             var $label = this.$elementFilestyle.find('label');
             var $labelFocusableContainer = $label.parent();
@@ -239,8 +297,14 @@
                 }
                 
                 if (_self.options.input == false) {
+                	var style;
+                	if (_self.options.classButton.search(/btn-inverse|btn-primary|btn-danger|btn-warning|btn-success/i) !== -1) {
+	                    style = 'style="background-color: #fff !important; color: #000;"';
+	                } else {
+	                	style = 'style="background-color: #000 !important; color: #fff;"';
+	                }
                 	if (_self.$elementFilestyle.find('.quant-files-filestyle').length == 0) {
-                		_self.$elementFilestyle.find('label').append(' <span class="quant-files-filestyle badge badge-important">'+files.length+'</span>');
+                		_self.$elementFilestyle.find('label').append(' <span '+style+' class="quant-files-filestyle badge">'+files.length+'</span>');
                 	} else if (files.length == 0) {
                 		_self.$elementFilestyle.find('.quant-files-filestyle').remove();
                 	} else {
@@ -297,11 +361,8 @@
         'buttonBefore': false,
         'disabled': false,
 
-        'containerClass': 'form-group', // bootstrap-filestyle
-        'classButtonContainerClass': '',
         'classButton': 'btn btn-default',
-        'classInputContainerClass': '',
-        'classInput': 'form-control',
+        'classInput': 'input-large',
         'classIcon': 'icon-folder-open'
     };
 
@@ -315,13 +376,17 @@
         $('.filestyle').each(function () {
             var $this = $(this),
                 options = {
-                    'buttonText': $this.attr('data-buttonText'),
+                    
                     'input': $this.attr('data-input') === 'false' ? false : true,
                     'icon': $this.attr('data-icon') === 'false' ? false : true,
+                    'buttonBefore': $this.attr('data-buttonBefore') === 'true' ? true : false,
+                    'disabled': $this.attr('data-disabled') === 'true' ? true : false,
+                    
+                    'buttonText': $this.attr('data-buttonText'),
                     'classButton': $this.attr('data-classButton'),
                     'classInput': $this.attr('data-classInput'),
                     'classIcon': $this.attr('data-classIcon'),
-                    'disabled': $this.attr('data-disabled') === 'true' ? true : false
+                    'disabled': $this.attr('data-disabled') === 'true' ? true : false,
                 };
     
             $this.filestyle(options);

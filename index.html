@@ -170,7 +170,7 @@
 						</div>
 						<div class="row">
 							<div class="span3">
-								<a href="https://github.com/markusslima/bootstrap-filestyle" class="btn btn-inverse btn-block">
+								<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-inverse btn-block">
 									<i class="icon-random icon-white"></i>
 									Project on Github
 								</a>
@@ -358,6 +358,23 @@ $(<span class="str">":file"</span>).filestyle({disabled: <span class="str">true<
 								<input type="file" class="filestyle" data-disabled="true">
 							</form>
 						</div>
+						
+						<h3>buttonBefore</h3>
+						<div class="well well-small">
+							<h4>- Button before. <small><strong>Type:</strong> Bool, <strong>Default:</strong> false</small></h4>
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({buttonBefore: <span class="str">true</span>});
+</pre>
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-buttonBefore=<span class="str">"true"</span>&gt;
+</pre>
+							<p>Example:</p>
+							<form class="form-inline">
+								<input type="file" class="filestyle" data-buttonBefore="true">
+							</form>
+						</div>
 					</section>
 
 					<!-- 
@@ -454,9 +471,19 @@ $(<span class="str">":file"</span>).filestyle({<span class="str">'classIcon'</sp
 						</div>
 
 						<h3>classInput</h3>
-
 						<div class="well well-small">
 							<h4>- Set or get the class of the input text.</h4>
+<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'classInput'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle({<span class="str">'classInput'</span>: <span class="str">'input-small'</span>});
+</pre>
+						</div>
+						
+						<h3>buttonBefore</h3>
+						<div class="well well-small">
+							<h4>- Set or get button position.</h4>
 <pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'classInput'</span>);
