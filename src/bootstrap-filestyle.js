@@ -3,7 +3,7 @@
  * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
  *
  * Copyright (c) 2014 Markus Vinicius da Silva Lima
- * Version 1.0.5
+ * Version 1.0.6
  * Licensed under the MIT license.
  */
 (function ($) {
