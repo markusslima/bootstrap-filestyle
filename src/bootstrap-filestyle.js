@@ -1,6 +1,7 @@
 /*
  * bootstrap-filestyle
- * http://dev.tudosobreweb.com.br/bootstrap-filestyle/
+ * doc: http://dev.tudosobreweb.com.br/bootstrap-filestyle/
+ * github: https://github.com/markusslima/bootstrap-filestyle
  *
  * Copyright (c) 2014 Markus Vinicius da Silva Lima
  * Version 1.1.0
@@ -192,7 +193,7 @@
 
         htmlIcon: function () {
             if (this.options.icon) {
-                return '<span class="glyphicon '+this.options.iconName+'"> </span> ';
+                return '<span class="glyphicon '+this.options.iconName+'"></span> ';
             } else {
                 return '';
             }
@@ -243,8 +244,7 @@
             
             btn = '<span class="group-span-filestyle '+(this.options.input ? 'input-group-btn' : '') +'">'+
             		  '<label for="'+id+'" class="btn '+this.options.buttonName+' '+(this.options.size=='nr'?'':'btn-'+this.options.size)+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
-                          this.htmlIcon()+
-                          this.options.buttonText+
+                          this.htmlIcon()+this.options.buttonText+
                       '</label>'+
                   '</span>';
 

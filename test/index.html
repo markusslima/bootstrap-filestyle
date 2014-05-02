@@ -182,63 +182,83 @@
 						</form>
 					</div>
 					
-					<form class="form-horizontal well">
-						<h3>Testing multiple initialize</h3>
-						<hr>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
+					<div class="well">
+						<form role="form">
+							<h3>Testing multiple initialize</h3>
+							<hr>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 
-					<form class="form-horizontal well">
-						<h3>Testing initialize via data attributes</h3>
-						<hr>
-						<div class="control-group">
-							<label class="control-label">No icon</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-icon="false">
+					<div class="well">
+						<form role="form">
+							<h3>Testing initialize via data attributes</h3>
+							<hr>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">No icon</label>
+										<input type="file" class="filestyle" data-icon="false">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Change text button</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-buttonText="Find">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Change text button</label>
+										<input type="file" class="filestyle" data-buttonText="Find">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Class input</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-classInput="input-xxlarge">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Class input</label>
+										<input type="file" class="filestyle" data-classInput="input-xxlarge">
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiples data attributes</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-buttonText="Open" data-input="false" data-iconName="glyphicon-plus" data-classButton="btn btn-primary">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Multiples data attributes</label>
+										<input type="file" class="filestyle" data-buttonText="Open" data-input="false" data-iconName="glyphicon-plus" data-classButton="btn btn-primary">
+									</div>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 
 					<p>
 						View documentation: <a href="//markusslima.github.io/bootstrap-filestyle" target="_blank">Doc bootstrap filestyle</a>
@@ -275,7 +295,7 @@
 			});
 
 			$('#input08').filestyle({
-				buttonText : 'File',
+				buttonText : ' File',
 				buttonName : 'btn-success'
 			});
 
@@ -330,7 +350,7 @@
 			});
 
 			// nultiple initialize
-			$('.form-horizontal').eq(1).find(':file').filestyle({
+			$('.test').filestyle({
 				buttonName : 'btn-primary'
 			});
 		</script>
