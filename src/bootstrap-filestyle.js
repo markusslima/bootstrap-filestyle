@@ -138,6 +138,22 @@
                 return this.options.input;
             }
         },
+        
+        size: function (value) {
+        	if (value !== undefined) {
+                var btn = this.$elementFilestyle.find('label'),
+                    input = this.$elementFilestyle.find('input');
+                    
+                btn.removeClass('btn-lg btn-sm');
+                input.removeClass('input-lg input-sm');
+                if (value != 'nr') {
+                	btn.addClass('btn-'+value);
+                	input.addClass('input-'+value);
+                }
+            } else {
+                return this.options.size;
+            }
+        },
 
         buttonText: function (value) {
             if (value !== undefined) {
@@ -184,7 +200,7 @@
 
         htmlInput: function () {
             if (this.options.input) {
-                return '<input type="text" class="form-control" disabled> ';
+                return '<input type="text" class="form-control '+(this.options.size=='nr'?'':'input-'+this.options.size)+'" disabled> ';
             } else {
                 return '';
             }
@@ -226,7 +242,7 @@
             }
             
             btn = '<span class="group-span-filestyle '+(this.options.input ? 'input-group-btn' : '') +'">'+
-            		  '<label for="'+id+'" class="btn '+this.options.buttonName+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
+            		  '<label for="'+id+'" class="btn '+this.options.buttonName+' '+(this.options.size=='nr'?'':'btn-'+this.options.size)+'" '+(this.options.disabled?'disabled="true"':'')+'>'+
                           this.htmlIcon()+
                           this.options.buttonText+
                       '</label>'+
@@ -332,6 +348,7 @@
         'buttonText': 'Choose file',
         'iconName': 'glyphicon-folder-open',
         'buttonName': 'btn-default',
+        'size': 'nr',
         'input': true,
         'icon': true,
         'buttonBefore': false,
@@ -353,7 +370,7 @@
                     'icon': $this.attr('data-icon') === 'false' ? false : true,
                     'buttonBefore': $this.attr('data-buttonBefore') === 'true' ? true : false,
                     'disabled': $this.attr('data-disabled') === 'true' ? true : false,
-                    
+                    'size': $this.attr('size'),
                     'buttonText': $this.attr('data-buttonText'),
                     'buttonName': $this.attr('data-buttonName'),
                     'iconName': $this.attr('data-iconName')
