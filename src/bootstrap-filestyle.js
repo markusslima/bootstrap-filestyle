@@ -101,7 +101,7 @@
                     	this.$elementFilestyle.prepend(this.htmlInput());
                     }
                     
-                    this.$elementFilestyle.find('.quant-files-filestyle').remove();
+                    this.$elementFilestyle.find('.badge').remove();
 
                     var content = '',
                         files = [];
@@ -131,7 +131,7 @@
 	                    files = this.$element[0].files;
 	                }
 	                if (files.length > 0) {
-	                	this.$elementFilestyle.find('label').append(' <span class="quant-files-filestyle badge">'+files.length+'</span>');
+	                	this.$elementFilestyle.find('label').append(' <span class="badge">'+files.length+'</span>');
 	                }
 	                this.$elementFilestyle.find('.group-span-filestyle').removeClass('input-group-btn');
                 }
@@ -179,15 +179,6 @@
                 this.$elementFilestyle.find('.glyphicon').attr({'class': '.glyphicon ' + this.options.iconName});
             } else {
                 return this.options.iconName;
-            }
-        },
-
-        classInput: function (value) {
-            if (value !== undefined) {
-                this.options.classInput = value;
-                this.$elementFilestyle.find(':text').addClass(this.options.classInput);
-            } else {
-                return this.options.classInput;
             }
         },
 
@@ -293,15 +284,15 @@
                 }
                 
                 if (_self.options.input == false) {
-                	if (_self.$elementFilestyle.find('.quant-files-filestyle').length == 0) {
-                		_self.$elementFilestyle.find('label').append(' <span class="quant-files-filestyle badge">'+files.length+'</span>');
+                	if (_self.$elementFilestyle.find('.badge').length == 0) {
+                		_self.$elementFilestyle.find('label').append(' <span class="badge">'+files.length+'</span>');
                 	} else if (files.length == 0) {
-                		_self.$elementFilestyle.find('.quant-files-filestyle').remove();
+                		_self.$elementFilestyle.find('.badge').remove();
                 	} else {
-                		_self.$elementFilestyle.find('.quant-files-filestyle').html(files.length);
+                		_self.$elementFilestyle.find('.badge').html(files.length);
                 	}
                 } else {
-                	_self.$elementFilestyle.find('.quant-files-filestyle').remove();
+                	_self.$elementFilestyle.find('.badge').remove();
                 }
             });
 
