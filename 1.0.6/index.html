@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>Bootstrap Filestyle - jQuery Customization of input html file for Bootstrap Twitter</title>
+		<meta name="description" content="jQuery Customization of input html file for Bootstrap Twitter">
+		<meta name="keywords" content="jquery customization input html file bootstrap twitter">
+		<meta name="author" content="Markus Lima">
+
+        <title>Bootstrap Filestyle - jQuery Customization of input html file for Bootstrap Twitter</title>
 
 		<link rel="icon" type="image/png" href="../icons/favicon.png">
 
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/prettify.css" rel="stylesheet">
 		<link href="css/doc.css" rel="stylesheet">
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -18,7 +22,7 @@
 		<![endif]-->
 		<style type="text/css">
 			header {
-				background: #333;
+				background: url(img/bg-menu-active.jpg) repeat;
 				color: #fff;
 				text-align: center;
 			}
@@ -39,7 +43,7 @@
 				line-height: 30px;
 			}
 			footer {
-				background: #0e4680;
+				background:  #0e4680;
 				color: #fff;
 			}
 			footer a, footer a:hover, footer a:active, footer a:visited {
@@ -81,7 +85,7 @@
 			@media (max-width: 767px) {
 				body {
 					font-size: 13px;
-					padding: 0 10px;
+                    padding: 0 10px;
 				}
 				header, .buttons-share {
 					margin: 0 -20px;
@@ -95,116 +99,89 @@
 				header h4 {
 					font-size: 15px;
 				}
-				footer {
-					margin: 0 -10px;
-				}
+                footer {
+                    margin: 0 -10px;
+                }
 			}
 		</style>
-	</head>
+    </head>
 
-	<body>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Bootstrap Filestyle</a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="#Downloads">Get Bootstrap Filestyle</a>
-						</li>
-						<li>
-							<a href="#Browser">Browser Support</a>
-						</li>
-						<li>
-							<a href="#Description">Description</a>
-						</li>
-						<li>
-							<a href="#Requirements">Requirements</a>
-						</li>
-						<li>
-							<a href="#Getstart">Get Start</a>
-						</li>
-						<li>
-							<a href="#Options">Options</a>
-						</li>
-						<li>
-							<a href="#Methods">Methods</a>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div>
-		</nav>
-
+    <body>
 		<header>
 			<div class="container">
 				<div class="row">
 					<div class="span12">
 						<h1>Bootstrap FileStyle</h1>
-						<h4>Customization of input html file for Bootstrap Twitter</h4>
-						<h4>Version 1.1.0</h4>
+ 						<h3>jQuery FileStyle for Bootstrap</h3>
+	            		<h4>Customization of input html file for Bootstrap Twitter</h4>
+	            		<p>Version 1.0.6</p>
 					</div>
+
 				</div>
 			</div>
-		</header>
+        </header>
 
-		<div class="buttons-share text-center">
-			<!-- Github button -->
-			<iframe src="http://ghbtns.com/github-btn.html?user=markusslima&repo=bootstrap-filestyle&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+        <div class="buttons-share text-center">
+    		<!-- Github button -->
+    		<iframe src="http://ghbtns.com/github-btn.html?user=markusslima&repo=bootstrap-filestyle&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
 
 			<iframe src="http://ghbtns.com/github-btn.html?user=markusslima&repo=bootstrap-filestyle&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
 
-			<!-- Twitter button -->
-			<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-			<script>
-				! function(d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-					if (!d.getElementById(id)) {
-						js = d.createElement(s);
-						js.id = id;
-						js.src = p + '://platform.twitter.com/widgets.js';
-						fjs.parentNode.insertBefore(js, fjs);
-					}
-				}(document, 'script', 'twitter-wjs');
-			</script>
+    		<!-- Twitter button -->
+    		<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-			<!-- Google plus button -->
+    		<!-- Google plus button -->
 			<!-- Place this tag where you want the share button to render. -->
 			<div class="g-plus" data-action="share" data-annotation="bubble"></div>
 
 			<!-- Place this tag after the last share tag. -->
 			<script type="text/javascript" charset="utf-8">
-				(function() {
-					var po = document.createElement('script');
-					po.type = 'text/javascript';
-					po.async = true;
-					po.src = 'https://apis.google.com/js/plusone.js';
-					var s = document.getElementsByTagName('script')[0];
-					s.parentNode.insertBefore(po, s);
-				})();
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/plusone.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
 			</script>
-		</div>
+    	</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="span12">
-					<section id="Downloads">
-						<div class="page-header">
+        <div class="container">
+            <div class="row">
+            	<div class="span3">
+            		<br>
+            		<div class="row">
+	            		<div class="span3" data-spy="affix" data-offset-top="340">
+		            		<ul class="nav nav-tabs nav-stacked">
+		            			<li><a href="#Downloads">Get Bootstrap Filestyle</a></li>
+		            			<li><a href="#Browser">Browser Support</a></li>
+		            			<li><a href="#Description">Description</a></li>
+		            			<li><a href="#Requirements">Requirements</a></li>
+		            			<li><a href="#Getstart">Get Start</a></li>
+		            			<li><a href="#Options">Options</a></li>
+		            			<li><a href="#Methods">Methods</a></li>
+		            		</ul>
+		            	</div>
+		            </div>
+            	</div>
+                <div class="span9">
+                	<section id="Downloads">
+	                	<div class="page-header">
 							<h1> Get Bootstrap Filestyle </h1>
 						</div>
 						<div class="row">
 							<div class="span3">
-								<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-primary btn-lg"> <span class="glyphicon glyphicon-random"></span> Project on Github </a>
-								<a href="js/bootstrap-filestyle.min.js" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-download-alt"></span> Production version </a>
-								<a href="js/bootstrap-filestyle.js" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-download-alt"></span> Development version </a>
+								<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-inverse btn-block">
+									<i class="icon-random icon-white"></i>
+									Project on Github
+								</a>
+								<a href="js/bootstrap-filestyle.min.js" class="btn btn-block">
+									<i class="icon-download-alt"></i>
+									Production version		
+								</a>
+								<a href="js/bootstrap-filestyle.js" class="btn btn-block">
+									<i class="icon-download-alt"></i>
+									Development version
+								</a>
 							</div>
 						</div>
 					</section>
@@ -213,12 +190,10 @@
 						<div class="page-header">
 							<h1>Browser Support</h1>
 						</div>
-
+					
 						<div>
 							<img src="icons/browser.jpg" border="0" atl="Chrome, Firefox, Internet Explorer, Opera, Safari" />
-							<p>
-								<b>Suport IE 8+</b>
-							</p>
+							<p><b>Suport IE 8+</b></p>
 						</div>
 					</section>
 
@@ -226,51 +201,39 @@
 						<div class="page-header">
 							<h1>Description</h1>
 						</div>
-						<p>
-							The <strong>Bootstrap Filestyle</strong> is a plugin for jquery-based component library could <strong>Twitter Bootstrap</strong>, used to style the file fields of the forms.
-						</p>
-						<p>
-							This plugin has an interesting way to present a form for sending files so attractive, while being simple and efficient.
-						</p>
+						<p>The <strong>Bootstrap Filestyle</strong> is a plugin for jquery-based component library could <strong>Twitter Bootstrap</strong>, used to style the file fields of the forms.</p>
+						<p>This plugin has an interesting way to present a form for sending files so attractive, while being simple and efficient.</p>
 					</section>
 
 					<section id="Requirements">
 						<div class="page-header">
 							<h1>Requirements</h1>
 						</div>
-						<p>
-							<a href="http://getbootstrap.com/">Twitter Bootstrap</a> and <a href="http://www.jquery.com">jQuery</a>.
-						</p>
+						<p><a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a> and <a href="http://www.jquery.com">jQuery</a>.</p>
 					</section>
 
 					<section id="Getstart">
 						<div class="page-header">
 							<h1>Get Start</h1>
 						</div>
-						<p>
-							Include:
-						</p>
-						<pre class="prettyprint">
+						<p>Include:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">script</span> type=<span class="str">"text/javascript"</span> src=<span class="str">"js/bootstrap-filestyle.min.js"</span>&gt; &lt;<span class="tag">/script</span>&gt;
 </pre>
-						<p>
-							Via JavaScript:
-						</p>
-						<pre class="prettyprint">
+						<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle();
 </pre>
-						<p>
-							Via data attributes:
-						</p>
-						<pre class="prettyprint">
+						<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classButton=<span class="str">"btn btn-primary"</span> data-input=<span class="str">"false"</span>&gt;
 </pre>
 					</section>
 
-					<!--
+					<!-- 
 					*****************************
-					Options
-					******************************
+						Options
+					****************************** 
 					-->
 
 					<section id="Options">
@@ -280,21 +243,15 @@ $(<span class="str">":file"</span>).filestyle();
 						<h3>input</h3>
 						<div class="well well-small">
 							<h4>- Enables or disables the input text. <small><strong>Type:</strong> Boolean, <strong>Default:</strong> true</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({input: <span class="kwd">false</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-input=<span class="str">"false"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form">
 								<input type="file" class="filestyle" data-input="false">
 							</form>
@@ -303,21 +260,15 @@ $(<span class="str">":file"</span>).filestyle({input: <span class="kwd">false</s
 						<h3>icon</h3>
 						<div class="well well-small">
 							<h4>- Enables or disables the button icon. <small><strong>Type:</strong> Boolean, <strong>Default:</strong> true</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({icon: <span class="kwd">false</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-icon=<span class="str">"false"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-icon="false">
 							</form>
@@ -326,90 +277,66 @@ $(<span class="str">":file"</span>).filestyle({icon: <span class="kwd">false</sp
 						<h3>buttonText</h3>
 						<div class="well well-small">
 							<h4>- Changes the button text. <small><strong>Type:</strong> String, <strong>Default:</strong> "Choose file"</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({buttonText: <span class="str">"Find file"</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-buttonText=<span class="str">"Find file"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-buttonText="Find file">
 							</form>
 						</div>
-
+					
 						<h3>classButton</h3>
 						<div class="well well-small">
 							<h4>- Change classes bootstrap button. <small><strong>Type:</strong> String, <strong>Default:</strong> "btn"</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({classButton: <span class="str">"btn btn-primary"</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classButton=<span class="str">"btn btn-primary"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-classButton="btn btn-primary">
 							</form>
 						</div>
-
+					
 						<h3>classInput</h3>
 						<div class="well well-small">
 							<h4>- Change classes bootstrap input text. <small><strong>Type:</strong> String, <strong>Default:</strong> "input-large"</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({classInput: <span class="str">"input-small"</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classInput=<span class="str">"input-small"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-classInput="input-small">
 							</form>
 						</div>
-
+					
 						<h3>classIcon</h3>
 						<div class="well well-small">
 							<h4>- Change classes bootstrap icons. <small><strong>Type:</strong> String, <strong>Default:</strong> "icon-folder-open"</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({classIcon: <span class="str">"icon-plus"</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classIcon=<span class="str">"icon-plus"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-classIcon="icon-plus">
 							</form>
@@ -418,54 +345,42 @@ $(<span class="str">":file"</span>).filestyle({classIcon: <span class="str">"ico
 						<h3>disabled</h3>
 						<div class="well well-small">
 							<h4>- Disabled button. <small><strong>Type:</strong> Bool, <strong>Default:</strong> false</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({disabled: <span class="str">true</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-disabled=<span class="str">"true"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-disabled="true">
 							</form>
 						</div>
-
+						
 						<h3>buttonBefore</h3>
 						<div class="well well-small">
 							<h4>- Button before. <small><strong>Type:</strong> Bool, <strong>Default:</strong> false</small></h4>
-							<p>
-								Via JavaScript:
-							</p>
-							<pre class="prettyprint">
+							<p>Via JavaScript:</p>
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({buttonBefore: <span class="str">true</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
+							<p>Via data attributes:</p>
+<pre class="prettyprint">
 &lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-buttonBefore=<span class="str">"true"</span>&gt;
 </pre>
-							<p>
-								Example:
-							</p>
+							<p>Example:</p>
 							<form class="form-inline">
 								<input type="file" class="filestyle" data-buttonBefore="true">
 							</form>
 						</div>
 					</section>
 
-					<!--
+					<!-- 
 					*****************************
-					Methods
-					******************************
+						Methods
+					****************************** 
 					-->
 					<section id="Methods">
 						<div class="page-header">
@@ -475,7 +390,7 @@ $(<span class="str">":file"</span>).filestyle({buttonBefore: <span class="str">t
 						<h3>clear</h3>
 						<div class="well well-small">
 							<h4>- Clear selected files.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle(<span class="str">'clear'</span>);
 </pre>
 						</div>
@@ -483,15 +398,15 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'clear'</span>);
 						<h3>destroy</h3>
 						<div class="well well-small">
 							<h4>- Destroy a filestyle completely.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle(<span class="str">'destroy'</span>);
 </pre>
 						</div>
-
+						
 						<h3>disabled</h3>
 						<div class="well well-small">
 							<h4>- Disabled a filestyle.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'disabled'</span>);
 <span class="com">// set</span>
@@ -502,7 +417,7 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'disabled'</span
 						<h3>input</h3>
 						<div class="well well-small">
 							<h4>- Set or get the value of the input option.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'input'</span>);
 <span class="com">// set</span>
@@ -513,7 +428,7 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'input'</span>, 
 						<h3>icon</h3>
 						<div class="well well-small">
 							<h4>- Set or get the value of the icon option.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'icon'</span>);
 <span class="com">// set</span>
@@ -524,7 +439,7 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'icon'</span>, <
 						<h3>buttonText</h3>
 						<div class="well well-small">
 							<h4>- Set or get the text of the button.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonText'</span>);
 <span class="com">// set</span>
@@ -536,7 +451,7 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonText'</sp
 
 						<div class="well well-small">
 							<h4>- Set or get the class of the button.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'classButton'</span>);
 <span class="com">// set</span>
@@ -547,7 +462,7 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'classButton'</s
 						<h3>classIcon</h3>
 						<div class="well well-small">
 							<h4>- Set or get the class of the icon.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'classIcon'</span>);
 <span class="com">// set</span>
@@ -558,18 +473,18 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'classIcon'</spa
 						<h3>classInput</h3>
 						<div class="well well-small">
 							<h4>- Set or get the class of the input text.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'classInput'</span>);
 <span class="com">// set</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'classInput'</span>, <span class="str">'input-small'</span>);
 </pre>
 						</div>
-
+						
 						<h3>buttonBefore</h3>
 						<div class="well well-small">
 							<h4>- Set or get button position.</h4>
-							<pre class="prettyprint">
+<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</span>);
 <span class="com">// set</span>
@@ -577,42 +492,32 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</
 </pre>
 						</div>
 					</section>
-				</div>
-			</div>
-		</div>
-		<footer>
-			<div class="container">
+                </div>
+            </div>
+        </div>
+        <footer>
+        	<div class="container">
 				<div class="row">
 					<div class="span12 text-center">
-						<p>
-							Designed and built by <strong><a href="https://github.com/markusslima">Markus Lima</a>.</strong>
-						</p>
+						<p>Designed and built by <strong><a href="https://github.com/markusslima">Markus Lima</a>.</strong></p>
 						<h4>:) Here to thank all the people who have contributed and will contribute to this project.</h4>
-						<p>
-							Code licensed under <strong>MIT</strong>.
-						</p>
+						<p>Code licensed under <strong>MIT</strong>.</p>
 					</div>
 				</div>
 			</div>
-		</footer>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap-filestyle.min.js" charset="utf-8"></script>
-		<script>
-			(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] ||
-				function() {
-					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        </footer>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/prettify.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/bootstrap-filestyle.min.js" charset="utf-8"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-			ga('create', 'UA-42464483-1', 'markusslima.github.io');
-			ga('send', 'pageview');
-		</script>
-	</body>
+            ga('create', 'UA-42464483-1', 'markusslima.github.io');
+            ga('send', 'pageview');
+        </script>
+    </body>
 </html>
