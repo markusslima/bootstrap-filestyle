@@ -361,7 +361,7 @@
                     'icon': $this.attr('data-icon') === 'false' ? false : true,
                     'buttonBefore': $this.attr('data-buttonBefore') === 'true' ? true : false,
                     'disabled': $this.attr('data-disabled') === 'true' ? true : false,
-                    'size': $this.attr('size'),
+                    'size': $this.attr('data-size'),
                     'buttonText': $this.attr('data-buttonText'),
                     'buttonName': $this.attr('data-buttonName'),
                     'iconName': $this.attr('data-iconName')
