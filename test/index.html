@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="jQuery Customization of input html file for Bootstrap Twitter">
-		<meta name="keywords" content="jquery customization input html file bootstrap twitter">
-		<meta name="author" content="markusslima">
-		<meta http-equiv="expires" content="Tue, 01 Jan 2013 00:00:00 GMT">
-		<meta http-equiv="cache-control" content="public" />
-		<meta http-equiv="Pragma" content="public">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Testing - Bootstrap FileStyle</title>
 
 		<link rel="icon" type="image/png" href="icons/favicon.png">
-		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 
-		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	</head>
 
@@ -26,180 +22,242 @@
 			<div class="row">
 				<div class="span12">
 					<h2 style="text-align: center;">Testing - Bootstrap FileStyle</h2>
-					<form class="form-inline well" action="upload.php" enctype="multipart/form-data" method="post">
-						<h3>Testing Upload</h3>
-						<hr>
-						<div class="control-group">
-							<div class="controls">
-								<input type="file" name="example" id="input01">
-								<button type="submit" class="btn btn-primary">
-									<i class="icon-upload icon-white"></i>
-									Send
-								</button>
+					<div class="well">
+						<form role="form" action="upload.php" enctype="multipart/form-data" method="post">
+							<h3>Testing Upload</h3>
+							<hr>
+							<div class="row">
+  								<div class="col-xs-6">
+									<div class="form-group">
+										<input type="file" name="example" id="input01">
+									</div>
+								</div>
+								<div class="col-xs-2">
+									<div class="form-group">
+										<button type="submit" class="btn btn-primary">
+											<span class="glyphicon glyphicon-ok"></span> Send
+										</button>
+									</div>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
+					<div class="well">
+						<form role="form">
+							<h3>Testing Options</h3>
+							<hr>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Default browser</label>
+										<input type="file" id="input00">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Custom button text</label>
+										<input type="file" id="input02">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>No input and file count</label>
+										<input type="file" id="input03" multiple="multiple">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>No icon</label>
+										<input type="file" id="input04">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Class bootstrap button</label>
+										<input type="file" id="input05">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Change icon</label>
+										<input type="file" id="input07">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>
+											Clear button 
+											<button id="clear" class="btn btn-default btn-xs" type="button">
+												Clear
+											</button>
+										</label>
+										<input type="file" id="input08">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>
+											Toggle button
+											<button id="toggleInput" class="btn btn-default btn-xs" type="button">
+												Toggle input
+											</button>
+										</label>
+										<input type="file" id="input09">
+										
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>
+											Toggle icon
+											<button id="toggleIcon" class="btn btn-default btn-xs" type="button">
+												Toggle icon
+											</button>
+										</label>
+										<input type="file" id="input10">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple selection</label>
+										<input type="file" multiple="multiple" id="input11">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Remove text button</label>
+										<input type="file" id="input12">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Disabled button</label>
+										<input type="file" id="input13">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Button before</label>
+										<input type="file" id="input14">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Size</label>
+										<input type="file" id="input15">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
 					
-					<form class="form-horizontal well">
-						<h3>Testing Options</h3>
-						<hr>
-						<fieldset>
-							<div class="control-group">
-								<label class="control-label" for="input00">Default browser</label>
-								<div class="controls">
-									<input type="file" id="input00">
+					<div class="well">
+						<form role="form">
+							<h3>Testing multiple initialize</h3>
+							<hr>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input02">Custom button text</label>
-								<div class="controls">
-									<input type="file" id="input02">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input03">No input and file count</label>
-								<div class="controls">
-									<input type="file" id="input03" multiple="multiple">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input04">No icon</label>
-								<div class="controls">
-									<input type="file" id="input04">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label>Multiple initialize</label>
+										<input type="file" class="test">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input05">Class bootstrap button</label>
-								<div class="controls">
-									<input type="file" id="input05">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input06">Class bootstrap input</label>
-								<div class="controls">
-									<input type="file" id="input06">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input07">Change icon</label>
-								<div class="controls">
-									<input type="file" id="input07">
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input08">Clear button</label>
-								<div class="controls">
-									<input type="file" id="input08">
-									<button id="clear" class="btn" type="button">
-										Clear
-									</button>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input09">Toggle button</label>
-								<div class="controls">
-									<input type="file" id="input09">
-									<button id="toggleInput" class="btn" type="button">
-										Toggle input
-									</button>
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="input10">Toggle icon</label>
-								<div class="controls">
-									<input type="file" id="input10">
-									<button id="toggleIcon" class="btn" type="button">
-										Toggle icon
-									</button>
-								</div>
-							</div>
+						</form>
+					</div>
 
-							<div class="control-group">
-								<label class="control-label" for="input11">Multiple selection</label>
-								<div class="controls">
-									<input type="file" multiple="multiple" id="input11">
+					<div class="well">
+						<form role="form">
+							<h3>Testing initialize via data attributes</h3>
+							<hr>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">No icon</label>
+										<input type="file" class="filestyle" data-icon="false">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input12">Remove text button</label>
-								<div class="controls">
-									<input type="file" id="input12">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Change text button</label>
+										<input type="file" class="filestyle" data-buttonText="Find">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input13">Disabled button</label>
-								<div class="controls">
-									<input type="file" id="input13">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Class input</label>
+										<input type="file" class="filestyle" data-classInput="input-xxlarge">
+									</div>
 								</div>
 							</div>
-							<div class="control-group">
-								<label class="control-label" for="input14">Button before</label>
-								<div class="controls">
-									<input type="file" id="input14">
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Multiples data attributes</label>
+										<input type="file" class="filestyle" data-buttonText="Open" data-input="false" data-iconName="glyphicon-plus" data-classButton="btn btn-primary">
+									</div>
 								</div>
 							</div>
-						</fieldset>
-					</form>
-					
-					<form class="form-horizontal well">
-						<h3>Testing multiple initialize</h3>
-						<hr>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiple initialize</label>
-							<div class="controls">
-								<input type="file" class="test">
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 
-					<form class="form-horizontal well">
-						<h3>Testing initialize via data attributes</h3>
-						<hr>
-						<div class="control-group">
-							<label class="control-label">No icon</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-icon="false">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Change text button</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-buttonText="Find">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Class input</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-classInput="input-xxlarge">
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Multiples data attributes</label>
-							<div class="controls">
-								<input type="file" class="filestyle" data-buttonText="Open" data-input="false" data-classIcon="icon-plus" data-classButton="btn btn-primary">
-							</div>
-						</div>
-					</form>
-					
-					<p>View documentation: <a href="//markusslima.github.io/bootstrap-filestyle" target="_blank">Doc bootstrap filestyle</a></p>
+					<p>
+						View documentation: <a href="//markusslima.github.io/bootstrap-filestyle" target="_blank">Doc bootstrap filestyle</a>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -215,7 +273,7 @@
 
 			$('#input03').filestyle({
 				input : false,
-				classButton : 'btn btn-primary'
+				buttonName : 'btn-primary'
 			});
 
 			$('#input04').filestyle({
@@ -223,21 +281,17 @@
 			});
 
 			$('#input05').filestyle({
-				classButton : 'btn btn-warning'
-			});
-
-			$('#input06').filestyle({
-				classInput : 'input-small'
+				buttonName : 'btn-warning'
 			});
 
 			$('#input07').filestyle({
-				classIcon : 'icon-plus',
+				iconName : 'glyphicon-plus',
 				buttonText : 'Add'
 			});
 
 			$('#input08').filestyle({
-				buttonText : 'File',
-				classButton : 'btn btn-success'
+				buttonText : ' File',
+				buttonName : 'btn-success'
 			});
 
 			$('#clear').click(function() {
@@ -246,7 +300,7 @@
 
 			$('#input09').filestyle({
 				buttonText : 'File',
-				classButton : 'btn btn-primary'
+				buttonName : 'btn-primary'
 			});
 
 			$('#toggleInput').click(function() {
@@ -259,7 +313,7 @@
 
 			$('#input10').filestyle({
 				buttonText : 'File',
-				classButton : 'btn btn-primary'
+				buttonName : 'btn-primary'
 			});
 
 			$('#toggleIcon').click(function() {
@@ -272,24 +326,27 @@
 
 			$('#input11').filestyle({
 				buttonText : 'Multiple',
-				classButton : 'btn btn-danger'
+				buttonName : 'btn-danger'
 			});
 
 			$('#input12').filestyle({
 				buttonText : ''
 			});
-			
+
 			$('#input13').filestyle({
 				disabled : true
 			});
-			
+
 			$('#input14').filestyle({
 				buttonBefore : true
 			});
+			$('#input15').filestyle({
+				size : 'lg'
+			});
 
 			// nultiple initialize
-			$('.form-horizontal').eq(1).find(':file').filestyle({
-				classButton : 'btn btn-primary'
+			$('.test').filestyle({
+				buttonName : 'btn-primary'
 			});
 		</script>
 	</body>
