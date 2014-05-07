@@ -24,17 +24,6 @@ pre.prettyprint {
 	font-size: 15px;
 }
 
-div.affix {
-	top: 60px;
-}
-
-@media (max-width: 767px) {
-	div.affix {
-		top: 0;
-		position: relative;
-	}
-}
-
 footer {
 	padding: 30px 20px;
 }
@@ -61,7 +50,7 @@ header h4 {
 	line-height: 30px;
 }
 footer {
-	background: #0e4680;
+	background: #333;
 	color: #fff;
 }
 footer a, footer a:hover, footer a:active, footer a:visited {
@@ -72,6 +61,7 @@ footer a, footer a:hover, footer a:active, footer a:visited {
 	background: #ededed;
 	border-bottom: 1px solid #dedede;
 }
+
 @media (max-width: 480px) {
 	header h1 {
 		font-size: 60px;
@@ -121,10 +111,7 @@ footer a, footer a:hover, footer a:active, footer a:visited {
 		margin: 0 -10px;
 	}
 }
-
-
-
-
+/* code color */
 .str {
 	color: green;
 }
