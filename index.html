@@ -16,90 +16,6 @@
 		<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<style type="text/css">
-			header {
-				background: #333;
-				color: #fff;
-				text-align: center;
-			}
-			header h1 {
-				font-size: 80px;
-				line-height: 70px;
-				margin-bottom: 30px;
-				text-shadow: 2px 2px 10px #000;
-				color: orange;
-			}
-			header h3 {
-				font-size: 40px;
-				text-shadow: 2px 2px 10px #000;
-			}
-			header h4 {
-				font-size: 30px;
-				text-shadow: 2px 2px 10px #000;
-				line-height: 30px;
-			}
-			footer {
-				background: #0e4680;
-				color: #fff;
-			}
-			footer a, footer a:hover, footer a:active, footer a:visited {
-				color: #fff;
-			}
-			.buttons-share {
-				padding: 10px;
-				background: #ededed;
-				border-bottom: 1px solid #dedede;
-			}
-			@media (max-width: 480px) {
-				header h1 {
-					font-size: 60px;
-				}
-				header h3 {
-					font-size: 30px;
-				}
-				header h4 {
-					font-size: 20px;
-				}
-			}
-			@media (max-width: 979px) {
-				body {
-					padding-top: 0;
-				}
-				.navbar-fixed-top {
-					margin-bottom: 0;
-				}
-				header h1 {
-					font-size: 60px;
-				}
-				header h3 {
-					font-size: 35px;
-				}
-				header h4 {
-					font-size: 20px;
-				}
-			}
-			@media (max-width: 767px) {
-				body {
-					font-size: 13px;
-					padding: 0 10px;
-				}
-				header, .buttons-share {
-					margin: 0 -20px;
-				}
-				header h1 {
-					font-size: 50px;
-				}
-				header h3 {
-					font-size: 30px;
-				}
-				header h4 {
-					font-size: 15px;
-				}
-				footer {
-					margin: 0 -10px;
-				}
-			}
-		</style>
 	</head>
 
 	<body>
@@ -151,6 +67,7 @@
 						<h1>Bootstrap FileStyle</h1>
 						<h4>Customization of input html file for Bootstrap Twitter</h4>
 						<h4>Version 1.1.0</h4>
+						<p><a href="1.0.6/">View documentation of the version 1.0.6</a></p>
 					</div>
 				</div>
 			</div>
@@ -195,17 +112,15 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="span12">
+				<div class="col-md-12">
 					<section id="Downloads">
 						<div class="page-header">
 							<h1> Get Bootstrap Filestyle </h1>
 						</div>
-						<div class="row">
-							<div class="span3">
-								<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-primary btn-lg"> <span class="glyphicon glyphicon-random"></span> Project on Github </a>
-								<a href="js/bootstrap-filestyle.min.js" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-download-alt"></span> Production version </a>
-								<a href="js/bootstrap-filestyle.js" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-download-alt"></span> Development version </a>
-							</div>
+						<div class="span3">
+							<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-primary btn-lg"> <span class="glyphicon glyphicon-random"></span> Project on Github </a>
+							<a href="js/bootstrap-filestyle.min.js" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-download-alt"></span> Production version </a>
+							<a href="js/bootstrap-filestyle.js" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-download-alt"></span> Development version </a>
 						</div>
 					</section>
 
@@ -263,7 +178,7 @@ $(<span class="str">":file"</span>).filestyle();
 							Via data attributes:
 						</p>
 						<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classButton=<span class="str">"btn btn-primary"</span> data-input=<span class="str">"false"</span>&gt;
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span>&gt;
 </pre>
 					</section>
 
@@ -295,8 +210,14 @@ $(<span class="str">":file"</span>).filestyle({input: <span class="kwd">false</s
 							<p>
 								Example:
 							</p>
-							<form class="form">
-								<input type="file" class="filestyle" data-input="false">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-input="false">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
@@ -318,8 +239,14 @@ $(<span class="str">":file"</span>).filestyle({icon: <span class="kwd">false</sp
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-icon="false">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-icon="false">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
@@ -341,77 +268,104 @@ $(<span class="str">":file"</span>).filestyle({buttonText: <span class="str">"Fi
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-buttonText="Find file">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-buttonText="Find file">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
-						<h3>classButton</h3>
+						<h3>buttonName</h3>
 						<div class="well well-small">
-							<h4>- Change classes bootstrap button. <small><strong>Type:</strong> String, <strong>Default:</strong> "btn"</small></h4>
+							<h4>- Change classes bootstrap button. <small><strong>Type:</strong> String, <strong>Default:</strong> "btn-default"</small></h4>
 							<p>
 								Via JavaScript:
 							</p>
 							<pre class="prettyprint">
-$(<span class="str">":file"</span>).filestyle({classButton: <span class="str">"btn btn-primary"</span>});
+$(<span class="str">":file"</span>).filestyle({buttonName: <span class="str">"btn-primary"</span>});
 </pre>
 							<p>
 								Via data attributes:
 							</p>
 							<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classButton=<span class="str">"btn btn-primary"</span>&gt;
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-buttonName=<span class="str">"btn-primary"</span>&gt;
 </pre>
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-classButton="btn btn-primary">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-buttonName="btn-primary">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
-						<h3>classInput</h3>
+						<h3>size</h3>
 						<div class="well well-small">
-							<h4>- Change classes bootstrap input text. <small><strong>Type:</strong> String, <strong>Default:</strong> "input-large"</small></h4>
+							<h4>- Change size bootstrap of the button and input. <small><strong>Type:</strong> String, <strong>Default:</strong> "nr"</small></h4>
+							<p>
+								Accepted values: <b>lg, nr, sm</b>
+							</p>
 							<p>
 								Via JavaScript:
 							</p>
 							<pre class="prettyprint">
-$(<span class="str">":file"</span>).filestyle({classInput: <span class="str">"input-small"</span>});
+$(<span class="str">":file"</span>).filestyle({size: <span class="str">"sm"</span>});
 </pre>
 							<p>
 								Via data attributes:
 							</p>
 							<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classInput=<span class="str">"input-small"</span>&gt;
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-size=<span class="str">"sm"</span>&gt;
 </pre>
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-classInput="input-small">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-size="sm">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
-						<h3>classIcon</h3>
+						<h3>iconName</h3>
 						<div class="well well-small">
-							<h4>- Change classes bootstrap icons. <small><strong>Type:</strong> String, <strong>Default:</strong> "icon-folder-open"</small></h4>
+							<h4>- Change classes bootstrap icons. <small><strong>Type:</strong> String, <strong>Default:</strong> "glyphicon-folder-open"</small></h4>
 							<p>
 								Via JavaScript:
 							</p>
 							<pre class="prettyprint">
-$(<span class="str">":file"</span>).filestyle({classIcon: <span class="str">"icon-plus"</span>});
+$(<span class="str">":file"</span>).filestyle({iconName: <span class="str">"glyphicon-inbox"</span>});
 </pre>
 							<p>
 								Via data attributes:
 							</p>
 							<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-classIcon=<span class="str">"icon-plus"</span>&gt;
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-iconName=<span class="str">"glyphicon-inbox"</span>&gt;
 </pre>
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-classIcon="icon-plus">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-iconName="glyphicon-inbox">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
@@ -433,8 +387,14 @@ $(<span class="str">":file"</span>).filestyle({disabled: <span class="str">true<
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-disabled="true">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-disabled="true">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 
@@ -456,8 +416,14 @@ $(<span class="str">":file"</span>).filestyle({buttonBefore: <span class="str">t
 							<p>
 								Example:
 							</p>
-							<form class="form-inline">
-								<input type="file" class="filestyle" data-buttonBefore="true">
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-buttonBefore="true">
+										</div>
+									</div>
+								</div>
 							</form>
 						</div>
 					</section>
@@ -532,37 +498,37 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonText'</sp
 </pre>
 						</div>
 
-						<h3>classButton</h3>
+						<h3>buttonName</h3>
 
 						<div class="well well-small">
 							<h4>- Set or get the class of the button.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'classButton'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonName'</span>);
 <span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'classButton'</span>, <span class="str">'btn btn-danger'</span>};
+$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonName'</span>, <span class="str">'btn-danger'</span>};
 </pre>
 						</div>
 
-						<h3>classIcon</h3>
+						<h3>iconName</h3>
 						<div class="well well-small">
 							<h4>- Set or get the class of the icon.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'classIcon'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'iconName'</span>);
 <span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'classIcon'</span>, <span class="str">'icon-plus'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'iconName'</span>, <span class="str">'glyphicon-home'</span>);
 </pre>
 						</div>
 
-						<h3>classInput</h3>
+						<h3>size</h3>
 						<div class="well well-small">
 							<h4>- Set or get the class of the input text.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'classInput'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>);
 <span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'classInput'</span>, <span class="str">'input-small'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>, <span class="str">'lg'</span>);
 </pre>
 						</div>
 
