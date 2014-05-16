@@ -1,6 +1,6 @@
 {
 	"name": "bootstrap-filestyle",
-	"version": "1.0.5",
+	"version": "1.1.0",
 	"title": "Bootstrap styling input file",
 	"description": "jQuery FileStyle for Bootstrap - Customization of input html file for Bootstrap Twitter",
 	"keywords": ["jquery", "file", "upload", "boostrap", "multiple", "input", "style"],
