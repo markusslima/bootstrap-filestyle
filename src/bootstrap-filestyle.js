@@ -1,10 +1,10 @@
 /*
  * bootstrap-filestyle
- * doc: http://dev.tudosobreweb.com.br/bootstrap-filestyle/
+ * doc: http://markusslima.github.io/bootstrap-filestyle/
  * github: https://github.com/markusslima/bootstrap-filestyle
  *
  * Copyright (c) 2014 Markus Vinicius da Silva Lima
- * Version 1.1.0
+ * Version 1.1.1
  * Licensed under the MIT license.
  */
 (function ($) {
@@ -243,10 +243,7 @@
 
             this.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">' + html + '</div>');
 
-            $label = this.$elementFilestyle.find('label');
-            $labelFocusableContainer = $label.parent();
-
-            $labelFocusableContainer
+            this.$elementFilestyle.find('.group-span-filestyle')
                 .attr('tabindex', "0")
                 .keypress(function (e) {
                     if (e.keyCode === 13 || e.charCode === 32) {
@@ -256,8 +253,7 @@
 
             // hidding input file and add filestyle
             this.$element
-                //.css({'position':'absolute','clip':'rect(0,0,0,0)'})
-                /*replaced previous line with the one under this to make the filestyle work property on IE8*/
+                /* using 0px for work in IE8 */
                 .css({'position': 'absolute', 'clip': 'rect(0px 0px 0px 0px)'})
                 .attr('tabindex', "-1")
                 .after(this.$elementFilestyle);
