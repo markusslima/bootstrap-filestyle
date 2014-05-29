@@ -1,10 +1,12 @@
 {
 	"name": "bootstrap-filestyle",
-	"version": "1.1.0",
 	"title": "Bootstrap styling input file",
+	"version": "v1.1.0",
 	"description": "jQuery FileStyle for Bootstrap - Customization of input html file for Bootstrap Twitter",
 	"keywords": ["jquery", "file", "upload", "boostrap", "multiple", "input", "style"],
 	"homepage": "http://markusslima.github.io/bootstrap-filestyle/",
+	"demo": "http://markusslima.github.io/bootstrap-filestyle/",
+	"bugs": "https://github.com/markusslima/bootstrap-filestyle/issues",
 	"author": {
 		"name": "Markus Lima",
 		"url": "https://github.com/markusslima"
@@ -12,14 +14,13 @@
 	"maintainers": [
 		{
 			"name": "Markus Lima",
-			"url": "http://markusslima.github.io/bootstrap-filestyle/"
+			"url": "https://github.com/markusslima"
 		}
 	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/markusslima/bootstrap-filestyle"
 	},
-	"bugs": "https://github.com/markusslima/bootstrap-filestyle/issues",
 	"licenses": [
 		{
 			"type": "MIT",
@@ -27,6 +28,6 @@
 		}
 	],
 	"devDependencies": {
-		"jquery": ">=1.6"
+		"jquery": ">=1.5"
 	}
 }
