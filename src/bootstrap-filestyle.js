@@ -155,7 +155,6 @@
             		this.$elementFilestyle.find(':text').attr('placeholder', value);
         	},
 
-
 		iconName : function(value) {
 			if (value !== undefined) {
 				this.$elementFilestyle.find('.glyphicon').attr({
