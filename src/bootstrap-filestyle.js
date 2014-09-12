@@ -106,7 +106,7 @@
 					this.options.input = false;
 					this.$elementFilestyle.find(':text').remove();
 					var files = this.pushNameFiles();
-					if (files.length > 0) {
+					if (files.length > 0 && this.options.badge) {
 						this.$elementFilestyle.find('label').append(' <span class="badge">' + files.length + '</span>');
 					}
 					this.$elementFilestyle.find('.group-span-filestyle').removeClass('input-group-btn');
@@ -249,7 +249,7 @@
 			_self.$element.change(function() {
 				var files = _self.pushNameFiles();
 
-				if (_self.options.input == false) {
+				if (_self.options.input == false && _self.options.badge) {
 					if (_self.$elementFilestyle.find('.badge').length == 0) {
 						_self.$elementFilestyle.find('label').append(' <span class="badge">' + files.length + '</span>');
 					} else if (files.length == 0) {
@@ -304,6 +304,7 @@
 		'buttonName' : 'btn-default',
 		'size' : 'nr',
 		'input' : true,
+		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
 		'disabled' : false
