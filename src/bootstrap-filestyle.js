@@ -183,7 +183,7 @@
 			var content = '', files = [];
 			if (this.$element[0].files === undefined) {
 				files[0] = {
-					'name' : this.$element.value
+					'name' : this.$element[0] && this.$element[0].value
 				};
 			} else {
 				files = this.$element[0].files;
