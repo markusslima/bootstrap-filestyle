@@ -1,4 +1,4 @@
-# [Bootstrap FileStyle v1.1.0](http://dev.tudosobreweb.com.br/bootstrap-filestyle/)
+# [Bootstrap FileStyle v1.1.2](http://dev.tudosobreweb.com.br/bootstrap-filestyle/)
 
 Bootstrap FileStyle is a quick and simple plugin to help style your form's file upload inputs.
 
