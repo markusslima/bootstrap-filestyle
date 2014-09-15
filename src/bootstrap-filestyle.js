@@ -329,7 +329,7 @@
 				'buttonText' : $this.attr('data-buttonText'),
 				'buttonName' : $this.attr('data-buttonName'),
 				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-disabled') === 'false' ? false : true
+				'badge' : $this.attr('data-badge') === 'false' ? false : true
 			};
 
 			$this.filestyle(options);
