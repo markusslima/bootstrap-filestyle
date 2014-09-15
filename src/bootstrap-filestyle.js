@@ -4,7 +4,7 @@
  * github: https://github.com/markusslima/bootstrap-filestyle
  *
  * Copyright (c) 2014 Markus Vinicius da Silva Lima
- * Version 1.1.1
+ * Version 1.1.2
  * Licensed under the MIT license.
  */
 (function($) {"use strict";
@@ -19,6 +19,7 @@
 		clear : function() {
 			this.$element.val('');
 			this.$elementFilestyle.find(':text').val('');
+			this.$elementFilestyle.find('.badge').remove();
 		},
 
 		destroy : function() {
@@ -327,7 +328,8 @@
 				'size' : $this.attr('data-size'),
 				'buttonText' : $this.attr('data-buttonText'),
 				'buttonName' : $this.attr('data-buttonName'),
-				'iconName' : $this.attr('data-iconName')
+				'iconName' : $this.attr('data-iconName'),
+				'badge' : $this.attr('data-disabled') === 'false' ? false : true
 			};
 
 			$this.filestyle(options);
