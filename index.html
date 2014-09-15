@@ -66,7 +66,7 @@
 					<div class="span12">
 						<h1>Bootstrap FileStyle</h1>
 						<h4>Customization of input html file for Bootstrap Twitter</h4>
-						<h4>Version 1.1.0</h4>
+						<h4>Version 1.1.2</h4>
 						<p><a href="1.0.6/">View documentation of the version 1.0.6</a></p>
 					</div>
 				</div>
@@ -421,6 +421,34 @@ $(<span class="str">":file"</span>).filestyle({buttonBefore: <span class="str">t
 									<div class="row">
 										<div class="col-md-4">
 											<input type="file" class="filestyle" data-buttonBefore="true">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<h3>badge</h3>
+						<div class="well well-small">
+							<h4>- Enables or disables the badge counter. <small><strong>Type:</strong> Boolean, <strong>Default:</strong> true</small></h4>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({badge: <span class="kwd">false</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-badge=<span class="str">"false"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-badge="false">
 										</div>
 									</div>
 								</div>
