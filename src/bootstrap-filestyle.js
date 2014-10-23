@@ -135,7 +135,7 @@
 		buttonText : function(value) {
 			if (value !== undefined) {
 				this.options.buttonText = value;
-				this.$elementFilestyle.find('label span').html(this.options.buttonText);
+				this.$elementFilestyle.find('label .buttonText').html(this.options.buttonText);
 			} else {
 				return this.options.buttonText;
 			}
@@ -222,7 +222,7 @@
 				  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
 				  	(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
 				  	(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
-				  		_self.htmlIcon() + _self.options.buttonText + 
+				  		_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
 				  '</label>' + 
 				  '</span>';
 
