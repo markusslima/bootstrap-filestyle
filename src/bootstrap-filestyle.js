@@ -23,7 +23,7 @@
 		},
 
 		destroy : function() {
-			this.$element.removeAttr('style').removeData('filestyle').val('');
+			this.$element.removeAttr('style').removeData('filestyle');
 			this.$elementFilestyle.remove();
 		},
 
