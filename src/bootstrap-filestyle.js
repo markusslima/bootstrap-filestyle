@@ -316,9 +316,10 @@
 		return this;
 	};
 
-        $.fn.filestyle.draw = function() {
-                $('.filestyle').each(function() {
-                        var $this = $(this), options = {
+        var draw = function(elements, customOptions) {
+                var customOptions = customOptions || {};
+                elements.each(function() {
+                        var $this = $(this), dataAttrOptions = {
 
                                 'input' : $this.attr('data-input') === 'false' ? false : true,
                                 'icon' : $this.attr('data-icon') === 'false' ? false : true,
@@ -330,18 +331,19 @@
                                 'iconName' : $this.attr('data-iconName'),
                                 'badge' : $this.attr('data-badge') === 'false' ? false : true
                   };
+                  var options = $.extend(dataAttrOptions, customOptions);
 
                   $this.filestyle(options);
                 });
       };
 
-      $.fn.redraw = function() {
+      $.fn.redraw = function(options) {
                 this.filestyle('destroy');
-                $.fn.filestyle.draw();
+                draw(this, options);
       };
 
       // Data attributes register
       $(function() {
-                $.fn.filestyle.draw();
+                draw($('.filestyle'));
       });
 })(window.jQuery);
