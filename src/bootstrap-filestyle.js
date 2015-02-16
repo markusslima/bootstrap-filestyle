@@ -316,23 +316,32 @@
 		return this;
 	};
 
-	// Data attributes register
-	$(function() {
-		$('.filestyle').each(function() {
-			var $this = $(this), options = {
+        $.fn.filestyle.draw = function() {
+                $('.filestyle').each(function() {
+                        var $this = $(this), options = {
 
-				'input' : $this.attr('data-input') === 'false' ? false : true,
-				'icon' : $this.attr('data-icon') === 'false' ? false : true,
-				'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
-				'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
-				'size' : $this.attr('data-size'),
-				'buttonText' : $this.attr('data-buttonText'),
-				'buttonName' : $this.attr('data-buttonName'),
-				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true
-			};
+                                'input' : $this.attr('data-input') === 'false' ? false : true,
+                                'icon' : $this.attr('data-icon') === 'false' ? false : true,
+                                'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
+                                'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
+                                'size' : $this.attr('data-size'),
+                                'buttonText' : $this.attr('data-buttonText'),
+                                'buttonName' : $this.attr('data-buttonName'),
+                                'iconName' : $this.attr('data-iconName'),
+                                'badge' : $this.attr('data-badge') === 'false' ? false : true
+                  };
 
-			$this.filestyle(options);
-		});
-	});
+                  $this.filestyle(options);
+                });
+      };
+
+      $.fn.redraw = function() {
+                this.filestyle('destroy');
+                $.fn.filestyle.draw();
+      };
+
+      // Data attributes register
+      $(function() {
+                $.fn.filestyle.draw();
+      });
 })(window.jQuery);

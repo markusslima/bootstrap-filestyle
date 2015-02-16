@@ -262,6 +262,22 @@
 							</div>
 						</form>
 					</div>
+					<div class="well">
+						<form role="form">
+							<h3>Styling newly added elements via data attributes</h3>
+							<hr>
+                                                                <label>
+                                                                        <button id="redraw" class="btn btn-default btn-xs" type="button">
+                                                                              Add New Element
+                                                                        </button>
+                                                                </label>
+							<div class="row">
+								<div class="col-xs-6">
+									<div id="new-element" class="form-group"></div>
+								</div>
+							</div>
+						</form>
+					</div>
 
 					<p>
 						View documentation: <a href="//markusslima.github.io/bootstrap-filestyle" target="_blank">Doc bootstrap filestyle</a>
@@ -359,6 +375,13 @@
 			// nultiple initialize
 			$('.test').filestyle({
 				buttonName : 'btn-primary'
+			});
+
+			$('#redraw').click(function() {
+                                var newDomElement = '<input type="file" id="input17"class="filestyle" data-iconName="glyphicon-camera" data-buttonText="Styled with data attributes">';
+                                $('#new-element').prepend(newDomElement);
+                                var input = $('#input17');
+                                input.redraw();
 			});
 		</script>
 	</body>
