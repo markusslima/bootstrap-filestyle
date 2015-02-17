@@ -316,23 +316,34 @@
 		return this;
 	};
 
-	// Data attributes register
-	$(function() {
-		$('.filestyle').each(function() {
-			var $this = $(this), options = {
+        var draw = function(elements, customOptions) {
+                var customOptions = customOptions || {};
+                elements.each(function() {
+                        var $this = $(this), dataAttrOptions = {
 
-				'input' : $this.attr('data-input') === 'false' ? false : true,
-				'icon' : $this.attr('data-icon') === 'false' ? false : true,
-				'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
-				'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
-				'size' : $this.attr('data-size'),
-				'buttonText' : $this.attr('data-buttonText'),
-				'buttonName' : $this.attr('data-buttonName'),
-				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true
-			};
+                                'input' : $this.attr('data-input') === 'false' ? false : true,
+                                'icon' : $this.attr('data-icon') === 'false' ? false : true,
+                                'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
+                                'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
+                                'size' : $this.attr('data-size'),
+                                'buttonText' : $this.attr('data-buttonText'),
+                                'buttonName' : $this.attr('data-buttonName'),
+                                'iconName' : $this.attr('data-iconName'),
+                                'badge' : $this.attr('data-badge') === 'false' ? false : true
+                  };
+                  var options = $.extend(dataAttrOptions, customOptions);
 
-			$this.filestyle(options);
-		});
-	});
+                  $this.filestyle(options);
+                });
+      };
+
+      $.fn.redraw = function(options) {
+                this.filestyle('destroy');
+                draw(this, options);
+      };
+
+      // Data attributes register
+      $(function() {
+                draw($('.filestyle'));
+      });
 })(window.jQuery);

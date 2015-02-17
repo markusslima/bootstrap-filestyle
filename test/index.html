@@ -262,6 +262,31 @@
 							</div>
 						</form>
 					</div>
+					<div class="well">
+						<form role="form">
+							<h3>Styling newly added dom elements</h3>
+							<hr>
+                                                                <label>
+                                                                        <button id="redraw" class="btn btn-default btn-xs" type="button">
+                                                                              Add New Elements
+                                                                        </button>
+                                                                </label>
+							<div class="row">
+								<div class="col-xs-6">
+									<div id="new-element1" class="form-group">
+									      <label class="control-label">Style with data attributes</label>
+                                                                        </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div id="new-element2" class="form-group">
+									      <label class="control-label">Style with options</label>
+                                                                        </div>
+								</div>
+							</div>
+						</form>
+					</div>
 
 					<p>
 						View documentation: <a href="//markusslima.github.io/bootstrap-filestyle" target="_blank">Doc bootstrap filestyle</a>
@@ -359,6 +384,18 @@
 			// nultiple initialize
 			$('.test').filestyle({
 				buttonName : 'btn-primary'
+			});
+
+			$('#redraw').click(function() {
+                                var newDomElement1 = '<input type="file" id="input17"class="filestyle" data-iconName="glyphicon-camera" data-buttonText="Styled with data attributes">';
+                                $('#new-element1').append(newDomElement1);
+                                var newInput1 = $('#input17');
+                                newInput1.redraw();
+
+                                var newDomElement2 = '<input type="file" id="input18"class="filestyle" data-iconName="glyphicon-camera" data-buttonText="Should be overwritten">';
+                                $('#new-element2').append(newDomElement2);
+                                var newInput2 = $('#input18');
+                                newInput2.redraw({buttonText: 'Styled with options'});
 			});
 		</script>
 	</body>
