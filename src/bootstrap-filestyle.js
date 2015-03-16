@@ -317,7 +317,6 @@
 		return this;
 	};
 
-    //Método creado por HERNAN 16/03/2015 12:10 am
     var draw = function() {
         $('.filestyle').each(function() {
         	var $this = $(this), options = {
