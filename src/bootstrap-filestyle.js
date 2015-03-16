@@ -172,7 +172,7 @@
 
 		htmlInput : function() {
 			if (this.options.input) {
-				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" disabled> ';
+				return '<input type="text" value="' + this.options.value + '" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" disabled> ';
 			} else {
 				return '';
 			}
@@ -308,7 +308,8 @@
 		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
-		'disabled' : false
+		'disabled' : false,
+		'value' : ''
 	};
 
 	$.fn.filestyle.noConflict = function() {
@@ -316,11 +317,10 @@
 		return this;
 	};
 
-	// Data attributes register
-	$(function() {
-		$('.filestyle').each(function() {
-			var $this = $(this), options = {
-
+    //Método creado por HERNAN 16/03/2015 12:10 am
+    var draw = function() {
+        $('.filestyle').each(function() {
+        	var $this = $(this), options = {
 				'input' : $this.attr('data-input') === 'false' ? false : true,
 				'icon' : $this.attr('data-icon') === 'false' ? false : true,
 				'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
@@ -329,10 +329,24 @@
 				'buttonText' : $this.attr('data-buttonText'),
 				'buttonName' : $this.attr('data-buttonName'),
 				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true
+				'badge' : $this.attr('data-badge') === 'false' ? false : true,
+				'value' : $this.attr('data-value')
 			};
 
 			$this.filestyle(options);
 		});
-	});
+      };
+
+      $.fn.redrawFilestyle = function() {
+          var $this = $(this);
+          $this.filestyle('destroy');
+          draw();
+      };
+
+      // Data attributes register
+      $(function() {
+          draw();
+      });
+
+
 })(window.jQuery);
