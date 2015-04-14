@@ -78,7 +78,7 @@
 			} else if (value === false) {
 				if (this.options.icon) {
 					this.options.icon = false;
-					this.$elementFilestyle.find('.glyphicon').remove();
+					this.$elementFilestyle.find('.icon-span-filestyle').remove();
 				}
 			} else {
 				return this.options.icon;
@@ -154,8 +154,8 @@
 
 		iconName : function(value) {
 			if (value !== undefined) {
-				this.$elementFilestyle.find('.glyphicon').attr({
-					'class' : '.glyphicon ' + this.options.iconName
+				this.$elementFilestyle.find('.icon-span-filestyle').attr({
+					'class' : 'icon-span-filestyle ' + this.options.iconName
 				});
 			} else {
 				return this.options.iconName;
@@ -164,7 +164,7 @@
 
 		htmlIcon : function() {
 			if (this.options.icon) {
-				return '<span class="glyphicon ' + this.options.iconName + '"></span> ';
+				return '<span class="icon-span-filestyle ' + this.options.iconName + '"></span> ';
 			} else {
 				return '';
 			}
@@ -301,7 +301,7 @@
 
 	$.fn.filestyle.defaults = {
 		'buttonText' : 'Choose file',
-		'iconName' : 'glyphicon-folder-open',
+		'iconName' : 'glyphicon glyphicon-folder-open',
 		'buttonName' : 'btn-default',
 		'size' : 'nr',
 		'input' : true,
