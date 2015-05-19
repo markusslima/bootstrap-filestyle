@@ -8,7 +8,7 @@ Bootstrap FileStyle is a quick and simple plugin to help style your form's file 
 ###**Please send to (issues) problems with the plugin, also send more details as:**
 * Browser
 * Version
-* Examples
+* Examples using [jsfiddle.net](https://jsfiddle.net/)
 * Other plugins involved
 * Etc.
  
