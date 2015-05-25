@@ -162,6 +162,15 @@
 			}
 		},
 
+		inputText : function(value) {
+			if (value !== undefined) {
+				this.options.inputText = value;
+				this.$elementFilestyle.find('input').text(this.options.inputText);
+			} else {
+				return this.options.inputText;
+			}
+		},
+
 		htmlIcon : function() {
 			if (this.options.icon) {
 				return '<span class="glyphicon ' + this.options.iconName + '"></span> ';
@@ -172,7 +181,7 @@
 
 		htmlInput : function() {
 			if (this.options.input) {
-				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" disabled> ';
+				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + ' "' + (this.options.inputText ? 'value="'+this.options.inputText+'" ': '') + 'disabled> ';
 			} else {
 				return '';
 			}
@@ -305,6 +314,7 @@
 		'buttonName' : 'btn-default',
 		'size' : 'nr',
 		'input' : true,
+		'inputText' : '',
 		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
@@ -322,6 +332,7 @@
 			var $this = $(this), options = {
 
 				'input' : $this.attr('data-input') === 'false' ? false : true,
+				'inputText': $this.attr('data-inputText'),
 				'icon' : $this.attr('data-icon') === 'false' ? false : true,
 				'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
 				'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
