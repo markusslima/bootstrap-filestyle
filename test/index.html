@@ -263,6 +263,45 @@
 						</form>
 					</div>
 
+					<div class="well">
+						<form role="form">
+							<h3>Testing default input text & clear input button</h3>
+							<hr>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Input with default text initialized via data attribute</label>
+										<input type="file" class="filestyle" data-inputText="some_file.png">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Input with default text initialized via JS</label>
+										<input type="file" id="input17">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Clear input button initialized via data attribute (select file first)</label>
+										<input type="file" class="filestyle" data-clearButton="true">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6">
+									<div class="form-group">
+										<label class="control-label">Clear input button with default text initialized via JS</label>
+										<input type="file" id="input18">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+
 					<p>
 						View documentation: <a href="//markusslima.github.io/bootstrap-filestyle" target="_blank">Doc bootstrap filestyle</a>
 					</p>
@@ -273,7 +312,7 @@
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../src/bootstrap-filestyle.js"></script>
 		<script type="text/javascript">
-			$('#input01').filestyle()
+			$('#input01').filestyle();
 
 			$('#input02').filestyle({
 				buttonText : 'My filestyle'
@@ -359,6 +398,14 @@
 			// nultiple initialize
 			$('.test').filestyle({
 				buttonName : 'btn-primary'
+			});
+
+			$('#input17').filestyle({
+				inputText: 'some_file.png'
+			});
+			$('#input18').filestyle({
+				inputText: 'some_file.png',
+				clearButton: true
 			});
 		</script>
 	</body>
