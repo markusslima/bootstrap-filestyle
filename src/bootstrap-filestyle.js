@@ -69,6 +69,30 @@
 			}
 		},
 
+		clearButton: function(value) {
+			if (value === true) {
+				if (!this.options.clearButton) {
+					this.options.clearButton = true;
+					if (this.options.input) {
+						this.$elementFilestyle.remove();
+						this.constructor();
+						this.pushNameFiles();
+					}
+				}
+			} else if (value === false) {
+				if (this.options.clearButton) {
+					this.options.clearButton = false;
+					if (this.options.input) {
+						this.$elementFilestyle.remove();
+						this.constructor();
+						this.pushNameFiles();
+					}
+				}
+			} else {
+				return this.options.clearButton;
+			}
+		},
+
 		icon : function(value) {
 			if (value === true) {
 				if (!this.options.icon) {
@@ -162,6 +186,15 @@
 			}
 		},
 
+		inputText : function(value) {
+			if (value !== undefined) {
+				this.options.inputText = value;
+				this.$elementFilestyle.find('input').text(this.options.inputText);
+			} else {
+				return this.options.inputText;
+			}
+		},
+
 		htmlIcon : function() {
 			if (this.options.icon) {
 				return '<span class="glyphicon ' + this.options.iconName + '"></span> ';
@@ -172,7 +205,7 @@
 
 		htmlInput : function() {
 			if (this.options.input) {
-				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" disabled> ';
+				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + ' "' + (this.options.inputText ? 'value="'+this.options.inputText+'" ': '') + 'disabled> ';
 			} else {
 				return '';
 			}
@@ -196,8 +229,10 @@
 
 			if (content !== '') {
 				this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+				this.$elementFilestyle.find('.clear-button').removeClass('hidden');
 			} else {
 				this.$elementFilestyle.find(':text').val('');
+				this.$elementFilestyle.find('.clear-button').addClass('hidden');
 			}
 			
 			return files;
@@ -209,6 +244,7 @@
 				id = _self.$element.attr('id'), 
 				files = [], 
 				btn = '', 
+				clearBtn = '',
 				$label;
 
 			if (id === '' || !id) {
@@ -226,7 +262,9 @@
 				  '</label>' + 
 				  '</span>';
 
-			html = _self.options.buttonBefore ? btn + _self.htmlInput() : _self.htmlInput() + btn;
+			clearBtn = _self.options.clearButton ? '<span class="input-group-btn"><button class="btn btn-default clear-button'+ (_self.options.inputText ? '' : ' hidden') +'" type="button">x</button></span>' : '';
+
+			html = _self.options.buttonBefore ? btn + _self.htmlInput() + clearBtn : clearBtn + _self.htmlInput() + btn;
 
 			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">' + html + '</div>');
 			_self.$elementFilestyle.find('.group-span-filestyle').attr('tabindex', "0").keypress(function(e) {
@@ -271,6 +309,24 @@
 					return false;
 				});
 			}
+
+			// Clear button click event handler
+			if (_self.options.clearButton){
+				var $clearButton = _self.$elementFilestyle.find('.clear-button');
+				$clearButton.on('click', function(e){
+					var $input = _self.$element,
+						input = $input[0];
+					try{
+						$input.val('');
+						if(input.value){
+							input.type = "text";
+							input.type = "file";
+						}
+						$clearButton.addClass('hidden');
+						$input.trigger('change');
+					} catch(e){}
+				});
+			}
 		}
 	};
 
@@ -305,9 +361,11 @@
 		'buttonName' : 'btn-default',
 		'size' : 'nr',
 		'input' : true,
+		'inputText' : '',
 		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
+		'clearButton' : false,
 		'disabled' : false
 	};
 
@@ -321,15 +379,17 @@
 		$('.filestyle').each(function() {
 			var $this = $(this), options = {
 
-				'input' : $this.attr('data-input') === 'false' ? false : true,
-				'icon' : $this.attr('data-icon') === 'false' ? false : true,
-				'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
-				'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
+				'input' : $this.attr('data-input') !== 'false',
+				'inputText': $this.attr('data-inputText'),
+				'icon' : $this.attr('data-icon') !== 'false',
+				'buttonBefore' : $this.attr('data-buttonBefore') === 'true',
+				'clearButton' : $this.attr('data-clearButton') === 'true',
+				'disabled' : $this.attr('data-disabled') === 'true',
 				'size' : $this.attr('data-size'),
 				'buttonText' : $this.attr('data-buttonText'),
 				'buttonName' : $this.attr('data-buttonName'),
 				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true
+				'badge' : $this.attr('data-badge') !== 'false'
 			};
 
 			$this.filestyle(options);
