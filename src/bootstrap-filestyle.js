@@ -69,22 +69,6 @@
 			}
 		},
 
-		icon : function(value) {
-			if (value === true) {
-				if (!this.options.icon) {
-					this.options.icon = true;
-					this.$elementFilestyle.find('label').prepend(this.htmlIcon());
-				}
-			} else if (value === false) {
-				if (this.options.icon) {
-					this.options.icon = false;
-					this.$elementFilestyle.find('.glyphicon').remove();
-				}
-			} else {
-				return this.options.icon;
-			}
-		},
-
 		input : function(value) {
 			if (value === true) {
 				if (!this.options.input) {
@@ -131,6 +115,14 @@
 				return this.options.size;
 			}
 		},
+		
+		placeholder : function(value) {
+			if (value !== undefined) {
+				this.$elementFilestyle.find('input').attr('placeholder', value);
+			} else {
+				return this.options.placeholder;
+			}
+		},		
 
 		buttonText : function(value) {
 			if (value !== undefined) {
@@ -141,6 +133,23 @@
 			}
 		},
 
+
+		icon : function(value) {
+			if (value === true) {				
+				if (!this.options.icon) {
+					this.options.icon = true;					
+					this.$elementFilestyle.find('label').prepend( this.htmlIcon() );
+				}
+			} else if (value === false) {
+				if (this.options.icon) {
+					this.options.icon = false;
+					this.$elementFilestyle.find('.glyphicon').remove();
+				}
+			} else {
+				return this.options.icon;
+			}
+		},
+		
 		buttonName : function(value) {
 			if (value !== undefined) {
 				this.options.buttonName = value;
@@ -164,7 +173,7 @@
 
 		htmlIcon : function() {
 			if (this.options.icon) {
-				return '<span class="glyphicon ' + this.options.iconName + '"></span> ';
+				return '<span class="glyphicon ' + this.options.iconName + '"></span>';
 			} else {
 				return '';
 			}
@@ -172,7 +181,7 @@
 
 		htmlInput : function() {
 			if (this.options.input) {
-				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" disabled> ';
+				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" placeholder="'+ this.options.placeholder +'" disabled> ';
 			} else {
 				return '';
 			}
@@ -219,19 +228,19 @@
 			}
 
 			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
-				  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
-				  	(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
-				  	(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
-				  		_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
-				  '</label>' + 
-				  '</span>';
-
+			  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
+			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
+			(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
+			_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
+			  '</label>' + 
+			  '</span>';
+			
 			html = _self.options.buttonBefore ? btn + _self.htmlInput() : _self.htmlInput() + btn;
-
+			
 			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">' + html + '</div>');
 			_self.$elementFilestyle.find('.group-span-filestyle').attr('tabindex', "0").keypress(function(e) {
-				if (e.keyCode === 13 || e.charCode === 32) {
-					_self.$elementFilestyle.find('label').click();
+			if (e.keyCode === 13 || e.charCode === 32) {
+				_self.$elementFilestyle.find('label').click();
 					return false;
 				}
 			});
@@ -308,7 +317,8 @@
 		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
-		'disabled' : false
+		'disabled' : false,
+		'placeholder': ''
 	};
 
 	$.fn.filestyle.noConflict = function() {
@@ -329,7 +339,8 @@
 				'buttonText' : $this.attr('data-buttonText'),
 				'buttonName' : $this.attr('data-buttonName'),
 				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true
+				'badge' : $this.attr('data-badge') === 'false' ? false : true,
+				'placeholder': $this.attr('data-placeholder')
 			};
 
 			$this.filestyle(options);
