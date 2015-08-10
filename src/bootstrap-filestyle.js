@@ -4,7 +4,7 @@
  * github: https://github.com/markusslima/bootstrap-filestyle
  *
  * Copyright (c) 2014 Markus Vinicius da Silva Lima
- * Version 1.1.2
+ * Version 1.2
  * Licensed under the MIT license.
  */
 (function($) {"use strict";
