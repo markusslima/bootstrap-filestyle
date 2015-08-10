@@ -9,6 +9,8 @@
  */
 (function($) {"use strict";
 
+    var nextId = 0;
+
 	var Filestyle = function(element, options) {
 		this.options = options;
 		this.$elementFilestyle = [];
@@ -212,10 +214,11 @@
 				$label;
 
 			if (id === '' || !id) {
-				id = 'filestyle-' + $('.bootstrap-filestyle').length;
+				id = 'filestyle-' + nextId;
 				_self.$element.attr({
 					'id' : id
 				});
+                nextId++;
 			}
 
 			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
