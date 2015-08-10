@@ -136,6 +136,7 @@
 		
 		placeholder : function(value) {
 			if (value !== undefined) {
+				this.options.placeholder = value;
 				this.$elementFilestyle.find('input').attr('placeholder', value);
 			} else {
 				return this.options.placeholder;
