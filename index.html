@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Bootstrap Filestyle - jQuery Customization of input html file for Bootstrap Twitter</title>
+		<title>Bootstrap Filestyle 1.2 - jQuery Customization of input html file for Bootstrap Twitter</title>
 
 		<link rel="icon" type="image/png" href="icons/favicon.png">
 
@@ -66,7 +66,7 @@
 					<div class="span12">
 						<h1>Bootstrap FileStyle</h1>
 						<h4>Customization of input html file for Bootstrap Twitter</h4>
-						<h4>Version 1.1.2</h4>
+						<h4>Version 1.2</h4>
 						<p><a href="1.0.6/">View documentation of the version 1.0.6</a></p>
 					</div>
 				</div>
@@ -143,8 +143,8 @@
 						</div>
 						<div class="span3">
 							<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-default"> <span class="glyphicon glyphicon-random"></span> Project on Github </a>
-							<a href="js/bootstrap-filestyle.min.js" class="btn btn-primary"> <span class="glyphicon glyphicon-download-alt"></span> Production version </a>
-							<a href="js/bootstrap-filestyle.js" class="btn btn-primary"> <span class="glyphicon glyphicon-download-alt"></span> Development version </a>
+							<a href="https://github.com/markusslima/bootstrap-filestyle/archive/v1.2.zip" class="btn btn-primary"> <span class="glyphicon glyphicon-download-alt"></span> Download .zip </a>
+							<a href="https://github.com/markusslima/bootstrap-filestyle/archive/v1.2.tar.gz" class="btn btn-primary"> <span class="glyphicon glyphicon-download-alt"></span> Download .tar.gz </a>
 						</div>
 					</section>
 
@@ -478,6 +478,34 @@ $(<span class="str">":file"</span>).filestyle({badge: <span class="kwd">false</s
 								</div>
 							</form>
 						</div>
+						<h3>placeholder</h3>
+						<div class="well well-small">
+							<h4>- Setting placeholder attribute. <small><strong>Type:</strong> String, <strong>Default:</strong>""</small></h4>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({placeholder: <span class="kwd">"No file"</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-placeholder=<span class="str">"No file"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-placeholder="No file">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
 					</section>
 
 					<!--
@@ -592,6 +620,17 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>, <
 $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</span>);
 <span class="com">// set</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</span>, <span class="str">'true'</span>);
+</pre>
+						</div>
+						
+						<h3>placeholder</h3>
+						<div class="well well-small">
+							<h4>- Set or get placeholder text.</h4>
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</span>, <span class="str">'My file text'</span>);
 </pre>
 						</div>
 					</section>
