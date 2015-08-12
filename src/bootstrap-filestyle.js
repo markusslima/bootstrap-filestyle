@@ -233,7 +233,7 @@
 			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
 			  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
 			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
-			(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
+			(_self.options.disabled || _self.$element.attr('disabled') ? 'disabled="true"' : '') + '>' + 
 			_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
 			  '</label>' + 
 			  '</span>';
@@ -254,7 +254,7 @@
 				'clip' : 'rect(0px 0px 0px 0px)' // using 0px for work in IE8
 			}).attr('tabindex', "-1").after(_self.$elementFilestyle);
 
-			if (_self.options.disabled) {
+			if (_self.options.disabled || _self.$element.attr('disabled')) {
 				_self.$element.attr('disabled', 'true');
 			}
 
