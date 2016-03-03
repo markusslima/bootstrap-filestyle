@@ -71,6 +71,30 @@
 			}
 		},
 
+		clearButton: function(value) {
+			if (value === true) {
+				if (!this.options.clearButton) {
+					this.options.clearButton = true;
+					if (this.options.input) {
+						this.$elementFilestyle.remove();
+						this.constructor();
+						this.pushNameFiles();
+					}
+				}
+			} else if (value === false) {
+				if (this.options.clearButton) {
+					this.options.clearButton = false;
+					if (this.options.input) {
+						this.$elementFilestyle.remove();
+						this.constructor();
+						this.pushNameFiles();
+					}
+				}
+			} else {
+				return this.options.clearButton;
+			}
+		},
+
 		icon : function(value) {
 			if (value === true) {
 				if (!this.options.icon) {
@@ -173,6 +197,15 @@
 			}
 		},
 
+		inputText : function(value) {
+			if (value !== undefined) {
+				this.options.inputText = value;
+				this.$elementFilestyle.find('input').text(this.options.inputText);
+			} else {
+				return this.options.inputText;
+			}
+		},
+
 		htmlIcon : function() {
 			if (this.options.icon) {
 				return '<span class="icon-span-filestyle ' + this.options.iconName + '"></span> ';
@@ -183,7 +216,7 @@
 
 		htmlInput : function() {
 			if (this.options.input) {
-				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" placeholder="'+ this.options.placeholder +'" disabled> ';
+				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" placeholder="'+ this.options.placeholder + '" ' + (this.options.inputText ? 'value="'+this.options.inputText+'" ': '') +'" disabled> ';
 			} else {
 				return '';
 			}
@@ -207,8 +240,10 @@
 
 			if (content !== '') {
 				this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+				this.$elementFilestyle.find('.clear-button').removeClass('hidden');
 			} else {
 				this.$elementFilestyle.find(':text').val('');
+				this.$elementFilestyle.find('.clear-button').addClass('hidden');
 			}
 			
 			return files;
@@ -220,6 +255,7 @@
 				id = _self.$element.attr('id'), 
 				files = [], 
 				btn = '', 
+				clearBtn = '',
 				$label;
 
 			if (id === '' || !id) {
@@ -231,15 +267,15 @@
 			}
 
 			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
-			  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
-			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
-			(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
-			_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
-			  '</label>' + 
-			  '</span>';
-			
+				  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
+				  	(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
+				  	(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
+				  		_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
+				  '</label>' + 
+				  '</span>';
+
 			html = _self.options.buttonBefore ? btn + _self.htmlInput() : _self.htmlInput() + btn;
-			
+
 			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">' + html + '</div>');
 			_self.$elementFilestyle.find('.group-span-filestyle').attr('tabindex', "0").keypress(function(e) {
 			if (e.keyCode === 13 || e.charCode === 32) {
@@ -283,6 +319,24 @@
 					return false;
 				});
 			}
+
+			// Clear button click event handler
+			if (_self.options.clearButton){
+				var $clearButton = _self.$elementFilestyle.find('.clear-button');
+				$clearButton.on('click', function(e){
+					var $input = _self.$element,
+						input = $input[0];
+					try{
+						$input.val('');
+						if(input.value){
+							input.type = "text";
+							input.type = "file";
+						}
+						$clearButton.addClass('hidden');
+						$input.trigger('change');
+					} catch(e){}
+				});
+			}
 		}
 	};
 
@@ -317,11 +371,11 @@
 		'buttonName' : 'btn-default',
 		'size' : 'nr',
 		'input' : true,
+		'inputText' : '',
 		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
-		'disabled' : false,
-		'placeholder': ''
+		'disabled' : false
 	};
 
 	$.fn.filestyle.noConflict = function() {
@@ -333,16 +387,17 @@
 		$('.filestyle').each(function() {
 			var $this = $(this), options = {
 
-				'input' : $this.attr('data-input') === 'false' ? false : true,
-				'icon' : $this.attr('data-icon') === 'false' ? false : true,
-				'buttonBefore' : $this.attr('data-buttonBefore') === 'true' ? true : false,
-				'disabled' : $this.attr('data-disabled') === 'true' ? true : false,
+				'input' : $this.attr('data-input') !== 'false',
+				'inputText': $this.attr('data-inputText'),
+				'icon' : $this.attr('data-icon') !== 'false',
+				'buttonBefore' : $this.attr('data-buttonBefore') === 'true',
+				'clearButton' : $this.attr('data-clearButton') === 'true',
+				'disabled' : $this.attr('data-disabled') === 'true',
 				'size' : $this.attr('data-size'),
 				'buttonText' : $this.attr('data-buttonText'),
 				'buttonName' : $this.attr('data-buttonName'),
 				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true,
-				'placeholder': $this.attr('data-placeholder')
+				'badge' : $this.attr('data-badge') === 'false' ? false : true
 			};
 
 			$this.filestyle(options);
