@@ -216,7 +216,8 @@
 
 		htmlInput : function() {
 			if (this.options.input) {
-				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" placeholder="'+ this.options.placeholder + '" ' + (this.options.inputText ? 'value="'+this.options.inputText+'" ': '') +'" disabled> ';
+				return '<input type="text" class="form-control ' + (this.options.size == 'nr' ? '' : 'input-' + this.options.size) + '" placeholder="' + this.options.placeholder + '" ' + (this.options.inputText ? 'value="' + this.options.inputText + '" ' : '') + '" disabled> ';
+
 			} else {
 				return '';
 			}
@@ -245,16 +246,16 @@
 				this.$elementFilestyle.find(':text').val('');
 				this.$elementFilestyle.find('.clear-button').addClass('hidden');
 			}
-			
+
 			return files;
 		},
 
 		constructor : function() {
-			var _self = this, 
-				html = '', 
-				id = _self.$element.attr('id'), 
-				files = [], 
-				btn = '', 
+			var _self = this,
+				html = '',
+				id = _self.$element.attr('id'),
+				files = [],
+				btn = '',
 				clearBtn = '',
 				$label;
 
@@ -266,20 +267,21 @@
                 nextId++;
 			}
 
-			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
-				  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
-				  	(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
-				  	(_self.options.disabled ? 'disabled="true"' : '') + '>' + 
-				  		_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
-				  '</label>' + 
+			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' +
+				  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' +
+				  	(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' +
+				  	(_self.options.disabled ? 'disabled="true"' : '') + '>' +
+				  		_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' +
+				  '</label>' +
 				  '</span>';
 
-			html = _self.options.buttonBefore ? btn + _self.htmlInput() : _self.htmlInput() + btn;
+			clearBtn = _self.options.clearButton ? '<span class="input-group-btn"><button class="btn btn-default clear-button'+ (_self.options.inputText ? '' : ' hidden') +'" type="button">x</button></span>' : '';
+			html = _self.options.buttonBefore ? btn + _self.htmlInput() + clearBtn : clearBtn + _self.htmlInput() + btn;
 
 			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">' + html + '</div>');
 			_self.$elementFilestyle.find('.group-span-filestyle').attr('tabindex', "0").keypress(function(e) {
-			if (e.keyCode === 13 || e.charCode === 32) {
-				_self.$elementFilestyle.find('label').click();
+				if (e.keyCode === 13 || e.charCode === 32) {
+					_self.$elementFilestyle.find('label').click();
 					return false;
 				}
 			});
@@ -375,6 +377,7 @@
 		'badge' : true,
 		'icon' : true,
 		'buttonBefore' : false,
+		'clearButton' : false,
 		'disabled' : false
 	};
 
@@ -383,6 +386,7 @@
 		return this;
 	};
 
+	// Data attributes register
 	$(function() {
 		$('.filestyle').each(function() {
 			var $this = $(this), options = {
@@ -395,9 +399,10 @@
 				'disabled' : $this.attr('data-disabled') === 'true',
 				'size' : $this.attr('data-size'),
 				'buttonText' : $this.attr('data-buttonText'),
+				'placeholder' : $this.attr('data-placeholder'),
 				'buttonName' : $this.attr('data-buttonName'),
 				'iconName' : $this.attr('data-iconName'),
-				'badge' : $this.attr('data-badge') === 'false' ? false : true
+				'badge' : $this.attr('data-badge') !== 'false'
 			};
 
 			$this.filestyle(options);
