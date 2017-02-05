@@ -162,6 +162,10 @@
 				return this.options.buttonName;
 			}
 		},
+		
+        	placeholder: function(value) {
+            		this.$elementFilestyle.find(':text').attr('placeholder', value);
+        	},
 
 		iconName : function(value) {
 			if (value !== undefined) {
