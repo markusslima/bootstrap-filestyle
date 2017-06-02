@@ -1,6 +1,6 @@
 
-#Project currently stopped
-#I'm looking for a user to keep the project up to date
+# Project currently stopped
+# I'm looking for a user to keep the project up to date
 
 # [Bootstrap FileStyle v1.2.1](http://markusslima.github.io/bootstrap-filestyle/)
 
