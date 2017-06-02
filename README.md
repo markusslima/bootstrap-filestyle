@@ -1,3 +1,7 @@
+
+#Project currently stopped
+#I'm looking for a user to keep the project up to date
+
 # [Bootstrap FileStyle v1.2.1](http://markusslima.github.io/bootstrap-filestyle/)
 
 Bootstrap FileStyle is a quick and simple plugin to help style your form's file upload inputs.
