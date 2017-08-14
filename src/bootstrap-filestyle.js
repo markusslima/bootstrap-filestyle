@@ -207,8 +207,10 @@
 
 			if (content !== '') {
 				this.$elementFilestyle.find(':text').val(content.replace(/\, $/g, ''));
+				this.placeholder(content.replace(/\, $/g, ''));
 			} else {
 				this.$elementFilestyle.find(':text').val('');
+				this.placeholder(''); 
 			}
 			
 			return files;
