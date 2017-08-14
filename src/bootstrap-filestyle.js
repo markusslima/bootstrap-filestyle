@@ -3,11 +3,12 @@
  * doc: http://markusslima.github.io/bootstrap-filestyle/
  * github: https://github.com/markusslima/bootstrap-filestyle
  *
- * Copyright (c) 2014 Markus Vinicius da Silva Lima
- * Version 1.2.1
+ * Copyright (c) 2017 Markus Vinicius da Silva Lima
+ * Version 1.2.2
  * Licensed under the MIT license.
  */
-(function($) {"use strict";
+(function($) {
+	"use strict";
 
     var nextId = 0;
 
@@ -175,7 +176,7 @@
 
 		htmlIcon : function() {
 			if (this.options.icon) {
-				return '<span class="icon-span-filestyle ' + this.options.iconName + '"></span> ';
+				return '<span style="margin-right: 3px;" class="icon-span-filestyle ' + this.options.iconName + '"></span> ';
 			} else {
 				return '';
 			}
