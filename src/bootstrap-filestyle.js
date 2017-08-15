@@ -232,7 +232,7 @@
 			}
 
 			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
-			  '<label for="' + id + '" class="btn ' + _self.options.buttonName + ' ' + 
+			  '<label for="' + id + '" style="margin-bottom: 0;" class="btn ' + _self.options.buttonName + ' ' + 
 			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
 			(_self.options.disabled || _self.$element.attr('disabled') ? 'disabled="true"' : '') + '>' + 
 			_self.htmlIcon() + '<span class="buttonText">' + _self.options.buttonText + '</span>' + 
@@ -315,7 +315,7 @@
 	$.fn.filestyle.defaults = {
 		'buttonText' : 'Choose file',
 		'iconName' : 'glyphicon glyphicon-folder-open',
-		'buttonName' : 'btn-default',
+		'buttonName' : 'btn-secondary',
 		'size' : 'nr',
 		'input' : true,
 		'badge' : true,
