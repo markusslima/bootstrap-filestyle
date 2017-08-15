@@ -265,11 +265,13 @@
 
 				if (_self.options.input == false && _self.options.badge) {
 					if (_self.$elementFilestyle.find('.badge').length == 0) {
-						_self.$elementFilestyle.find('label').append(' <span class="badge">' + files.length + '</span>');
+                        var badgeVal = (_self.options.badgeCallback) ? _self.options.badgeCallback(files) : files.length;
+						_self.$elementFilestyle.find('label').append(' <span class="badge">' + badgeVal + '</span>');
 					} else if (files.length == 0) {
 						_self.$elementFilestyle.find('.badge').remove();
 					} else {
-						_self.$elementFilestyle.find('.badge').html(files.length);
+                        var badgeVal = (_self.options.badgeCallback) ? _self.options.badgeCallback(files) : files.length;
+						_self.$elementFilestyle.find('.badge').html(badgeVal);
 					}
 				} else {
 					_self.$elementFilestyle.find('.badge').remove();
@@ -322,7 +324,8 @@
 		'icon' : true,
 		'buttonBefore' : false,
 		'disabled' : false,
-		'placeholder': ''
+		'placeholder': '',
+        'badgeCallback' : null
 	};
 
 	$.fn.filestyle.noConflict = function() {
