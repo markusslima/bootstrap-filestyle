@@ -337,7 +337,7 @@
 				'text' : $this.attr('data-text'),
 				'btnClass' : $this.attr('data-btnClass'),
 				'badge' : $this.attr('data-badge') !== 'true',
-				'badgeName' : $this.attr('data-badge'),
+				'badgeName' : $this.attr('data-badgeName'),
 				'placeholder': $this.attr('data-placeholder')
 			};
 
