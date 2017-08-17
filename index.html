@@ -247,7 +247,7 @@ $(<span class="str">":file"</span>).filestyle({input: <span class="kwd">false</s
 							</form>
 						</div>
 
-						<h3>icon</h3>
+						<h3>htmlIcon</h3>
 						<div class="well well-small">
 							<h4>- Enables or disables the button icon. <small><strong>Type:</strong> Boolean, <strong>Default:</strong> true</small></h4>
 							<p>
@@ -256,12 +256,7 @@ $(<span class="str">":file"</span>).filestyle({input: <span class="kwd">false</s
 							<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle({icon: <span class="kwd">false</span>});
 </pre>
-							<p>
-								Via data attributes:
-							</p>
-							<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-icon=<span class="str">"false"</span>&gt;
-</pre>
+							<div class="alert alert-danger">Data atributtes <b>does not work</b>! </div>
 							<p>
 								Example:
 							</p>
@@ -269,7 +264,7 @@ $(<span class="str">":file"</span>).filestyle({icon: <span class="kwd">false</sp
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-4">
-											<input type="file" class="filestyle" data-icon="false">
+											<input type="file" id="inputHtmlIcon">
 										</div>
 									</div>
 								</div>
@@ -693,6 +688,11 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</s
 
 			ga('create', 'UA-42464483-1', 'markusslima.github.io');
 			ga('send', 'pageview');
+
+			$('#inputHtmlIcon').filestyle({
+				htmlIcon: '<span class="oi oi-folder"></span> ',
+				text: ''
+			});
 		</script>
 		
 	</body>

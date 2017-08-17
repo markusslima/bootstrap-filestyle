@@ -8,9 +8,10 @@ body {
 }
 
 .well.well-small {
-	background: #dedede;
-	padding: 20px;
-	margin-bottom: 20px;
+	border: 1px solid #efefef;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #f9f9f9;
 }
 
 header {
