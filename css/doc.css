@@ -7,6 +7,12 @@ body {
 	color: #0e4680;
 }
 
+.well.well-small {
+	background: #dedede;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
 header {
 	padding: 50px 20px;
 	border: 0;
@@ -14,7 +20,7 @@ header {
 }
 
 section {
-	padding-top: 30px;
+	padding: 0px 0 60px;
 }
 
 pre.prettyprint {
