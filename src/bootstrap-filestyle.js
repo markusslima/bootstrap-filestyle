@@ -139,6 +139,19 @@
 			}
 		},
 
+		badge : function(value) {
+			if (value === true) {
+				this.options.badge = value;
+				var files = this.pushNameFiles();
+				this.$elementFilestyle.find('label').append(' <span class="badge '+this.options.badgeName+'">' + files.length + '</span>');
+			} else if (value === false) {
+				this.options.badge = value;
+				this.$elementFilestyle.find('.badge').remove();
+			} else {
+				return this.options.badge;
+			}
+		},
+
 		badgeName : function(value) {
 			if (value !== undefined) {
 				this.options.badgeName = value;
