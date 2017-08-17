@@ -243,7 +243,7 @@
 			_self.$element.change(function() {
 				var files = _self.pushNameFiles();
 
-				if (_self.options.input == false && _self.options.badge) {
+				if (_self.options.badge) {
 					if (_self.$elementFilestyle.find('.badge').length == 0) {
 						_self.$elementFilestyle.find('label').append(' <span class="badge '+_self.options.badgeName+'">' + files.length + '</span>');
 					} else if (files.length == 0) {
@@ -300,8 +300,8 @@
 		'btnClass' : 'btn-secondary',
 		'size' : 'nr',
 		'input' : true,
-		'badge' : true,
-		'badgeName': 'badge-secondary',
+		'badge' : false,
+		'badgeName': 'badge-light',
 		'buttonBefore' : false,
 		'disabled' : false,
 		'placeholder': '',
