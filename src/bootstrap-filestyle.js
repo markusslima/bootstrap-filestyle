@@ -139,6 +139,19 @@
 			}
 		},
 
+		badge : function(value) {
+			if (value === true) {
+				this.options.badge = value;
+				var files = this.pushNameFiles();
+				this.$elementFilestyle.find('label').append(' <span class="badge '+this.options.badgeName+'">' + files.length + '</span>');
+			} else if (value === false) {
+				this.options.badge = value;
+				this.$elementFilestyle.find('.badge').remove();
+			} else {
+				return this.options.badge;
+			}
+		},
+
 		badgeName : function(value) {
 			if (value !== undefined) {
 				this.options.badgeName = value;
@@ -242,8 +255,7 @@
 			// Getting input file value
 			_self.$element.change(function() {
 				var files = _self.pushNameFiles();
-
-				if (_self.options.input == false && _self.options.badge) {
+				if (_self.options.badge) {
 					if (_self.$elementFilestyle.find('.badge').length == 0) {
 						_self.$elementFilestyle.find('label').append(' <span class="badge '+_self.options.badgeName+'">' + files.length + '</span>');
 					} else if (files.length == 0) {
@@ -300,8 +312,8 @@
 		'btnClass' : 'btn-secondary',
 		'size' : 'nr',
 		'input' : true,
-		'badge' : true,
-		'badgeName': 'badge-secondary',
+		'badge' : false,
+		'badgeName': 'badge-light',
 		'buttonBefore' : false,
 		'disabled' : false,
 		'placeholder': '',
@@ -323,8 +335,8 @@
 				'size' : $this.attr('data-size'),
 				'text' : $this.attr('data-text'),
 				'btnClass' : $this.attr('data-btnClass'),
-				'badge' : $this.attr('data-badge') !== 'false',
-				'badgeName' : $this.attr('data-badge'),
+				'badge' : $this.attr('data-badge') === 'true',
+				'badgeName' : $this.attr('data-badgeName'),
 				'placeholder': $this.attr('data-placeholder')
 			};
 
