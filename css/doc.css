@@ -1,5 +1,5 @@
 body {
-	padding: 50px 0 0 0;
+	padding: 59px 0 0 0;
 	font-size: 18px;
 }
 
@@ -14,14 +14,8 @@ body {
     background: #f9f9f9;
 }
 
-header {
-	padding: 50px 20px;
-	border: 0;
-	border-bottom: 1px solid #dedede;
-}
-
 section {
-	padding: 0px 0 60px;
+	padding: 60px 0 0;
 }
 
 pre.prettyprint {
@@ -30,22 +24,25 @@ pre.prettyprint {
 	border: 1px solid #d8d8d8;
 	font-size: 15px;
 }
-
-footer {
-	padding: 30px 20px;
-}
-
 header {
-	background: #333;
+	padding: 50px 20px;
+	border: 0;
+	border-bottom: 1px solid #dedede;
+	background-color: #888;
 	color: #fff;
 	text-align: center;
+}
+header canvas {
+	float: left;
+    margin-top: -227px;
+    margin-left: -20px;
 }
 header h1 {
 	font-size: 80px;
 	line-height: 70px;
 	margin-bottom: 30px;
 	text-shadow: 2px 2px 10px #000;
-	color: orange;
+	color: #ffc107;
 }
 header h3 {
 	font-size: 40px;
@@ -57,6 +54,7 @@ header h4 {
 	line-height: 30px;
 }
 footer {
+	padding: 30px 20px;
 	background: #333;
 	color: #fff;
 }
