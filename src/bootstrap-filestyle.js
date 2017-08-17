@@ -255,7 +255,6 @@
 			// Getting input file value
 			_self.$element.change(function() {
 				var files = _self.pushNameFiles();
-
 				if (_self.options.badge) {
 					if (_self.$elementFilestyle.find('.badge').length == 0) {
 						_self.$elementFilestyle.find('label').append(' <span class="badge '+_self.options.badgeName+'">' + files.length + '</span>');
@@ -336,7 +335,7 @@
 				'size' : $this.attr('data-size'),
 				'text' : $this.attr('data-text'),
 				'btnClass' : $this.attr('data-btnClass'),
-				'badge' : $this.attr('data-badge') !== 'true',
+				'badge' : $this.attr('data-badge') === 'true',
 				'badgeName' : $this.attr('data-badgeName'),
 				'placeholder': $this.attr('data-placeholder')
 			};
