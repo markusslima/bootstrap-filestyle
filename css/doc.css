@@ -1,6 +1,6 @@
 body {
 	padding: 50px 0 0 0;
-	font-size: 14px;
+	font-size: 18px;
 }
 
 .page-header h1 {
@@ -8,7 +8,7 @@ body {
 }
 
 .well.well-small {
-	border: 1px solid #efefef;
+	border: 1px solid #dedede;
     padding: 20px;
     margin-bottom: 20px;
     background: #f9f9f9;
