@@ -126,3 +126,8 @@ footer a, footer a:hover, footer a:active, footer a:visited {
 .tag {
 	color: blue;
 }
+
+h3 small {
+	font-size: 60%;
+	color: #808080;
+}
