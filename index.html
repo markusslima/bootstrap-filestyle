@@ -522,6 +522,7 @@ $(<span class="str">":file"</span>).filestyle({placeholder: <span class="kwd">"N
 					<section id="Methods">
 						<div class="page-header">
 							<h1>Methods</h1>
+							<hr>
 						</div>
 						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 						<ins class="adsbygoogle"
@@ -534,25 +535,22 @@ $(<span class="str">":file"</span>).filestyle({placeholder: <span class="kwd">"N
 						     (adsbygoogle = window.adsbygoogle || []).push({});
 						</script>
 
-						<h3>clear</h3>
+						<h3>clear <small>Clear selected files</small></h3>
 						<div class="well well-small">
-							<h4>- Clear selected files.</h4>
 							<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle(<span class="str">'clear'</span>);
 </pre>
 						</div>
 
-						<h3>destroy</h3>
+						<h3>destroy <small>Destroy a filestyle completely</small></h3>
 						<div class="well well-small">
-							<h4>- Destroy a filestyle completely.</h4>
 							<pre class="prettyprint">
 $(<span class="str">":file"</span>).filestyle(<span class="str">'destroy'</span>);
 </pre>
 						</div>
 
-						<h3>disabled</h3>
+						<h3>disabled <small>Disabled a filestyle</small></h3>
 						<div class="well well-small">
-							<h4>- Disabled a filestyle.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'disabled'</span>);
@@ -561,9 +559,8 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'disabled'</span
 </pre>
 						</div>
 
-						<h3>input</h3>
+						<h3>input <small>Set or get the value of the input option</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get the value of the input option.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'input'</span>);
@@ -572,54 +569,38 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'input'</span>, 
 </pre>
 						</div>
 
-						<h3>icon</h3>
+						<h3>htmlIcon <small>Set or get the value of the icon option</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get the value of the icon option.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'icon'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'htmlIcon'</span>);
 <span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'icon'</span>, <span class="kwd">false</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'htmlIcon'</span>, <span class="kwd">&lt;span class="oi oi-random"&gt;&lt;/span&gt;</span>);
 </pre>
 						</div>
 
-						<h3>buttonText</h3>
+						<h3>text <small>Set or get the text of the button</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get the text of the button.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonText'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'text'</span>);
 <span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonText'</span>, <span class="str">'Loading...'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'text'</span>, <span class="str">'Loading...'</span>);
 </pre>
 						</div>
 
-						<h3>buttonName</h3>
-
+						<h3>btnClass <small>Set or get the class of the button</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get the class of the button.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonName'</span>);
+$(<span class="str">":file"</span>).filestyle(<span class="str">'btnClass'</span>);
 <span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonName'</span>, <span class="str">'btn-danger'</span>};
+$(<span class="str">":file"</span>).filestyle(<span class="str">'btnClass'</span>, <span class="str">'btn-danger'</span>};
 </pre>
 						</div>
 
-						<h3>iconName</h3>
+						<h3>size <small>Set or get the class of the input text</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get the class of the icon.</h4>
-							<pre class="prettyprint">
-<span class="com">// get</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'iconName'</span>);
-<span class="com">// set</span>
-$(<span class="str">":file"</span>).filestyle(<span class="str">'iconName'</span>, <span class="str">'glyphicon glyphicon-home'</span>);
-</pre>
-						</div>
-
-						<h3>size</h3>
-						<div class="well well-small">
-							<h4>- Set or get the class of the input text.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>);
@@ -628,9 +609,28 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>, <
 </pre>
 						</div>
 
-						<h3>buttonBefore</h3>
+						<h3>badge <small>Set or get boolean</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get button position.</h4>
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badge'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badge'</span>, <span class="str">true</span>);
+</pre>
+						</div>
+
+						<h3>badgeName <small>Set or get the class of the badge count</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badgeName'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badgeName'</span>, <span class="str">'badge-danger'</span>);
+</pre>
+						</div>
+
+						<h3>buttonBefore <small>Set or get button position</small></h3>
+						<div class="well well-small">
 							<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</span>);
@@ -639,9 +639,8 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</
 </pre>
 						</div>
 						
-						<h3>placeholder</h3>
+						<h3>placeholder <small>Set or get placeholder text</small></h3>
 						<div class="well well-small">
-							<h4>- Set or get placeholder text.</h4>
 							<pre class="prettyprint">
 <span class="com">// get</span>
 $(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</span>);
@@ -681,7 +680,7 @@ $(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</s
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="js/bootstrap-filestyle.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/bootstrap-filestyle.min.js" charset="utf-8"></script>
 		<script>
 			(function(i, s, o, g, r, a, m) {
 				i['GoogleAnalyticsObject'] = r;
