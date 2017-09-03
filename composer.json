@@ -1,0 +1,27 @@
+{
+  "name": "markusslima/bootstrap-filestyle",
+  "description": "jQuery customization of input html file for Bootstrap Twitter http://markusslima.github.io/bootstrap-filestyle/",
+  "type": "component",
+  "homepage": "http://markusslima.github.io/bootstrap-filestyle/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Markus Lima Luthier",
+      "email": "markusslima@gmail.com"
+    }
+  ],
+  "require": {
+    "robloach/component-installer": "*",
+    "components/bootstrap": "*"
+  },
+  "extra": {
+    "component": {
+      "scripts": [
+        "src/bootstrap-filestyle.js"
+      ],
+      "files": [
+        "src/bootstrap-filestyle.min.js"
+      ]
+    }
+  }
+}
