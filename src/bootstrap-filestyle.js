@@ -229,8 +229,7 @@
 			  '</span>';
 			
 			html = _self.options.buttonBefore ? btn + _self.htmlInput() : _self.htmlInput() + btn;
-			
-			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group">' + html + '</div>');
+			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group"><div name="filedrag"></div>' + html + '</div>');
 			_self.$elementFilestyle.find('.group-span-filestyle').attr('tabindex', "0").keypress(function(e) {
 			if (e.keyCode === 13 || e.charCode === 32) {
 				_self.$elementFilestyle.find('label').click();
@@ -244,6 +243,18 @@
 				'clip' : 'rect(0px 0px 0px 0px)' // using 0px for work in IE8
 			}).attr('tabindex', "-1").after(_self.$elementFilestyle);
 
+			_self.$elementFilestyle.find(_self.options.buttonBefore ? 'label' : ':input').css({
+				'border-top-left-radius': '.25rem',
+				'border-bottom-left-radius': '.25rem'
+			});
+
+			_self.$elementFilestyle.find('[name="filedrag"]').css({
+				position: 'absolute',
+				width: '100%',
+				height: _self.$elementFilestyle.height()+'px',
+				'z-index': -1
+			});
+
 			if (_self.options.disabled || _self.$element.attr('disabled')) {
 				_self.$element.attr('disabled', 'true');
 				if (_self.options.disabled)
@@ -253,7 +264,7 @@
 			}
 
 			// Getting input file value
-			_self.$element.change(function() {
+			_self.$element.change(function () {
 				var files = _self.pushNameFiles();
 				if (_self.options.badge) {
 					if (_self.$elementFilestyle.find('.badge').length == 0) {
@@ -278,6 +289,59 @@
 					return false;
 				});
 			}
+
+			/** DRAG AND DROP EVENTS **/
+			$(document)
+				.on('dragover', function (e) {
+					e.preventDefault();
+				    e.stopPropagation();
+				    $('[name="filedrag"]').css('z-index', '9');
+				})
+				.on('drop', function (e) {
+					e.preventDefault();
+				    e.stopPropagation();
+				    $('[name="filedrag"]').css('z-index', '-1');
+				});
+
+			_self.$elementFilestyle.find('[name="filedrag"]')
+				.on('dragover',
+				    function (e) {
+				        e.preventDefault();
+				        e.stopPropagation();
+				    }
+				)
+				.on('dragenter',
+				    function (e) {
+				        e.preventDefault();
+				        e.stopPropagation();
+				    }
+				)
+				.on('drop',
+				    function (e) {
+				        if (e.originalEvent.dataTransfer && !_self.options.disabled) {
+				            if (e.originalEvent.dataTransfer.files.length) {
+				                e.preventDefault();
+				                e.stopPropagation();
+				                _self.$element[0].files = e.originalEvent.dataTransfer.files;
+				                var files = _self.pushNameFiles();
+								if (_self.options.badge) {
+									if (_self.$elementFilestyle.find('.badge').length == 0) {
+										_self.$elementFilestyle.find('label').append(' <span class="badge '+_self.options.badgeName+'">' + files.length + '</span>');
+									} else if (files.length == 0) {
+										_self.$elementFilestyle.find('.badge').remove();
+									} else {
+										_self.$elementFilestyle.find('.badge').html(files.length);
+									}
+								} else {
+									_self.$elementFilestyle.find('.badge').remove();
+								}
+
+								_self.options.onChange(files);
+				        		$('[name="filedrag"]').css('z-index', '-1');
+				            }   
+				        }
+				    }
+				);
 		}
 	};
 

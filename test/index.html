@@ -39,10 +39,12 @@
 					</div>
 				</div>
 			</div>
+			<div style="background: red;width: 100px;height: 50px;" id="ttt"></div>
 			<br>
 			<br>
 			<div class="row">
-				<div class="col-4">
+				<form id="upload" enctype="multipart/form-data">
+				<div class="col-12">
 					<form action="upload.php" enctype="multipart/form-data" method="post">
 						<h3>Testing Upload</h3>
 						<hr>
@@ -54,6 +56,7 @@
 						</div>
 					</form>
 				</div>
+				</form>
 			</div>
 			<br>
 			<br>
@@ -255,14 +258,14 @@
 
 			$('#countRed').on('click', function () {
 				$('#input03').filestyle('badgeName', 'badge-danger');
-			})
+			});
 
 			$('#countToggle').on('click', function () {
 				if ($('#input03').filestyle('badge'))
 					$('#input03').filestyle('badge', false);
 				else
 					$('#input03').filestyle('badge', true);
-			})
+			});
 		</script>
 	</body>
 </html>
