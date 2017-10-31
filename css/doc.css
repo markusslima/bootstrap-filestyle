@@ -1,8 +1,11 @@
 body {
 	padding: 59px 0 0 0;
-	font-size: 18px;
+	font-size: 20px;
+	font-family: 'Raleway', sans-serif;
 }
-
+.bg-primary {
+    background-color: #0079e0!important;
+}
 .page-header h1 {
 	color: #0e4680;
 }
@@ -13,7 +16,16 @@ body {
     margin-bottom: 20px;
     background: #f9f9f9;
 }
-
+.navbar {
+	padding: 15px 15px 20px;
+}
+.navbar-dark .navbar-nav .nav-link {
+	font-size: 16px;
+	color: rgba(255,255,255,.7)
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: rgba(255,255,255,1)
+}
 section {
 	padding: 60px 0 0;
 }
@@ -27,10 +39,11 @@ pre.prettyprint {
 header {
 	padding: 50px 20px;
 	border: 0;
-	border-bottom: 1px solid #dedede;
-	background-color: #888;
-	color: #fff;
-	text-align: center;
+}
+.imghead {
+	float: right;
+	width: 40%;
+	margin-top: -340px;
 }
 header canvas {
 	float: left;
@@ -39,18 +52,16 @@ header canvas {
 }
 header h1 {
 	font-size: 80px;
-	line-height: 70px;
+	line-height: 90px;
 	margin-bottom: 30px;
-	text-shadow: 2px 2px 10px #000;
-	color: #ffc107;
+	color: #dc8416;
+	font-weight: bold;
 }
 header h3 {
 	font-size: 40px;
-	text-shadow: 2px 2px 10px #000;
 }
 header h4 {
 	font-size: 30px;
-	text-shadow: 2px 2px 10px #000;
 	line-height: 30px;
 }
 footer {

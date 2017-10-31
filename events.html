@@ -30,17 +30,6 @@
   			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
   			  	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item">
-	  			  		<div class="dropdown">
-						  	<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  	  	More plugins
-						  	</button>
-						  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						  	  	<a class="dropdown-item" href="http://markusslima.github.io/jquery-filestyle/">jQuery FileStyle</a>
-						  	  	<a class="dropdown-item" href="http://markusslima.github.io/easy-z-modal/">Easy-Z modal</a>
-						  	</div>
-						</div>
-					</li>
-					<li class="nav-item">
 						<a class="nav-link" href="./index.html">Get Start</a>
 					</li>
 					<li class="nav-item">
@@ -90,70 +79,26 @@
 						</script>
 					</section>
 
+					<!--
+					*****************************
+					Events
+					******************************
+					-->
 					<section style="padding-top: 0">
 						<div class="page-header">
-							<h1> Get Bootstrap Filestyle </h1>
-						</div>
-						<hr>
-						<p>
-							<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-secondary"> <span class="oi oi-random"></span> Project on Github </a>
-							<a href="https://github.com/markusslima/bootstrap-filestyle/archive/v1.3.0.zip" class="btn btn-primary"> <span class="oi oi-data-transfer-download"></span> Download </a>
-						</p>
-						<br>
-						<br>
-						<div class="page-header">
-							<h1>Other versions</h1>
-						</div>
-						<hr>
-						<div> <a href="1.0.6/">View documentation of the version 1.0.6 (for Bootstrap 2)</a></div>
-						<div> <a href="1.2.3/">View documentation of the version 1.2.3 (for Bootstrap 3)</a></div>
-						<br>
-						<br>
-
-						<div class="page-header">
-							<h1>Requirements</h1>
+							<h1>Events</h1>
 							<hr>
 						</div>
-						<p>
-							<a href="http://getbootstrap.com/">Bootstrap 4</a> and <a href="http://www.jquery.com">jQuery</a>.
-						</p>
-					</section>
-
-					<section id="Getstart">
-						<div class="page-header">
-							<h1>Install</h1>
-							<hr>
+						<h3>onChange <small>Execute function after change</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({
+   <span class="str">'onChange'</span>: function (files) {
+      console.log(files)
+   }
+});
+</pre>
 						</div>
-						<p>
-							Include:
-						</p>
-						<pre class="prettyprint">
-&lt;<span class="tag">script</span> type=<span class="str">"text/javascript"</span> src=<span class="str">"js/bootstrap-filestyle.min.js"</span>&gt; &lt;<span class="tag">/script</span>&gt;
-</pre>
-						<p>
-							Via JavaScript:
-						</p>
-						<pre class="prettyprint">
-$(<span class="str">":file"</span>).filestyle();
-</pre>
-						<p>
-							Via data attributes:
-						</p>
-						<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span>&gt;
-</pre>
-					</section>
-					<section>
-						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						<ins class="adsbygoogle"
-						     style="display:block; text-align:center;"
-						     data-ad-layout="in-article"
-						     data-ad-format="fluid"
-						     data-ad-client="ca-pub-8894792596723869"
-						     data-ad-slot="3091927469"></ins>
-						<script>
-						     (adsbygoogle = window.adsbygoogle || []).push({});
-						</script>
 					</section>
 				</div>
 			</div>

@@ -30,17 +30,6 @@
   			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
   			  	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 					<li class="nav-item">
-	  			  		<div class="dropdown">
-						  	<button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  	  	More plugins
-						  	</button>
-						  	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						  	  	<a class="dropdown-item" href="http://markusslima.github.io/jquery-filestyle/">jQuery FileStyle</a>
-						  	  	<a class="dropdown-item" href="http://markusslima.github.io/easy-z-modal/">Easy-Z modal</a>
-						  	</div>
-						</div>
-					</li>
-					<li class="nav-item">
 						<a class="nav-link" href="./index.html">Get Start</a>
 					</li>
 					<li class="nav-item">
@@ -90,58 +79,130 @@
 						</script>
 					</section>
 
+					<!--
+					*****************************
+					Methods
+					******************************
+					-->
 					<section style="padding-top: 0">
 						<div class="page-header">
-							<h1> Get Bootstrap Filestyle </h1>
-						</div>
-						<hr>
-						<p>
-							<a href="https://github.com/markusslima/bootstrap-filestyle" target="_blank" class="btn btn-secondary"> <span class="oi oi-random"></span> Project on Github </a>
-							<a href="https://github.com/markusslima/bootstrap-filestyle/archive/v1.3.0.zip" class="btn btn-primary"> <span class="oi oi-data-transfer-download"></span> Download </a>
-						</p>
-						<br>
-						<br>
-						<div class="page-header">
-							<h1>Other versions</h1>
-						</div>
-						<hr>
-						<div> <a href="1.0.6/">View documentation of the version 1.0.6 (for Bootstrap 2)</a></div>
-						<div> <a href="1.2.3/">View documentation of the version 1.2.3 (for Bootstrap 3)</a></div>
-						<br>
-						<br>
-
-						<div class="page-header">
-							<h1>Requirements</h1>
+							<h1>Methods</h1>
 							<hr>
 						</div>
-						<p>
-							<a href="http://getbootstrap.com/">Bootstrap 4</a> and <a href="http://www.jquery.com">jQuery</a>.
-						</p>
-					</section>
 
-					<section id="Getstart">
-						<div class="page-header">
-							<h1>Install</h1>
-							<hr>
+						<h3>clear <small>Clear selected files</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle(<span class="str">'clear'</span>);
+</pre>
 						</div>
-						<p>
-							Include:
-						</p>
-						<pre class="prettyprint">
-&lt;<span class="tag">script</span> type=<span class="str">"text/javascript"</span> src=<span class="str">"js/bootstrap-filestyle.min.js"</span>&gt; &lt;<span class="tag">/script</span>&gt;
+
+						<h3>destroy <small>Destroy a filestyle completely</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle(<span class="str">'destroy'</span>);
 </pre>
-						<p>
-							Via JavaScript:
-						</p>
-						<pre class="prettyprint">
-$(<span class="str">":file"</span>).filestyle();
+						</div>
+
+						<h3>disabled <small>Disabled a filestyle</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'disabled'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'disabled'</span>, <span class="kwd">true</span>);
 </pre>
-						<p>
-							Via data attributes:
-						</p>
-						<pre class="prettyprint">
-&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span>&gt;
+						</div>
+
+						<h3>input <small>Set or get the value of the input option</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'input'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'input'</span>, <span class="kwd">false</span>);
 </pre>
+						</div>
+
+						<h3>htmlIcon <small>Set or get the value of the icon option</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'htmlIcon'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'htmlIcon'</span>, <span class="str">'&lt;span class="oi oi-random"&gt;&lt;/span&gt;'</span>);
+</pre>
+						</div>
+
+						<h3>text <small>Set or get the text of the button</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'text'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'text'</span>, <span class="str">'Loading...'</span>);
+</pre>
+						</div>
+
+						<h3>btnClass <small>Set or get the class of the button</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'btnClass'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'btnClass'</span>, <span class="str">'btn-danger'</span>};
+</pre>
+						</div>
+
+						<h3>size <small>Set or get the class of the input text</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'size'</span>, <span class="str">'lg'</span>);
+</pre>
+						</div>
+
+						<h3>badge <small>Set or get boolean</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badge'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badge'</span>, true);
+</pre>
+						</div>
+
+						<h3>badgeName <small>Set or get the class of the badge count</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badgeName'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'badgeName'</span>, <span class="str">'badge-danger'</span>);
+</pre>
+						</div>
+
+						<h3>buttonBefore <small>Set or get button position</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'buttonBefore'</span>, true);
+</pre>
+						</div>
+						
+						<h3>placeholder <small>Set or get placeholder text</small></h3>
+						<div class="well well-small">
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'placeholder'</span>, <span class="str">'My file text'</span>);
+</pre>
+						</div>
 					</section>
 					<section>
 						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

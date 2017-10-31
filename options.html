@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Bootstrap Filestyle 2.0.0 - jQuery Customization of input html file for Bootstrap Twitter</title>
+
+		<link rel="icon" type="image/png" href="icons/favicon.png">
+		<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link href="css/doc.css" rel="stylesheet">
+		<link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<nav class="navbar navbar-dark bg-primary fixed-top navbar-expand-lg" role="navigation">
+			<div class="container-fluid">
+		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+		  	  	<span class="navbar-toggler-icon"></span>
+		  	</button>
+
+  			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+  			  	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" href="./index.html">Get Start</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./options.html">Options</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./methods.html">Methods</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./events.html">Events</a>
+					</li>
+  			  	</ul>
+  			</div>
+		</nav>
+
+		<header id="headBg">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<br><br>
+						<h1>Bootstrap FileStyle 2.0</h1>
+						<br>
+						<div class="row">
+							<div class="col">
+								<p>The input file of html has always been a big hitch for web designers. Thinking about this difficulty filsstyle was created. The ease of use and number of customizations make it easy to use and various interface situations. Delight in the ease of customizing the default html input.</p>
+								<p> This plugin has an interesting way to present a form for sending files so attractive, while being simple and efficient. </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<section>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<ins class="adsbygoogle"
+						     style="display:block; text-align:center;"
+						     data-ad-layout="in-article"
+						     data-ad-format="fluid"
+						     data-ad-client="ca-pub-8894792596723869"
+						     data-ad-slot="3091927469"></ins>
+						<script>
+						     (adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</section>
+
+					<!--
+					*****************************
+					Options
+					******************************
+					-->
+					<section id="Options" style="padding-top: 0">
+						<div class="page-header">
+							<h1>Options</h1>
+							<hr>
+						</div>
+						<h3>input <small>Enables or disables the input text</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Boolean, <strong>Default:</strong> true</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({input: <span class="kwd">false</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-input=<span class="str">"false"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-input="false">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>htmlIcon <small>Include external icons</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Boolean, <strong>Default:</strong> true</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({htmlIcon: <span class="str">'&lt;span class="oi oi-random"&gt;&lt;/span&gt;'</span>});
+</pre>
+							<div class="alert alert-danger">Data atributtes <b>does not work</b>! </div>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" id="inputHtmlIcon">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>text <small>Changes the button text</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> String, <strong>Default:</strong> "Choose file"</p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({text: <span class="str">"Find file"</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-text=<span class="str">"Find file"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-text="Find file">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>btnClass <small>Change classes bootstrap button</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> String, <strong>Default:</strong> "btn-default"</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({btnClass: <span class="str">"btn-primary"</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-btnClass=<span class="str">"btn-primary"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-btnClass="btn-primary">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>size <small>Change size bootstrap of the button and input</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> String, <strong>Default:</strong> "nr"</p>
+							<p>
+								Accepted values: <b>lg, nr, sm</b>
+							</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({size: <span class="str">"lg"</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-size=<span class="str">"lg"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-size="lg">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>disabled <small>Disabled button</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Bool, <strong>Default:</strong> false</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({disabled: true});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-disabled=<span class="str">"true"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-disabled="true">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>buttonBefore <small>Button before</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Bool, <strong>Default:</strong> false</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({buttonBefore: true});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-buttonBefore=<span class="str">"true"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-buttonBefore="true">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>badge <small>Enables or disables the badge counter</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Boolean, <strong>Default:</strong> false</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({badge: <span class="kwd">true</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-badge=<span class="str">"true"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-badge="true" data-input="false">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>badgeName <small>Choose class badge</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Boolean, <strong>Default:</strong> badge-light</p>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({badgeName: <span class="str">"badge-danger"</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-badgeName=<span class="str">"badge-danger"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-badgeName="badge-danger" data-badge="true" data-input="false">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<h3>placeholder <small>Setting placeholder attribute</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> String, <strong>Default:</strong>""</p>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({placeholder: <span class="str">"No file"</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-placeholder=<span class="str">"No file"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-placeholder="No file">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</section>
+					<section>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<ins class="adsbygoogle"
+						     style="display:block; text-align:center;"
+						     data-ad-layout="in-article"
+						     data-ad-format="fluid"
+						     data-ad-client="ca-pub-8894792596723869"
+						     data-ad-slot="3091927469"></ins>
+						<script>
+						     (adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
+					</section>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="span12 text-center">
+						<p>
+							Designed and built by <strong><a href="https://github.com/markusslima">Markus Lima</a>.</strong>
+						</p>
+						<h4>:) Here to thank all the people who have contributed and will contribute to this project.</h4>
+						<p>
+							Code licensed under <strong>MIT</strong>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/bootstrap-filestyle.min.js" charset="utf-8"></script>
+		<script>
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] ||
+				function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+			ga('create', 'UA-42464483-1', 'markusslima.github.io');
+			ga('send', 'pageview');
+
+			$('#inputHtmlIcon').filestyle({
+				htmlIcon: '<span class="oi oi-folder"></span> '
+			});
+		</script>
+		
+	</body>
+</html>
