@@ -45,6 +45,14 @@
 			}
 		},
 
+		dragdrop : function(value) {
+			if (value === true || value === false) {
+				this.options.dragdrop = value;
+			} else {
+				return this.options.dragdrop;
+			}
+		},
+
 		buttonBefore : function(value) {
 			if (value === true) {
 				if (!this.options.buttonBefore) {
@@ -295,12 +303,16 @@
 				.on('dragover', function (e) {
 					e.preventDefault();
 				    e.stopPropagation();
-				    $('[name="filedrag"]').css('z-index', '9');
+				    if (_self.options.dragdrop) {
+				    	$('[name="filedrag"]').css('z-index', '9');
+				    }
 				})
 				.on('drop', function (e) {
 					e.preventDefault();
 				    e.stopPropagation();
-				    $('[name="filedrag"]').css('z-index', '-1');
+				    if (_self.options.dragdrop) {
+				  		$('[name="filedrag"]').css('z-index', '-1');
+				    }
 				});
 
 			_self.$elementFilestyle.find('[name="filedrag"]')
@@ -318,7 +330,7 @@
 				)
 				.on('drop',
 				    function (e) {
-				        if (e.originalEvent.dataTransfer && !_self.options.disabled) {
+				        if (e.originalEvent.dataTransfer && !_self.options.disabled && _self.options.dragdrop) {
 				            if (e.originalEvent.dataTransfer.files.length) {
 				                e.preventDefault();
 				                e.stopPropagation();
@@ -379,6 +391,7 @@
 		'badge' : false,
 		'badgeName': 'badge-light',
 		'buttonBefore' : false,
+		'dragdrop' : true,
 		'disabled' : false,
 		'placeholder': '',
 		'onChange': function () {}
@@ -400,6 +413,7 @@
 				'text' : $this.attr('data-text'),
 				'btnClass' : $this.attr('data-btnClass'),
 				'badge' : $this.attr('data-badge') === 'true',
+				'dragdrop' : $this.attr('data-dragdrop') === 'false',
 				'badgeName' : $this.attr('data-badgeName'),
 				'placeholder': $this.attr('data-placeholder')
 			};
