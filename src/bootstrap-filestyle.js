@@ -348,7 +348,6 @@
 									_self.$elementFilestyle.find('.badge').remove();
 								}
 
-								_self.options.onChange(files);
 				        		$('[name="filedrag"]').css('z-index', '-1');
 				            }   
 				        }
