@@ -413,7 +413,7 @@
 				'text' : $this.attr('data-text'),
 				'btnClass' : $this.attr('data-btnClass'),
 				'badge' : $this.attr('data-badge') === 'true',
-				'dragdrop' : $this.attr('data-dragdrop') === 'false',
+				'dragdrop' : $this.attr('data-dragdrop') !== 'false',
 				'badgeName' : $this.attr('data-badgeName'),
 				'placeholder': $this.attr('data-placeholder')
 			};
