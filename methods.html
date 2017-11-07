@@ -95,10 +95,25 @@
 					Methods
 					******************************
 					-->
+					
 					<section>
 						<div class="page-header">
 							<h1>Methods</h1>
 							<hr>
+						</div>
+
+						<h3>dragdrop <small>Enable or disabled drag and drop selected files</small></h3>
+						<div class="well well-small">
+							<div class="alert alert-warning" role="alert">
+							  	When enabling the drag and drop event multiple file selection is enabled. That is, you can not limit the amount of uploaded files in your upload using drag and drop.
+							</div>
+							<br>
+							<pre class="prettyprint">
+<span class="com">// get</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'dragdrop'</span>);
+<span class="com">// set</span>
+$(<span class="str">":file"</span>).filestyle(<span class="str">'dragdrop'</span>, <span class="kwd">false</span>);
+</pre>
 						</div>
 
 						<h3>clear <small>Clear selected files</small></h3>
