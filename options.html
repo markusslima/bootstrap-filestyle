@@ -88,10 +88,6 @@
 						<script>
 						     (adsbygoogle = window.adsbygoogle || []).push({});
 						</script>
-						<br>
-						<div class="alert alert-warning" role="alert">
-						  	When enabling the drag and drop event multiple file selection is enabled. That is, you can not limit the amount of uploaded files in your upload using drag and drop.
-						</div>
 					</section>
 
 					<!--
@@ -104,6 +100,41 @@
 							<h1>Options</h1>
 							<hr>
 						</div>
+
+						<h3>dragdrop <small>Enables or disables drag and drop files</small></h3>
+						<div class="well well-small">
+							<p><strong>Type:</strong> Boolean, <strong>Default:</strong> true</p>
+							<br>
+							<div class="alert alert-warning" role="alert">
+							  	When enabling the drag and drop event multiple file selection is enabled. That is, you can not limit the amount of uploaded files in your upload using drag and drop.
+							</div>
+							<br>
+							<p>
+								Via JavaScript:
+							</p>
+							<pre class="prettyprint">
+$(<span class="str">":file"</span>).filestyle({dragdrop: <span class="kwd">false</span>});
+</pre>
+							<p>
+								Via data attributes:
+							</p>
+							<pre class="prettyprint">
+&lt;<span class="tag">input</span> type=<span class="str">"file"</span> class=<span class="str">"filestyle"</span> data-dragdrop=<span class="str">"false"</span>&gt;
+</pre>
+							<p>
+								Example:
+							</p>
+							<form role="form">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="file" class="filestyle" data-dragdrop="false">
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+
 						<h3>input <small>Enables or disables the input text</small></h3>
 						<div class="well well-small">
 							<p><strong>Type:</strong> Boolean, <strong>Default:</strong> true</p>
