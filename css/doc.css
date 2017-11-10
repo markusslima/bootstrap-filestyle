@@ -3,8 +3,46 @@ body {
 	font-size: 20px;
 	font-family: 'Raleway', sans-serif;
 }
+
+h1 {
+	font-size: 2.5em;
+}
+
+/*font-family: 'Oswald', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'EB Garamond', serif;
+font-family: 'Dancing Script', cursive;*/
+
+header {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+header h1 {
+	font-size: 120px;
+	line-height: 76px;
+	margin-bottom: 30px;
+	color: #00a3e4;
+	font-weight: bold;
+	font-family: 'EB Garamond', serif;
+}
+
+header h1 span {
+	font-size: 140px;
+	font-family: 'Dancing Script', cursive;
+	color: #ff9e26;
+	margin-left: 83px;
+}
+
+header p {
+	font-size: 16px;
+	font-family: 'Raleway', sans-serif;
+	color: #000;
+}
+
 .bg-primary {
-    background-color: #0079e0!important;
+    background-color: #1d1d1d!important;
 }
 .page-header h1 {
 	color: #0e4680;
@@ -15,9 +53,6 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     background: #f9f9f9;
-}
-.navbar {
-	padding: 15px 15px 20px;
 }
 .navbar-dark .navbar-nav .nav-link {
 	font-size: 16px;
@@ -30,44 +65,34 @@ section {
 	padding: 60px 0 0;
 }
 
+section h3 {
+	color: #0070ff;
+	font-weight: bold;
+}
+
+section h3 small {
+	font-weight: normal;
+}
+
 pre.prettyprint {
 	background: #fff;
 	padding: 10px 5px;
 	border: 1px solid #d8d8d8;
 	font-size: 15px;
 }
-header {
-	padding: 50px 20px;
-	border: 0;
-}
 .imghead {
 	float: right;
 	width: 40%;
 	margin-top: -340px;
 }
-header canvas {
-	float: left;
-    margin-top: -227px;
-    margin-left: -20px;
-}
-header h1 {
-	font-size: 80px;
-	line-height: 90px;
-	margin-bottom: 30px;
-	color: #dc8416;
-	font-weight: bold;
-}
-header h3 {
-	font-size: 40px;
-}
-header h4 {
-	font-size: 30px;
-	line-height: 30px;
-}
 footer {
-	padding: 30px 20px;
+	padding: 20px 0 10px 0;
 	background: #333;
 	color: #fff;
+}
+footer p {
+	font-size: 14px;
+	margin-bottom: 5px;
 }
 footer a, footer a:hover, footer a:active, footer a:visited {
 	color: #fff;
