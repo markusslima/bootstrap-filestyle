@@ -10,7 +10,7 @@
 (function($) {
 	"use strict";
 
-    var nextId = 0;
+	var nextId = 0;
 
 	var Filestyle = function(element, options) {
 		this.options = options;
@@ -76,26 +76,31 @@
 				return this.options.buttonBefore;
 			}
 		},
-		
+
 		input : function(value) {
+
+			var wrapping_class = 'input-group-btn'; // Wrapping class for Bootstrap3
+
 			if (value === true) {
 				if (!this.options.input) {
 					this.options.input = value;
 
 					if (this.options.buttonBefore) {
+						wrapping_class = 'input-group-append'; // Wrapping class for Bootstrap4 append
 						this.$elementFilestyle.append(this.htmlInput());
 					} else {
+						wrapping_class = 'input-group-prepend'; // Wrapping class for Bootstrap4 prepend
 						this.$elementFilestyle.prepend(this.htmlInput());
 					}
 
 					this.pushNameFiles();
-					this.$elementFilestyle.find('.group-span-filestyle').addClass('input-group-btn');
+					this.$elementFilestyle.find('.group-span-filestyle').addClass(wrapping_class);
 				}
 			} else if (value === false) {
 				if (this.options.input) {
 					this.options.input = value;
 					this.$elementFilestyle.find(':text').remove();
-					this.$elementFilestyle.find('.group-span-filestyle').removeClass('input-group-btn');
+					this.$elementFilestyle.find('.group-span-filestyle').removeClass(wrapping_class);
 				}
 			} else {
 				return this.options.input;
@@ -117,7 +122,7 @@
 				return this.options.size;
 			}
 		},
-		
+
 		placeholder : function(value) {
 			if (value !== undefined) {
 				this.options.placeholder = value;
@@ -125,7 +130,7 @@
 			} else {
 				return this.options.placeholder;
 			}
-		},		
+		},
 
 		text : function(value) {
 			if (value !== undefined) {
@@ -135,7 +140,7 @@
 				return this.options.text;
 			}
 		},
-		
+
 		btnClass : function(value) {
 			if (value !== undefined) {
 				this.options.btnClass = value;
@@ -208,16 +213,16 @@
 			} else {
 				this.$elementFilestyle.find(':text').val('');
 			}
-			
+
 			return files;
 		},
 
 		constructor : function() {
-			var _self = this, 
-				html = '', 
-				id = _self.$element.attr('id'), 
-				files = [], 
-				btn = '', 
+			var _self = this,
+				html = '',
+				id = _self.$element.attr('id'),
+				files = [],
+				btn = '',
 				$label;
 
 			if (id === '' || !id) {
@@ -225,17 +230,17 @@
 				_self.$element.attr({
 					'id' : id
 				});
-                nextId++;
+				nextId++;
 			}
 
-			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
+			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' +
 			  '<label for="' + id + '" style="margin-bottom: 0;" class="btn ' + _self.options.btnClass + ' ' +
-			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
-			(_self.options.disabled || _self.$element.attr('disabled') ? ' disabled="true"' : '') + '>' + 
-			_self.htmlIcon() + '<span class="buttonText">' + _self.options.text + '</span>' + 
-			  '</label>' + 
+			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' +
+			(_self.options.disabled || _self.$element.attr('disabled') ? ' disabled="true"' : '') + '>' +
+			_self.htmlIcon() + '<span class="buttonText">' + _self.options.text + '</span>' +
+			  '</label>' +
 			  '</span>';
-			
+
 			html = _self.options.buttonBefore ? btn + _self.htmlInput() : _self.htmlInput() + btn;
 			_self.$elementFilestyle = $('<div class="bootstrap-filestyle input-group"><div name="filedrag"></div>' + html + '</div>');
 			_self.$elementFilestyle.find('.group-span-filestyle').attr('tabindex', "0").keypress(function(e) {
@@ -252,8 +257,8 @@
 			}).attr('tabindex', "-1").after(_self.$elementFilestyle);
 
 			_self.$elementFilestyle.find(_self.options.buttonBefore ? 'label' : ':input').css({
-				'border-top-left-radius': '.25rem',
-				'border-bottom-left-radius': '.25rem'
+				'border-top-left-radius': _self.options.borderRadius,
+				'border-bottom-left-radius': _self.options.borderRadius
 			});
 
 			_self.$elementFilestyle.find('[name="filedrag"]').css({
@@ -302,40 +307,40 @@
 			$(document)
 				.on('dragover', function (e) {
 					e.preventDefault();
-				    e.stopPropagation();
-				    if (_self.options.dragdrop) {
-				    	$('[name="filedrag"]').css('z-index', '9');
-				    }
+					e.stopPropagation();
+					if (_self.options.dragdrop) {
+						$('[name="filedrag"]').css('z-index', '9');
+					}
 				})
 				.on('drop', function (e) {
 					e.preventDefault();
-				    e.stopPropagation();
-				    if (_self.options.dragdrop) {
-				  		$('[name="filedrag"]').css('z-index', '-1');
-				    }
+					e.stopPropagation();
+					if (_self.options.dragdrop) {
+						$('[name="filedrag"]').css('z-index', '-1');
+					}
 				});
 
 			_self.$elementFilestyle.find('[name="filedrag"]')
 				.on('dragover',
-				    function (e) {
-				        e.preventDefault();
-				        e.stopPropagation();
-				    }
+					function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+					}
 				)
 				.on('dragenter',
-				    function (e) {
-				        e.preventDefault();
-				        e.stopPropagation();
-				    }
+					function (e) {
+						e.preventDefault();
+						e.stopPropagation();
+					}
 				)
 				.on('drop',
-				    function (e) {
-				        if (e.originalEvent.dataTransfer && !_self.options.disabled && _self.options.dragdrop) {
-				            if (e.originalEvent.dataTransfer.files.length) {
-				                e.preventDefault();
-				                e.stopPropagation();
-				                _self.$element[0].files = e.originalEvent.dataTransfer.files;
-				                var files = _self.pushNameFiles();
+					function (e) {
+						if (e.originalEvent.dataTransfer && !_self.options.disabled && _self.options.dragdrop) {
+							if (e.originalEvent.dataTransfer.files.length) {
+								e.preventDefault();
+								e.stopPropagation();
+								_self.$element[0].files = e.originalEvent.dataTransfer.files;
+								var files = _self.pushNameFiles();
 								if (_self.options.badge) {
 									if (_self.$elementFilestyle.find('.badge').length == 0) {
 										_self.$elementFilestyle.find('label').append(' <span class="badge '+_self.options.badgeName+'">' + files.length + '</span>');
@@ -348,10 +353,10 @@
 									_self.$elementFilestyle.find('.badge').remove();
 								}
 
-				        		$('[name="filedrag"]').css('z-index', '-1');
-				            }   
-				        }
-				    }
+								$('[name="filedrag"]').css('z-index', '-1');
+							}
+						}
+					}
 				);
 		}
 	};
@@ -382,6 +387,7 @@
 	};
 
 	$.fn.filestyle.defaults = {
+		'theme' : 'bootstrap3',
 		'text' : 'Choose file',
 		'htmlIcon' : '',
 		'btnClass' : 'btn-secondary',
@@ -393,6 +399,7 @@
 		'dragdrop' : true,
 		'disabled' : false,
 		'placeholder': '',
+		'borderRadius': '0.25rem',
 		'onChange': function () {}
 	};
 
@@ -404,6 +411,7 @@
 	$(function() {
 		$('.filestyle').each(function() {
 			var $this = $(this), options = {
+				'theme' : $this.attr('data-theme'),
 				'input' : $this.attr('data-input') !== 'false',
 				'htmlIcon' : $this.attr('data-icon'),
 				'buttonBefore' : $this.attr('data-buttonBefore') === 'true',
@@ -414,7 +422,8 @@
 				'badge' : $this.attr('data-badge') === 'true',
 				'dragdrop' : $this.attr('data-dragdrop') !== 'false',
 				'badgeName' : $this.attr('data-badgeName'),
-				'placeholder': $this.attr('data-placeholder')
+				'placeholder': $this.attr('data-placeholder'),
+				'borderRadius': $this.attr('data-borderRadius')
 			};
 
 			$this.filestyle(options);
