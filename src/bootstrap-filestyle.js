@@ -251,10 +251,55 @@
 				'clip' : 'rect(0px 0px 0px 0px)' // using 0px for work in IE8
 			}).attr('tabindex', "-1").after(_self.$elementFilestyle);
 
-			_self.$elementFilestyle.find(_self.options.buttonBefore ? 'label' : ':input').css({
-				'border-top-left-radius': '.25rem',
-				'border-bottom-left-radius': '.25rem'
-			});
+			if($('html').attr("dir") === "rtl" || $('body').css('direction') === "rtl"){
+
+				if(_self.options.buttonBefore === true){
+					_self.$elementFilestyle.find('label').css({
+						'border-top-left-radius': '0rem',
+						'border-bottom-left-radius': '0rem'
+					});
+					_self.$elementFilestyle.find(':input').css({
+						'border-top-left-radius': '.25rem',
+						'border-bottom-left-radius': '.25rem',
+						'border-top-right-radius': '0rem',
+						'border-bottom-right-radius': '0rem'
+					});
+				}else{
+					_self.$elementFilestyle.find(':input').css({
+						'border-top-right-radius': '.25rem',
+						'border-bottom-right-radius': '.25rem',
+						'border-top-left-radius': '0rem',
+						'border-bottom-left-radius': '0rem'
+					});
+					_self.$elementFilestyle.find('label').css({
+						'border-top-right-radius': '0rem',
+						'border-bottom-right-radius': '0rem'
+					});
+				}
+			}else{
+
+				if(_self.options.buttonBefore === true){
+					_self.$elementFilestyle.find('label').css({
+						'border-top-right-radius': '0rem',
+						'border-bottom-right-radius': '0rem'
+					});
+					_self.$elementFilestyle.find(':input').css({
+						'border-top-left-radius': '0rem',
+						'border-bottom-left-radius': '0rem'
+					});
+				}else{
+					_self.$elementFilestyle.find(':input').css({
+						'border-top-left-radius': '.25rem',
+						'border-bottom-left-radius': '.25rem',
+						'border-top-right-radius': '0rem',
+						'border-bottom-right-radius': '0rem'
+					});
+					_self.$elementFilestyle.find('label').css({
+						'border-top-left-radius': '0rem',
+						'border-bottom-left-radius': '0rem'
+					});
+				}
+			}
 
 			_self.$elementFilestyle.find('[name="filedrag"]').css({
 				position: 'absolute',
