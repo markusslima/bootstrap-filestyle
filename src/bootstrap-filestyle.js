@@ -89,13 +89,13 @@
 					}
 
 					this.pushNameFiles();
-					this.$elementFilestyle.find('.group-span-filestyle').addClass('input-group-btn');
+					this.$elementFilestyle.find('.group-span-filestyle').addClass('input-group-append');
 				}
 			} else if (value === false) {
 				if (this.options.input) {
 					this.options.input = value;
 					this.$elementFilestyle.find(':text').remove();
-					this.$elementFilestyle.find('.group-span-filestyle').removeClass('input-group-btn');
+					this.$elementFilestyle.find('.group-span-filestyle').removeClass('input-group-append');
 				}
 			} else {
 				return this.options.input;
@@ -228,7 +228,7 @@
                 nextId++;
 			}
 
-			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-btn' : '') + '">' + 
+			btn = '<span class="group-span-filestyle ' + (_self.options.input ? 'input-group-append' : '') + '">' + 
 			  '<label for="' + id + '" style="margin-bottom: 0;" class="btn ' + _self.options.btnClass + ' ' +
 			(_self.options.size == 'nr' ? '' : 'btn-' + _self.options.size) + '" ' + 
 			(_self.options.disabled || _self.$element.attr('disabled') ? ' disabled="true"' : '') + '>' + 
